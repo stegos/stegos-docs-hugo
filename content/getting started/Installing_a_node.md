@@ -1,0 +1,138 @@
++++
+title = "Installing a node"
+head ="<label>Installing a node</label> "
+# Type of content, set "slide" to display it fullscreen with reveal.js
+type="page"
+
+# Creator's Display name
+creatordisplayname = "Anton"
+# Creator's Email
+creatoremail = "antonmenshickov@gmail.com"
+# LastModifier's Display name
+lastmodifierdisplayname = "Anton"
+# LastModifier's Email
+lastmodifieremail = "antonmenshickov@gmail.com"
++++
+
+In this section we explain how to install Stegos Node (stegosd) and Stegos Command-Line Client (stegos) on your server.
+
+**Prerequisites:**
+
+* Linux host (any distro) OR
+* macOS host OR
+* Docker-enabled host.
+
+{{% notice note %}}This instruction is about running Stegos Node server using command-line interface. If you need a desktop application, please see "Installing a Desktop App".{{% /notice %}}
+___
+### Installing on Linux
+
+For production purposes, we recommend official binaries from GitHub Release page. These binaries have been tested on 64-bit versions of Ubuntu 18.04 "Bionic", Debian 11 "Stretch" and Fedora 30. Other Linux distros should work as well.
+
+#### Using Pre-built Binaries
+
+Download the latest version of `stegosd` and `stegos` binaries from **GitHub Releases:**
+{{< highlight bash >}}
+curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegosd-linux-x64 -o stegosd
+curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegos-linux-x64 -o stegos
+chmod a+x stegosd ste
+gos
+./stegosd --version
+./stegos --version
+{{< / highlight >}}
+
+The script above will download `stegosd` (Node) and `stegos` (CLI) binaries from **GitHub** Releases, change file permissions to "Executable" and print Node's version:
+
+{{< highlight bash >}}
+yourname@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegosd-linux-x64 -o stegosd
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   608    0   608    0     0   1859      0 --:--:-- --:--:-- --:--:--  1859
+100 22.0M  100 22.0M    0     0  5996k      0  0:00:03  0:00:03 --:--:-- 7197k
+you@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegos-linux-x64 -o stegos
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   607    0   607    0     0   1833      0 --:--:-- --:--:-- --:--:--  1833
+100 6022k  100 6022k    0     0  3033k      0  0:00:01  0:00:01 --:--:-- 5435k
+yourname@linux:~$ chmod a+x stegosd stegos
+yourname@linux:~$ ./stegosd --version
+Stegos Node 0.10.0 (5d9b289 2019-07-02)
+yourname@linux:~$ ./stegos --version
+Stegos CLI 0.10.0 (5d9b289 2019-07-02)
+{{< / highlight >}}
+
+{{% notice info %}}If you see "undefined symbol" message or other errors - please file an issue on GitHub.{{% /notice %}}
+
+{{% notice tip %}}Your Node has been downloaded and installed successfully.{{% /notice %}}
+
+#### From Source
+
+See Building from Source page.
+___
+
+### Installing on Mac
+
+
+##### Using Pre-Built binaries
+
+Download the latest version of `stegosd` and `stegos` binaries from **GitHub Releases:**
+
+{{< highlight bash >}}
+curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegosd-
+macos-x64 -o stegosd
+curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegos-macos-x64 -o stegos
+chmod a+x stegosd stegos
+./stegosd --version
+./stegos --version
+{{< / highlight >}}
+
+The script above will download `stegosd` binary from GitHub Releases, change file permissions to "Executable" and print Node's version:
+
+{{< highlight bash >}}
+yourname@mac:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegosd-macos-x64 -o stegosd
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   608    0   608    0     0   1859      0 --:--:-- --:--:-- --:--:--  1859
+100 22.0M  100 22.0M    0     0  5996k      0  0:00:03  0:00:03 --:--:-- 7197k
+you@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegos-macos-x64 -o stegos
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   607    0   607    0     0   1833      0 --:--:-- --:--:-- --:--:--  1833
+100 6022k  100 6022k    0     0  3033k      0  0:00:01  0:00:01 --:--:-- 5435k
+yourname@mac:~$ chmod a+x stegosd stegos
+yourname@mac:~$ ./stegosd --version
+Stegos Node 0.10.0 (5d9b289 2019-07-02)
+yourname@mac:~$ ./stegos --version
+Stegos CLI 0.10.0 (5d9b289 2019-07-02)
+{{< / highlight >}}
+
+{{% notice info %}}If you see "undefined symbol" message or other errors - please file an issue on GitHub.{{% /notice %}}
+
+{{% notice tip %}}Your Node has been downloaded and installed successfully.{{% /notice %}}
+
+#### From Source
+
+See **Building from Source** page.
+___
+
+### Installing in Docker
+
+Use `stegos/stegos` image:
+
+{{< highlight bash >}}
+docker run -v $PWD:/stegos:/data stegos/stegos
+{{< / highlight >}}
+___
+
+### Installing on Windows
+
+#### Using WSL
+
+Please folow Linux installation instructions **above.**
+
+#### Using Pre-Built Binaries
+
+Native binaries for Windows are coming soon.
+
+#### From Source
+
+See **Building from Source** page.
