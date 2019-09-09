@@ -18,50 +18,50 @@ lastmodifieremail = ""
 
 * [Prerequisites]({{< relref "#prerequisites" >}})
 * [Protocol]({{< relref "#protocol" >}})
-  * [Framing]({{< relref "#framing" >}})
-  * [Payload]({{< relref "#payload" >}})
-  * [Remote Procedure Calls]({{< relref "#remote-procedure-calls" >}})
-  * [Notifications]({{< relref "#notifications" >}})
+  + [Framing]({{< relref "#framing" >}})
+  + [Payload]({{< relref "#payload" >}})
+  + [Remote Procedure Calls]({{< relref "#remote-procedure-calls" >}})
+  + [Notifications]({{< relref "#notifications" >}})
 * [Wallet RPC API]({{< relref "#wallet-rpc-api" >}})
-  * [List Accounts]({{< relref "#list-accounts" >}})
-  * [Create Account]({{< relref "#create-account" >}})
-  * [Delete Account]({{< relref "#delete-account" >}})
-  * [Getting Recovery Phrase]({{< relref "#get-recovery-phrase" >}})
-  * [Recover Account]({{< relref "#recover-account" >}})
-  * [Unseal Account]({{< relref "#unseal-account" >}})
-  * [Seal Account]({{< relref "#seal-account" >}})
-  * [Account Information]({{< relref "#account-information" >}})
-  * [Change Password]({{< relref "#change-password" >}})
-  * [Account Information]({{< relref "#account-information" >}})
-  * [Balance Information]({{< relref "#balance-information" >}})
-  * [UTXO Information]({{< relref "#utxo-information" >}})
-  * [Payment]({{< relref "#payment" >}})
-  * [Cloak]({{< relref "#cloak" >}})
-  * [Stake]({{< relref "#stake" >}})
-  * [Unstake]({{< relref "#unstake" >}})
-  * [Restake]({{< relref "#restake" >}})
-  * [Validate Certificate]({{< relref "#validate-certificate" >}})
-  * [Payment History]({{< relref "#payment-history" >}})
+  + [List Accounts]({{< relref "#list-accounts" >}})
+  + [Create Account]({{< relref "#create-account" >}})
+  + [Delete Account]({{< relref "#delete-account" >}})
+  + [Getting Recovery Phrase]({{< relref "#get-recovery-phrase" >}})
+  + [Recover Account]({{< relref "#recover-account" >}})
+  + [Unseal Account]({{< relref "#unseal-account" >}})
+  + [Seal Account]({{< relref "#seal-account" >}})
+  + [Account Information]({{< relref "#account-information" >}})
+  + [Change Password]({{< relref "#change-password" >}})
+  + [Account Information]({{< relref "#account-information" >}})
+  + [Balance Information]({{< relref "#balance-information" >}})
+  + [UTXO Information]({{< relref "#utxo-information" >}})
+  + [Payment]({{< relref "#payment" >}})
+  + [Cloak]({{< relref "#cloak" >}})
+  + [Stake]({{< relref "#stake" >}})
+  + [Unstake]({{< relref "#unstake" >}})
+  + [Restake]({{< relref "#restake" >}})
+  + [Validate Certificate]({{< relref "#validate-certificate" >}})
+  + [Payment History]({{< relref "#payment-history" >}})
 * [Wallet Notifications]({{< relref "#wallet-notifications" >}})
-  * [Balance Changed]({{< relref "#balance_changed" >}})
-  * [Tokens Received]({{< relref "#tokens-received" >}})
-  * [Tokens Spent]({{< relref "#tokens-spent" >}})
-  * [Tokens Staked]({{< relref "#tokens-staked" >}})
-  * [Tokens Unstaked]({{< relref "#tokens-unstak" >}})
-  * [Transaction Status]({{< relref "#transaction-status" >}})
-  * [Snowball Status]({{< relref "#snowball-status" >}})
+  + [Balance Changed]({{< relref "#balance_changed" >}})
+  + [Tokens Received]({{< relref "#tokens-received" >}})
+  + [Tokens Spent]({{< relref "#tokens-spent" >}})
+  + [Tokens Staked]({{< relref "#tokens-staked" >}})
+  + [Tokens Unstaked]({{< relref "#tokens-unstak" >}})
+  + [Transaction Status]({{< relref "#transaction-status" >}})
+  + [Snowball Status]({{< relref "#snowball-status" >}})
 * [Node RPC API]({{< relref "#node-rpc-api" >}})
-  * [Escrow Information]({{< relref "#escrow-information" >}})
-  * [Election Information]({{< relref "#election-information" >}})
-  * [Enable Restaking]({{< relref "#enable-restaking" >}})
-  * [Pop Block]({{< relref "#pop-block" >}})
+  + [Escrow Information]({{< relref "#escrow-information" >}})
+  + [Election Information]({{< relref "#election-information" >}})
+  + [Enable Restaking]({{< relref "#enable-restaking" >}})
+  + [Pop Block]({{< relref "#pop-block" >}})
 * [Node Notifications]({{< relref "#node-notifications" >}})
-  * [Synchronization Status Changed]({{< relref "#synchronization-status-changed" >}})
-  * [New Micro Block]({{< relref "#new-micro_block" >}})
-  * [Rollback Micro Block]({{< relref "#rollback-micro-block" >}})
-  * [New Macro Block]({{< relref "#new-macro_block" >}})
+  + [Synchronization Status Changed]({{< relref "#synchronization-status-changed" >}})
+  + [New Micro Block]({{< relref "#new-micro_block" >}})
+  + [Rollback Micro Block]({{< relref "#rollback-micro-block" >}})
+  + [New Macro Block]({{< relref "#new-macro_block" >}})
 * [Use Cases]({{< relref "#use-cases" >}})
-  * [Transaction Tracking]({{< relref "#transaction-tracking" >}})
+  + [Transaction Tracking]({{< relref "#transaction-tracking" >}})
 
 ___
 
@@ -70,9 +70,9 @@ ___
 * Node is up and running.
 * Any WebSocket client library or a browser.
 
-By default, **Node** starts WebSocket API server on `ws://127.0.0.1:3144/`. You can override this value by providing `--api-endpoint` command-line option to **Node** or by setting `STEGOS_API_ENDPOINT` environment variable.
+By default, **Node** starts WebSocket API server on `ws://127.0.0.1:3144/` . You can override this value by providing `--api-endpoint` command-line option to **Node** or by setting `STEGOS_API_ENDPOINT` environment variable.
 
-To communicate with **Node**, you will need 128-bit **`API TOKEN`** generated by Node on the first run. By default, this file is stored in **Node** data directory:
+To communicate with **Node**, you will need 128-bit ** `API TOKEN` ** generated by Node on the first run. By default, this file is stored in **Node** data directory:
 
 ###### tabs
 
@@ -82,7 +82,7 @@ ___
 
 #### Framing
 
-**API** uses **Text** WebSocket frames. Binary frames are no currently supported. 
+**API** uses **Text** WebSocket frames. Binary frames are no currently supported.
 
 Each Text frame contains a Base64-encoded version of AES-128 encrypted JSON payload. This design decision was dictated by the limitations of Rust's WebSocket technology. We plan to switch to SSL/TLS in the future.
 
@@ -108,9 +108,9 @@ Payload is just a pure JSON:
 
 {{< highlight json "linenos=inline" >}}
 {
-  "id": 100500,
-  "type": "balance_info",
-  "account_id": "1",
+  "id": 100500, 
+  "type": "balance_info", 
+  "account_id": "1", 
   "balance": 999996000
 }
 {{< / highlight >}}
@@ -128,9 +128,9 @@ Remote procedure calls are similar to JSON-RPC:
 
 {{< highlight json "linenos=inline" >}}
 {
-   "id":2,
+   "id":2, 
    "type":"balance_info"
-   "account_id": "1",
+   "account_id": "1", 
 }
 {{< / highlight >}}
 
@@ -138,32 +138,32 @@ Remote procedure calls are similar to JSON-RPC:
 
 {{< highlight json "linenos=inline" >}}
 {
-   "id":2,
-   "type":"balance_info",
-   "account_id": "1",
+   "id":2, 
+   "type":"balance_info", 
+   "account_id": "1", 
    "balance":999996000
 }
 {{< / highlight >}}
 
-The protocol supports multiplexing. Client library can send multiple requests at once on the same connection and receive responses back in any order. Please note, that responses are sent as soon as they are ready. Never rely on the order of responses and use `id` field for tracking! Optional field `id` can be used to map responses to requests. This field is opaque, i.e. your client library can generate some arbitrary `id` for each request and server will include provided value to a reply.
+The protocol supports multiplexing. Client library can send multiple requests at once on the same connection and receive responses back in any order. Please note, that responses are sent as soon as they are ready. Never rely on the order of responses and use `id` field for tracking! Optional field `id` can be used to map responses to requests. This field is opaque, i.e.your client library can generate some arbitrary `id` for each request and server will include provided value to a reply.
 
 Field `type` is a discriminator of requests and responses as well as notifications (see below). A value of `type` in a request doesn't necessary matches the value of type field in a response. Some requests may return different types of responses. For example, any RPC request can end up with an error:
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "error",
+  "type": "error", 
   "error": "Not enough money."
 }
 {{< / highlight >}}
 
 #### Notifications
 
-Out-of-band notifications are sent by server to notify a client about some events, e.g. when block has been added or accounts's balance has changed:
+Out-of-band notifications are sent by server to notify a client about some events, e.g.when block has been added or accounts's balance has changed:
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "balance_changed",
-  "account_id": "1",
+  "type": "balance_changed", 
+  "account_id": "1", 
   "balance": 999996010
 }
 {{< / highlight >}}
@@ -176,14 +176,14 @@ ___
 
 Wallet RPC API is used to manage account and sending transactions.
 
-One **Node** has exactly one **Wallet**. One **Wallet** can hold multiple **Accounts**. One **Account** has exactly one **Address**. **Address** is Base58-encoded public key of an **Account**:
+One **Node** has exactly one **Wallet**. One **Wallet** can hold multiple **Accounts**. One **Account** has exactly one **Address**.**Address** is Base58-encoded public key of an **Account**:
 
 {{< highlight js "linenos=inline" >}}
 MAGIC_BYTE = 198
 address = base58_check_encode(MAGIC_BYTE, curve25519_public_key)
 {{< / highlight >}}
 
-Each **Account** is uniquely identified its address. Since public keys are quite large, **Wallet** automatically assigns a short unique surrogate identifier to each keypair to use in API calls. This identifier is called by `account_id`. Please do not confuse with `account_pkey` which is an account public key.
+Each **Account** is uniquely identified its address. Since public keys are quite large, **Wallet** automatically assigns a short unique surrogate identifier to each keypair to use in API calls. This identifier is called by `account_id` . Please do not confuse with `account_pkey` which is an account public key.
 
 Each **Account** has associated password. This password is used as a seed for a key derivation function for AES-128 encryption. Encryption protects a secret key and other sensitive data. Since this password is never stored in any way, there are no possible technical ways to recover it from the node. This obviously doesn't protect from possible leaks via side-channels or via Rubber-hose cryptanalysis.
 
@@ -191,8 +191,8 @@ Each **Account** can be recovered using 24-word **Recovery Phrase**. This recove
 
 **Accounts** have concept of **Sealing**/**Unsealing**:
 
-* **Sealed** account doesn't store sensitive information in the memory, such as secret key, balance, history and other. **Sealed** account can't create transaction and spent your money. Since secret key is not loaded, **Sealed** account also doesn't receive notifications about incoming payments.
-* **Unsealed** account has secret key loaded into the memory. **Unsealed** account can create transactions, receive notification about incoming payments and perform other actions. In order to unseal account, a password is needed. Currently account is not **Sealed** automatically by a timeout, but this feature may be added in the future.
+* **Sealed** account doesn't store sensitive information in the memory, such as secret key, balance, history and other.**Sealed** account can't create transaction and spent your money. Since secret key is not loaded, **Sealed** account also doesn't receive notifications about incoming payments.
+* **Unsealed** account has secret key loaded into the memory.**Unsealed** account can create transactions, receive notification about incoming payments and perform other actions. In order to unseal account, a password is needed. Currently account is not **Sealed** automatically by a timeout, but this feature may be added in the future.
 
 #### List Accounts
 
@@ -202,7 +202,7 @@ Returns a list of account.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "accounts_info",
+  "type": "accounts_info", 
 }
 {{< / highlight >}}
 
@@ -210,11 +210,14 @@ Returns a list of account.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "accounts_info",
+  "type": "accounts_info", 
   "accounts": {
+
     "1": {
       "account_pkey": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
     }
+    
+
   }
 }
 {{< / highlight >}}
@@ -227,7 +230,7 @@ Creates a new account.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "create_account",
+  "type": "create_account", 
   "password": "plain-text-password"
 }
 {{< / highlight >}}
@@ -236,7 +239,7 @@ Creates a new account.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "account_created",
+  "type": "account_created", 
   "account_id": "1"
 }
 {{< / highlight >}}
@@ -247,7 +250,7 @@ Creates a new account.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "delete_account",
+  "type": "delete_account", 
   "account_id": "2"
 }
 {{< / highlight >}}
@@ -256,7 +259,7 @@ Creates a new account.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "account_deleted",
+  "type": "account_deleted", 
   "account_id": "2"
 }
 {{< / highlight >}}
@@ -272,7 +275,7 @@ Returns 24-word recovery phrase.
 {{< highlight json "linenos=inline" >}}
 {
   "type": "recovery_info"
-  "account_id": "1",
+  "account_id": "1", 
 }
 {{< / highlight >}}
 
@@ -280,8 +283,8 @@ Returns 24-word recovery phrase.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "recovery",
+  "account_id": "1", 
+  "type": "recovery", 
   "recovery": "swear praise ginger oxygen anchor ten small planet crime cave fold chuckle foot dragon decorate guess poverty grass crew depend define twice mother update"
 }
 {{< / highlight >}}
@@ -295,7 +298,7 @@ Recovers an account from 24-word recovery phrase:
 {{< highlight json "linenos=inline" >}}
 {
   "type": "recover_account"
-  "recovery": "swear praise ginger oxygen anchor ten small planet crime cave fold chuckle foot dragon decorate guess poverty grass crew depend define twice mother update",
+  "recovery": "swear praise ginger oxygen anchor ten small planet crime cave fold chuckle foot dragon decorate guess poverty grass crew depend define twice mother update", 
 }
 {{< / highlight >}}
 
@@ -303,21 +306,21 @@ Recovers an account from 24-word recovery phrase:
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "account_created",
+  "type": "account_created", 
   "account_id": "2"
 }
 {{< / highlight >}}
 
 #### Unseal Account
 
-Unseals an account, i.e. loads a secret key to the memory.
+Unseals an account, i.e.loads a secret key to the memory.
 
 **Request:**
 
 {{< highlight json "linenos=inline" >}}
 {
   "type": "unseal"
-  "account_id": "1",
+  "account_id": "1", 
   "password": "plain-text-password"
 }
 {{< / highlight >}}
@@ -326,7 +329,7 @@ Unseals an account, i.e. loads a secret key to the memory.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
+  "account_id": "1", 
   "type": "unsealed"
 }
 {{< / highlight >}}
@@ -342,7 +345,7 @@ Seals an account, i.e., removes an account's secret key from memory.
 {{< highlight json "linenos=inline" >}}
 {
   "type": "seal"
-  "account_id": "1",
+  "account_id": "1", 
 }
 {{< / highlight >}}
 
@@ -350,7 +353,7 @@ Seals an account, i.e., removes an account's secret key from memory.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
+  "account_id": "1", 
   "type": "sealed"
 }
 {{< / highlight >}}
@@ -365,8 +368,8 @@ Re-encrypts an account's sensitive data using a new password.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "change_password",
-  "new_password": "plain-text-password",
+  "type": "change_password", 
+  "new_password": "plain-text-password", 
 }
 {{< / highlight >}}
 
@@ -374,7 +377,7 @@ Re-encrypts an account's sensitive data using a new password.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
+  "account_id": "1", 
   "type": "password_changed"
 }
 {{< / highlight >}}
@@ -389,8 +392,8 @@ Returns information about account's public key (address).
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "account_info",
-  "account_id": "1",
+  "type": "account_info", 
+  "account_id": "1", 
 }
 {{< / highlight >}}
 
@@ -398,9 +401,9 @@ Returns information about account's public key (address).
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "account_info",
-  "account_pkey": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
+  "account_id": "1", 
+  "type": "account_info", 
+  "account_pkey": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw", 
 }
 {{< / highlight >}}
 
@@ -422,9 +425,9 @@ Returns information about current and availabe account's balances.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "balance_info",
-  "balance": 0,
+  "account_id": "1", 
+  "type": "balance_info", 
+  "balance": 0, 
   "available_balance": 0
 }
 {{< / highlight >}}
@@ -449,10 +452,11 @@ Returns information about account's UTXO.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "unspent_info",
-  "public_payments": [],
+  "account_id": "1", 
+  "type": "unspent_info", 
+  "public_payments": [], 
   "payments": [
+
     {
       "utxo": "13257da5cdef20d47dba473deb182f0d24c2a1ed717ba379c2b1830fdfadbd7e",
       "amount": 1000000000,
@@ -461,7 +465,9 @@ Returns information about account's UTXO.
       "recipient": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
       "is_change": false
     }
-  ],
+    
+
+  ], 
   "stakes": []
 }
 {{< / highlight >}}
@@ -476,20 +482,20 @@ Creates a payment transaction to transfer money.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "payment",
-  "recipient": "7eiszB5iVFPCAWSmmkQ5ARyiLpvf1hifQrJ8FikJ1QJQ1k8WrQv",
-  "amount": 100,
-  "payment_fee": 1000,
-  "comment": "Test",
-  "locked_timestamp": "2019-08-22T12:35:06.343300856Z",
+  "type": "payment", 
+  "recipient": "7eiszB5iVFPCAWSmmkQ5ARyiLpvf1hifQrJ8FikJ1QJQ1k8WrQv", 
+  "amount": 100, 
+  "payment_fee": 1000, 
+  "comment": "Test", 
+  "locked_timestamp": "2019-08-22T12:35:06.343300856Z", 
   "with_certificate": false
 }
 {{< / highlight >}}
 
-* `type`
-  * `payment` - cloaked outputs, but without using Snowball.
-  * `secure_payment` - cloaked outputs + Snowball (recommended).
-  * `public_payment` - Public (uncloaked) outputs.
+* `type` 
+  + `payment` - cloaked outputs, but without using Snowball.
+  + `secure_payment` - cloaked outputs + Snowball (recommended).
+  + `public_payment` - Public (uncloaked) outputs.
 * `recipient` - recipient's address.
 * `amount` - amount in μSTG.
 * `payment_fee` - desired fee per created UTXO.
@@ -501,11 +507,12 @@ Creates a payment transaction to transfer money.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "transaction_created",
-  "tx_hash": "b9132147148715da31d9ac95ec1efee9aec374deb356b3fedefc17322c3b63c2",
-  "fee": 2000,
+  "account_id": "1", 
+  "type": "transaction_created", 
+  "tx_hash": "b9132147148715da31d9ac95ec1efee9aec374deb356b3fedefc17322c3b63c2", 
+  "fee": 2000, 
   "outputs": [
+
     {
       "output_type": "payment",
       "utxo": "32cbfd8cd697bef256b78a36847269a0d39c738da3cc474f3635c21b03de1310",
@@ -525,32 +532,37 @@ Creates a payment transaction to transfer money.
       "recipient": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
       "is_change": true
     }
-  ],
+    
+
+  ], 
   "inputs": [
+
     "13257da5cdef20d47dba473deb182f0d24c2a1ed717ba379c2b1830fdfadbd7e"
-  ],
+    
+
+  ], 
   "status": "created"
 }
 {{< / highlight >}}
 
 * `tx_hash` - a hash of created transaction.
 * `fee` - the total fee for all outputs.
-* `output_type`:
-  * `payment`
-  * `public_payment`
-  * `stake` (see [Stake]({{< relref "#stake" >}}))
+* `output_type` :
+  + `payment` 
+  + `public_payment` 
+  + `stake` (see [Stake]({{< relref "#stake" >}}))
 * `amount` - amount in μSTG.
 * `comment` - a commentary.
 * `rvalue` - saved encryption key (only if with_certificate).
 * `locked_timestamp` - the UTXO is locked until this timestamp.
 * `is_change` - the UTXO is a change
 * `status` - transaction status:
-  * `create`
-  * `accepted` - accepted into the local mempool.
-  * `rejected` - rejected by the local mempool.
-  * `prepared` - added to the blockchain.
-  * `committed` - finalized by the consensus.
-  * `conflicted` - rejected because of conflict with another TX.
+  + `create` 
+  + `accepted` - accepted into the local mempool.
+  + `rejected` - rejected by the local mempool.
+  + `prepared` - added to the blockchain.
+  + `committed` - finalized by the consensus.
+  + `conflicted` - rejected because of conflict with another TX.
 
 #### Cloak
 
@@ -562,7 +574,7 @@ Exchange all uncloaked tokens to cloaked tokens.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "cloak_all",
+  "type": "cloak_all", 
   "payment_fee": 1000
 }
 {{< / highlight >}}
@@ -581,8 +593,8 @@ Stake token into the escrow to become an validator.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "stake",
-  "amount": 2000,
+  "type": "stake", 
+  "amount": 2000, 
   "payment_fee": 1000
 }
 {{< / highlight >}}
@@ -601,17 +613,17 @@ Unstake tokens from the escrow.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "unstake",
-  "account_id": "1",
-  "amount": 2000,
+  "type": "unstake", 
+  "account_id": "1", 
+  "amount": 2000, 
   "payment_fee": 1000
 }
 {{< / highlight >}}
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "unstake_all",
-  "account_id": "1",
+  "type": "unstake_all", 
+  "account_id": "1", 
 }
 {{< / highlight >}}
 
@@ -629,7 +641,7 @@ Forcefully re-stake (refresh) expering tokens in the escrow. Usually this operat
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "restake_all",
+  "type": "restake_all", 
 }
 {{< / highlight >}}
 
@@ -645,10 +657,10 @@ Request:
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "validate_certificate",
-  "utxo": "0fdb42aa9433bc6f7079426ebbe0d5464ca713b2aad2bb5ff4fe163f98a80674",
-  "spender": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
-  "recipient": "7eiszB5iVFPCAWSmmkQ5ARyiLpvf1hifQrJ8FikJ1QJQ1k8WrQv",
+  "type": "validate_certificate", 
+  "utxo": "0fdb42aa9433bc6f7079426ebbe0d5464ca713b2aad2bb5ff4fe163f98a80674", 
+  "spender": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw", 
+  "recipient": "7eiszB5iVFPCAWSmmkQ5ARyiLpvf1hifQrJ8FikJ1QJQ1k8WrQv", 
   "rvalue": "0dbb132afbfdcc7bfb25191f89007f27919fceaceea03b015d98458cba1a4200"
 }
 {{< / highlight >}}
@@ -659,11 +671,11 @@ Request:
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "certificate_valid",
-  "epoch": 1181,
-  "block_hash": "5e8a4429338ac775b40472d0cee6a439cbf0542c966bca9a089f1a84bdb2e680",
-  "is_final": true,
-  "timestamp": "2019-08-21T13:05:53.045364692Z",
+  "type": "certificate_valid", 
+  "epoch": 1181, 
+  "block_hash": "5e8a4429338ac775b40472d0cee6a439cbf0542c966bca9a089f1a84bdb2e680", 
+  "is_final": true, 
+  "timestamp": "2019-08-21T13:05:53.045364692Z", 
   "amount": 100
 }
 {{< / highlight >}}
@@ -682,8 +694,8 @@ Validate a payment certificate for a payment. This API is doesn't require existi
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "history_info",
-  "starting_from": "2019-08-20T13:48:40.877231494Z",
+  "type": "history_info", 
+  "starting_from": "2019-08-20T13:48:40.877231494Z", 
   "limit": 50
 }
 {{< / highlight >}}
@@ -692,9 +704,10 @@ Validate a payment certificate for a payment. This API is doesn't require existi
 
 {{< highlight json "linenos=inline" >}}
 {                                                                                                                            [31/9149]
-  "account_id": "1",
-  "type": "history_info",
+  "account_id": "1", 
+  "type": "history_info", 
   "log": [
+
     {
       "type": "outgoing",
       "timestamp": "2019-08-21T13:36:29.038362377Z",
@@ -753,6 +766,8 @@ Validate a payment certificate for a payment. This API is doesn't require existi
       "recipient": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
       "is_change": true
     }
+    
+
   ]
 }
 {{< / highlight >}}
@@ -769,9 +784,9 @@ Sent when an account's balance has been changed.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "balance_changed",
-  "balance": 999988700,
+  "account_id": "1", 
+  "type": "balance_changed", 
+  "balance": 999988700, 
   "available_balance": 999988700
 }
 {{< / highlight >}}
@@ -782,13 +797,13 @@ Sent when an account has received some tokens.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "received",
-  "utxo": "cef3b6ca7aa04383ee20c95b9c0071d751fa6b19e6ca75760e86380d402ed597",
-  "amount": 999988699,
-  "comment": "Change",
-  "locked_timestamp": null,
-  "recipient": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
+  "account_id": "1", 
+  "type": "received", 
+  "utxo": "cef3b6ca7aa04383ee20c95b9c0071d751fa6b19e6ca75760e86380d402ed597", 
+  "amount": 999988699, 
+  "comment": "Change", 
+  "locked_timestamp": null, 
+  "recipient": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw", 
   "is_change": false
 }
 {{< / highlight >}}
@@ -799,14 +814,14 @@ Sent when an account has spent some tokens.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "spent",
-  "utxo": "8c662fb663b59dcedf60a9db59edc88cefdc36c2db50d8ce8db105fd0af58004",
-  "amount": 999990700,
-  "comment": "Change",
-  "locked_timestamp": null,
-  "pending_timestamp": "2019-08-21T13:21:05.168083847Z",
-  "recipient": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
+  "account_id": "1", 
+  "type": "spent", 
+  "utxo": "8c662fb663b59dcedf60a9db59edc88cefdc36c2db50d8ce8db105fd0af58004", 
+  "amount": 999990700, 
+  "comment": "Change", 
+  "locked_timestamp": null, 
+  "pending_timestamp": "2019-08-21T13:21:05.168083847Z", 
+  "recipient": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw", 
   "is_change": false
 }
 {{< / highlight >}}
@@ -817,12 +832,12 @@ Sent when an account staked some tokens into the escrow.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "staked",
-  "utxo": "47c1b06d67794d72d2a5538f233823d6819b7ff6f8a73ddc41a3c8bbc08b74ce",
-  "account_pkey": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
-  "active_until_epoch": 1194,
-  "is_active": true,
+  "account_id": "1", 
+  "type": "staked", 
+  "utxo": "47c1b06d67794d72d2a5538f233823d6819b7ff6f8a73ddc41a3c8bbc08b74ce", 
+  "account_pkey": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw", 
+  "active_until_epoch": 1194, 
+  "is_active": true, 
   "amount": 2000
 }
 {{< / highlight >}}
@@ -833,12 +848,12 @@ Sent when an account unsteaked some tokens have from the escrow.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "unstaked",
-  "utxo": "8b3fdbec4c3435dee88d1a3fabb7db4cb08805bbef9ad213d8d04d483168a1d1",
-  "account_pkey": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
-  "active_until_epoch": 1191,
-  "is_active": true,
+  "account_id": "1", 
+  "type": "unstaked", 
+  "utxo": "8b3fdbec4c3435dee88d1a3fabb7db4cb08805bbef9ad213d8d04d483168a1d1", 
+  "account_pkey": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw", 
+  "active_until_epoch": 1191, 
+  "is_active": true, 
   "amount": 2000
 }
 {{< / highlight >}}
@@ -849,10 +864,10 @@ Sent when TX status has changed. See Payment.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "transaction_status",
-  "tx_hash": "049db1e1979f2c8d876df876011f12764fb8ef5c578203dcba35bb9a8f09cfa3",
-  "status": "committed",
+  "account_id": "1", 
+  "type": "transaction_status", 
+  "tx_hash": "049db1e1979f2c8d876df876011f12764fb8ef5c578203dcba35bb9a8f09cfa3", 
+  "status": "committed", 
   "epoch": 1192
 }
 {{< / highlight >}}
@@ -863,40 +878,40 @@ Sent when Snowball status has changed. See Payment.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "snowball_status",
+  "account_id": "1", 
+  "type": "snowball_status", 
   "state": "pool_wait"
 }
 {{< / highlight >}}
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "snowball_status",
+  "account_id": "1", 
+  "type": "snowball_status", 
   "state": "shared_keying"
 }
 {{< / highlight >}}
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "snowball_status",
+  "account_id": "1", 
+  "type": "snowball_status", 
   "state": "commitment"
 }
 {{< / highlight >}}
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "snowball_status",
+  "account_id": "1", 
+  "type": "snowball_status", 
   "state": "cloaked_vals"
 }
 {{< / highlight >}}
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "snowball_status",
+  "account_id": "1", 
+  "type": "snowball_status", 
   "state": "succeeded"
 }
 {{< / highlight >}}
@@ -907,7 +922,7 @@ ___
 
 #### Escrow Information
 
-Show UTXO in the escrow,
+Show UTXO in the escrow, 
 
 **Request:**
 
@@ -921,11 +936,15 @@ Show UTXO in the escrow,
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "escrow_info",
+  "type": "escrow_info", 
   "validators": [
+
     {
       "network_pkey": "c4dad2cd223433429ebd4bb25e25e447c6f1d97d9ac97336a02fe0321129224a6b30d69fe6f7c29e9af1e7328e033607a91e5d732673d4b
-bbbd38e666ddf86d99a9dc709513b5537d7e723349ecacdb1992c861dce8e49ac6fb329f703646985",
+    
+
+bbbd38e666ddf86d99a9dc709513b5537d7e723349ecacdb1992c861dce8e49ac6fb329f703646985", 
+
       "active_stake": 100000000000,
       "expired_stake": 0,
       "stakes": [
@@ -938,6 +957,8 @@ bbbd38e666ddf86d99a9dc709513b5537d7e723349ecacdb1992c861dce8e49ac6fb329f70364698
         }
       ]
     },
+    
+
   ]
 }
 {{< / highlight >}}
@@ -956,12 +977,12 @@ bbbd38e666ddf86d99a9dc709513b5537d7e723349ecacdb1992c861dce8e49ac6fb329f70364698
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "election_info",
-  "epoch": 1199,
-  "offset": 40,
-  "view_change": 0,
-  "slots_count": 1000,
-  "current_leader": "ba6419bc26c8505a83222815a2c0459a43a377f9331b481c522aaa2473b0b3cd48cba7fd953b51303c45e018b17a310efce926b8ac11be8904a0ac74150ee8c503b616925a6742031668b421054aba0469e6fa223131a57a5370ac630a5091b5",
+  "type": "election_info", 
+  "epoch": 1199, 
+  "offset": 40, 
+  "view_change": 0, 
+  "slots_count": 1000, 
+  "current_leader": "ba6419bc26c8505a83222815a2c0459a43a377f9331b481c522aaa2473b0b3cd48cba7fd953b51303c45e018b17a310efce926b8ac11be8904a0ac74150ee8c503b616925a6742031668b421054aba0469e6fa223131a57a5370ac630a5091b5", 
 }
 {{< / highlight >}}
 
@@ -1019,14 +1040,14 @@ ___
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "sync_changed",
-  "is_synchronized": true,
-  "epoch": 1203,
-  "offset": 32,
-  "view_change": 0,
-  "last_block_hash": "58400c4fb82d5e7f5baa34f6d23ae76f01dc1f789910aa73380f78da5f646d5e",
-  "last_macro_block_hash": "64e53a321c9bc160574eefec84b2961f358e449ff73efa2c6d2b47afd9681196",
-  "last_macro_block_timestamp": "2019-08-21T13:26:07.559157693Z",
+  "type": "sync_changed", 
+  "is_synchronized": true, 
+  "epoch": 1203, 
+  "offset": 32, 
+  "view_change": 0, 
+  "last_block_hash": "58400c4fb82d5e7f5baa34f6d23ae76f01dc1f789910aa73380f78da5f646d5e", 
+  "last_macro_block_hash": "64e53a321c9bc160574eefec84b2961f358e449ff73efa2c6d2b47afd9681196", 
+  "last_macro_block_timestamp": "2019-08-21T13:26:07.559157693Z", 
   "local_timestamp": "2019-08-21T13:26:40.984563552Z"
 }
 {{< / highlight >}}
@@ -1035,15 +1056,18 @@ ___
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "new_micro_block",
-  "epoch": 1203,
-  "offset": 31,
+  "type": "new_micro_block", 
+  "epoch": 1203, 
+  "offset": 31, 
   "statuses": {
+
     "891cd7863bdf3775f8c95b0dbf12d33393b16186c6a55761addcb42fdb6a69de": {
       "status": "prepared",
       "epoch": 1203,
       "offset": 31
     }
+    
+
   }
 }
 {{< / highlight >}}
@@ -1062,16 +1086,16 @@ ___
 
 #### Transaction Tracking
 
-1) Initiate a new transaction by using `payment`, `secure_payment` or `public_payment` call:
+1) Initiate a new transaction by using `payment` , `secure_payment` or `public_payment` call:
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "secure_payment",
-  "recipient": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
-  "amount": 1,
-  "payment_fee": 1000,
-  "comment": "",
-  "locked_timestamp": null,
+  "type": "secure_payment", 
+  "recipient": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw", 
+  "amount": 1, 
+  "payment_fee": 1000, 
+  "comment": "", 
+  "locked_timestamp": null, 
   "with_certificate": false
 }
 {{< / highlight >}}
@@ -1082,11 +1106,12 @@ See Payment for details.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "transaction_created",
-  "tx_hash": "3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4",
-  "fee": 2000,
+  "account_id": "1", 
+  "type": "transaction_created", 
+  "tx_hash": "3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4", 
+  "fee": 2000, 
   "outputs": [
+
     {
       "output_type": "payment",
       "utxo": "17c6556fbe25ccc7e7e8adb3e2000366cdef08e19d36478b5716c24778ecb3b2",
@@ -1105,42 +1130,47 @@ See Payment for details.
       "recipient": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
       "is_change": true
     }
-  ],
+    
+
+  ], 
   "inputs": [
+
     "299512da5957b689b0862ef080cc64e54593ab6d1db74b426608a60ce7f1df2f",
     "ae485d68ef6dbc4b17a6ad61befbb8ce072e10341eb2f827246bd321cf8b4b07"
-  ],
+    
+
+  ], 
   "status": "created"
 }
 {{< / highlight >}}
 
 TX has been created and sent to the Node.
-For Snowball (`secure_payment`) transactions you will also see intermediate `snowball_status` notifications between `secure_payment` request and `transaction_created` response:
+For Snowball ( `secure_payment` ) transactions you will also see intermediate `snowball_status` notifications between `secure_payment` request and `transaction_created` response:
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "snowball_status",
+  "account_id": "1", 
+  "type": "snowball_status", 
   "state": "pool_wait"
 }
 {
-  "account_id": "1",
-  "type": "snowball_status",
+  "account_id": "1", 
+  "type": "snowball_status", 
   "state": "commitment"
 }
 {
-  "account_id": "1",
-  "type": "snowball_status",
+  "account_id": "1", 
+  "type": "snowball_status", 
   "state": "cloaked_vals"
 }
 {
-  "account_id": "1",
-  "type": "snowball_status",
+  "account_id": "1", 
+  "type": "snowball_status", 
   "state": "signature"
 }
 {
-  "account_id": "1",
-  "type": "snowball_status",
+  "account_id": "1", 
+  "type": "snowball_status", 
   "state": "succeeded"
 }
 {{< / highlight >}}
@@ -1149,9 +1179,9 @@ For Snowball (`secure_payment`) transactions you will also see intermediate `sno
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "transaction_status",
-  "tx_hash": "3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4",
+  "account_id": "1", 
+  "type": "transaction_status", 
+  "tx_hash": "3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4", 
   "status": "accepted"
 }
 {{< / highlight >}}
@@ -1162,11 +1192,11 @@ TX has been accepted into Node's mempool.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "transaction_status",
-  "tx_hash": "3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4",
-  "status": "prepared",
-  "epoch": 1230,
+  "account_id": "1", 
+  "type": "transaction_status", 
+  "tx_hash": "3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4", 
+  "status": "prepared", 
+  "epoch": 1230, 
   "offset": 56
 }
 {{< / highlight >}}
@@ -1177,12 +1207,13 @@ TX has been added to the blockchain.
 
 {{< highlight json "linenos=inline" >}}
 {
-  "account_id": "1",
-  "type": "transaction_status",
-  "tx_hash": "3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4",
-  "status": "committed",
-  "epoch": 1230,
+  "account_id": "1", 
+  "type": "transaction_status", 
+  "tx_hash": "3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4", 
+  "status": "committed", 
+  "epoch": 1230, 
 }
 {{< / highlight >}}
 
 TX has been finalized by PoS consensus.
+
