@@ -31,7 +31,7 @@ For production purposes, we recommend official binaries from GitHub Release page
 #### Using Pre-built Binaries
 
 Download the latest version of `stegosd` and `stegos` binaries from **GitHub Releases:**
-{{< highlight bash >}}
+{{< highlight bash "linenos=inline, title=install-linux.sh" >}}
 curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegosd-linux-x64 -o stegosd
 curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegos-linux-x64 -o stegos
 chmod a+x stegosd ste
@@ -42,7 +42,7 @@ gos
 
 The script above will download `stegosd` (Node) and `stegos` (CLI) binaries from **GitHub** Releases, change file permissions to "Executable" and print Node's version:
 
-{{< highlight bash >}}
+{{< highlight bash "linenos=inline" >}}
 yourname@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegosd-linux-x64 -o stegosd
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -76,7 +76,7 @@ ___
 
 Download the latest version of `stegosd` and `stegos` binaries from **GitHub Releases:**
 
-{{< highlight bash >}}
+{{< highlight bash "linenos=inline, title=install-macos.sh" >}}
 curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegosd-
 macos-x64 -o stegosd
 curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegos-macos-x64 -o stegos
@@ -87,7 +87,7 @@ chmod a+x stegosd stegos
 
 The script above will download `stegosd` binary from GitHub Releases, change file permissions to "Executable" and print Node's version:
 
-{{< highlight bash >}}
+{{< highlight bash "linenos=inline" >}}
 yourname@mac:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegosd-macos-x64 -o stegosd
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
