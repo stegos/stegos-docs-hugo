@@ -25,21 +25,25 @@ In this section we explain how to run **Stegos Node**.
 Run Stegos Node:
 
 {{% tabs %}}
+
 {{% tab "Linux" %}}
 {{< highlight bash >}}
 ./stegosd
 {{< / highlight >}}
 {{% /tab %}}
+
 {{% tab "macOS" %}}
 {{< highlight bash >}}
 ./stegosd
 {{< / highlight >}}
 {{% /tab %}}
+
 {{% tab "Docker" %}}
 {{< highlight bash >}}
 docker run -v $PWD/stegos-data:/data -t -i stegos/stegos
 {{< / highlight >}}
 {{% /tab %}}
+
 {{% /tabs %}}
 
 Stegos Node will automatically create a data directory to store the blockchain and your accounts:
@@ -51,26 +55,31 @@ INFO [stegosd] Data directory: /home/yourname/.local/share/stegos
 The default path to the data directory depends on your operating system:
 
 {{% tabs %}}
+
 {{% tab "Linux" %}}
 {{< highlight bash >}}
 $HOME/.local/share/stegos
 {{< / highlight >}}
 {{% /tab %}}
+
 {{% tab "macOS" %}}
 {{< highlight bash >}}
 $HOME/Library/Application Support/stegos
 {{< / highlight >}}
 {{% /tab %}}
+
 {{% tab "Windows" %}}
 {{< highlight bash >}}
 C:\Users\$USER\AppData\Roaming
 {{< / highlight >}}
 {{% /tab %}}
+
 {{% tab "Docker" %}}
 {{< highlight bash >}}
 /data/.local/share/stegos
 {{< / highlight >}}
 {{% /tab %}}
+
 {{% /tabs %}}
 
 {{% notice note %}}You can override default path to the data directory by setting `STEGOS_DATA_DIR` environment variable or providing`--data-dir` command-line option.{{% / notice %}}

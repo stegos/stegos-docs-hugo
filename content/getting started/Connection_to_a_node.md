@@ -27,21 +27,25 @@ ___
 ### Connecting to a Local Node
 
 {{% tabs %}}
+
 {{% tab "Linux" %}}
 {{< highlight bash >}}
 ./stegos
 {{< / highlight >}}
 {{% /tab %}}
+
 {{% tab "macOS" %}}
 {{< highlight bash >}}
 ./stegos
 {{< / highlight >}}
 {{% /tab %}}
+
 {{% tab "Docker" %}}
 {{< highlight bash >}}
 docker exec -t -i <CONTAINER_NAME> stegos
 {{< / highlight >}}
 {{% /tab %}}
+
 {{% /tabs %}}
 
 The command-line client will try to connect to a local node and print `stegos` prompt on success:
@@ -122,21 +126,25 @@ local$ echo $?
 Connect to remote Node by providing path to `api.token` and API Endpoint:
 
 {{% tabs %}}
+
 {{% tab "Linux" %}}
 {{< highlight bash >}}
 ./stegos --api-token <PATH/TO/TOKEN> --api-endpoint <API_ENDPOINT>
 {{< / highlight >}}
 {{% /tab %}}
+
 {{% tab "macOS" %}}
 {{< highlight bash >}}
 ./stegos --api-token <PATH/TO/TOKEN> --api-endpoint <API_ENDPOINT>
 {{< / highlight >}}
 {{% /tab %}}
+
 {{% tab "Docker" %}}
 {{< highlight bash >}}
 docker run -t -i stegos/stegos -- --api-token <PATH/TO/TOKEN> --api-endpoint <API_ENDPOINT>
 {{< / highlight >}}
 {{% /tab %}}
+
 {{% /tabs %}}
 
 {{% notice tip %}}You sucessfully connected to a remote Node.{{% / notice %}}
