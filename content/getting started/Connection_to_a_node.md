@@ -20,7 +20,7 @@ In this section we explain how to connect to a **Stegos Node**.
 
 **Prerequisites:**
 
-* [**Node is up and running**]({{< relref "./Running_a_Node.md">}})
+* [**Node is up and running**]({{< relref "Running_a_Node.md">}})
 
 ___
 

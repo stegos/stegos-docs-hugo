@@ -20,7 +20,7 @@ In this section we explain how to run **Stegos Node**.
 
 **Prerequisites:**
 
-* [Download and install Stegos Node.]({{< ref "./Installing_a_node.md" >}})
+* [Download and install Stegos Node.]({{< ref "/Installing_a_node.md" >}})
 
 Run Stegos Node:
 
@@ -84,7 +84,7 @@ C:\Users\$USER\AppData\Roaming
 
 {{% notice note %}}You can override default path to the data directory by setting `STEGOS_DATA_DIR` environment variable or providing`--data-dir` command-line option.{{% / notice %}}
 
-{{% notice note %}}See [**Data Directory Layout**]({{< relref "../for developers/Data_Directory_Layout.md">}}) page for additional information about structure of this directory.{{% / notice %}}
+{{% notice note %}}See [**Data Directory Layout**]({{< relref "/for developers/Data_Directory_Layout.md">}}) page for additional information about structure of this directory.{{% / notice %}}
 
 On the first run, the blockchain database is initialized using  the genesis block for `testnet` network:
 
