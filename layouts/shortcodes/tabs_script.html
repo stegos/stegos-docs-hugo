@@ -20,23 +20,39 @@
         display: block;
     }
 
+    .nav-tabs-container {
+        margin: 5px 5px 0 5px;
+        background-color: #fff;
+        padding: 0 20px;
+    }
+
     .nav-tabs {
         color: #0f0f0f;
+        display: flex;
         list-style-type: none;
-        margin: 0;
         padding: 0;
-        overflow: hidden;
+        border-bottom: 1px solid #dee2e6;
     }
 
     .nav-tabs>li {
         color: #0f0f0f;
         float: left;
+        text-align: center;
     }
 
     .nav-tabs>li>a {
         display: block;
         padding: 5px 10px;
         font-size: 14px;
+    }
+
+    .nav-tabs>li.active {
+        margin-bottom: -1px;
+        background-color: #fff;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border: 1px solid;
+        border-color: #dee2e6 #dee2e6 #fff;
     }
 
     pre {
@@ -47,7 +63,10 @@
     }
 
     .code-tabs {
-        margin: 10px 0px 0px 00px;
+        margin: 10px 0 0 0;
+        background-color: #f8f9fa;
+        display: flex;
+        flex-direction: column;
     }
 
     .nav-tabs>li.active>a,
