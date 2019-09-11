@@ -1,6 +1,5 @@
 +++
 title = "STG Token and Sale"
-head ="<label>STG Token and Sale</label> "
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
 

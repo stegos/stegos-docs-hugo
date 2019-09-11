@@ -1,6 +1,5 @@
 +++
 title = "Quick Start"
-head ="<label>Quick Start</label> "
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
 

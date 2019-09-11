@@ -1,6 +1,5 @@
 +++
 title = "Stegos Privacy Platform"
-head ="<label>Stegos Privacy Platform</label> "
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
 

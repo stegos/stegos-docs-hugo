@@ -1,6 +1,5 @@
 +++
 title = "Data Directory Layout"
-head ="<label>Data Directory Layout</label> "
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
 

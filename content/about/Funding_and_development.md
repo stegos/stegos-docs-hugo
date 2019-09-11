@@ -1,6 +1,5 @@
 +++
 title = "Funding and Development"
-head ="<label>Funding and Development</label> "
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
 

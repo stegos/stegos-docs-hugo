@@ -1,6 +1,5 @@
 +++
 title = "Running a Node"
-head ="<label>Running a Node</label> "
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
 
@@ -14,8 +13,6 @@ lastmodifierdisplayname = "Alaze"
 lastmodifieremail = ""
 +++
 
-{{% tabs_script %}}
-
 In this section we explain how to run **Stegos Node**.
 
 **Prerequisites:**
@@ -25,25 +22,21 @@ In this section we explain how to run **Stegos Node**.
 Run Stegos Node:
 
 {{% tabs %}}
-
 {{% tab "Linux" %}}
 {{< highlight bash >}}
 ./stegosd
 {{< / highlight >}}
 {{% /tab %}}
-
 {{% tab "macOS" %}}
 {{< highlight bash >}}
 ./stegosd
 {{< / highlight >}}
 {{% /tab %}}
-
 {{% tab "Docker" %}}
 {{< highlight bash >}}
 docker run -v $PWD/stegos-data:/data -t -i stegos/stegos
 {{< / highlight >}}
 {{% /tab %}}
-
 {{% /tabs %}}
 
 Stegos Node will automatically create a data directory to store the blockchain and your accounts:
@@ -55,49 +48,44 @@ INFO [stegosd] Data directory: /home/yourname/.local/share/stegos
 The default path to the data directory depends on your operating system:
 
 {{% tabs %}}
-
 {{% tab "Linux" %}}
 {{< highlight bash >}}
 $HOME/.local/share/stegos
 {{< / highlight >}}
 {{% /tab %}}
-
 {{% tab "macOS" %}}
 {{< highlight bash >}}
 $HOME/Library/Application Support/stegos
 {{< / highlight >}}
 {{% /tab %}}
-
 {{% tab "Windows" %}}
 {{< highlight bash >}}
 C:\Users\$USER\AppData\Roaming
 {{< / highlight >}}
 {{% /tab %}}
-
 {{% tab "Docker" %}}
 {{< highlight bash >}}
 /data/.local/share/stegos
 {{< / highlight >}}
 {{% /tab %}}
-
 {{% /tabs %}}
 
-{{% notice note %}}You can override default path to the data directory by setting `STEGOS_DATA_DIR` environment variable or providing`--data-dir` command-line option.{{% / notice %}}
+{{% notice note %}}You can override default path to the data directory by setting {{< code >}}STEGOS_DATA_DIR{{< /code >}} environment variable or providing{{< code >}}--data-dir{{< /code >}} command-line option.{{% / notice %}}
 
 {{% notice note %}}See [**Data Directory Layout**]({{< relref "/for developers/Data_Directory_Layout.md">}}) page for additional information about structure of this directory.{{% / notice %}}
 
-On the first run, the blockchain database is initialized using  the genesis block for `testnet` network:
+On the first run, the blockchain database is initialized using  the genesis block for {{< code >}}testnet{{< /code >}} network:
 
 {{< highlight bash >}}
 INFO [stegosd] Using genesis=14427eb426e3 for 'testnet' chain
 {{< / highlight >}}
 
 {{% notice note %}}
-You can override chain by setting `STEGOS_CHAIN` environment variable or providing `--chain` command line option. Supported networks:
+You can override chain by setting {{< code >}}STEGOS_CHAIN{{< /code >}} environment variable or providing {{< code >}}--chain{{< /code >}} command line option. Supported networks:
 
-* `devnet` - development (alpha) network
-* `testnet` - test (beta) network
-* ~~`mainnet` - production network (soon!)~~
+* {{< code >}}devnet{{< /code >}} - development (alpha) network
+* {{< code >}}testnet{{< /code >}} - test (beta) network
+* ~~{{< code >}}mainnet{{< /code >}} - production network (soon!)~~
 {{% / notice %}}
 
 On the second and subsequent runs, Node will check the consistency of the blockchain database on the disk. This operation can take up to 5-10 minutes. Please be patient.
@@ -113,7 +101,7 @@ On the second and subsequent runs, Node will check the consistency of the blockc
 [stegos_blockchain::blockchain] Recovered blockchain from the disk: epoch=3855, offset=10, last_block=e4aa224936e9
 {{< / highlight >}}
 
-{{% notice note %}}Please use different data directories for different networks, e.g. `--data-dir path/to/testnet` for `testnet`, `--data-dir path/to/mainnet` for `mainnet`.{{% / notice %}}
+{{% notice note %}}Please use different data directories for different networks, e.g. {{< code >}}--data-dir path/to/testnet{{< /code >}} for {{< code >}}testnet{{< /code >}}, {{< code >}}--data-dir path/to/mainnet{{< /code >}} for {{< code >}}mainnet{{< /code >}}.{{% / notice %}}
 
 The WebSocket API server will start on 3145 port:
 

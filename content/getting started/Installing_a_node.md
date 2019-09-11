@@ -1,6 +1,5 @@
 +++
 title = "Installing a node"
-head ="<label>Installing a node</label> "
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
 
@@ -30,7 +29,7 @@ For production purposes, we recommend official binaries from GitHub Release page
 
 #### Using Pre-built Binaries
 
-Download the latest version of `stegosd` and `stegos` binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases)
+Download the latest version of {{< code >}}stegosd{{< /code >}} and {{< code >}}stegos{{< /code >}} binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases)
 {{< highlight bash "linenos=inline, title=install-linux.sh" >}}
 curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegosd-linux-x64 -o stegosd
 curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegos-linux-x64 -o stegos
@@ -40,7 +39,7 @@ gos
 ./stegos --version
 {{< / highlight >}}
 
-The script above will download `stegosd` (Node) and `stegos` (CLI) binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases), change file permissions to "Executable" and print Node's version:
+The script above will download {{< code >}}stegosd{{< /code >}} (Node) and {{< code >}}stegos{{< /code >}} (CLI) binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases), change file permissions to "Executable" and print Node's version:
 
 {{< highlight bash "linenos=inline" >}}
 yourname@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegosd-linux-x64 -o stegosd
@@ -74,7 +73,7 @@ ___
 
 ##### Using Pre-Built binaries
 
-Download the latest version of `stegosd` and `stegos` binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases)
+Download the latest version of {{< code >}}stegosd{{< /code >}} and {{< code >}}stegos{{< /code >}} binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases)
 
 {{< highlight bash "linenos=inline, title=install-macos.sh" >}}
 curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegosd-
@@ -85,7 +84,7 @@ chmod a+x stegosd stegos
 ./stegos --version
 {{< / highlight >}}
 
-The script above will download `stegosd` binary from [**GitHub Releases**](https://github.com/stegos/stegos/releases), change file permissions to "Executable" and print Node's version:
+The script above will download {{< code >}}stegosd{{< /code >}} binary from [**GitHub Releases**](https://github.com/stegos/stegos/releases), change file permissions to "Executable" and print Node's version:
 
 {{< highlight bash "linenos=inline" >}}
 yourname@mac:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegosd-macos-x64 -o stegosd
@@ -116,7 +115,7 @@ ___
 
 ### Installing in Docker
 
-Use `stegos/stegos` image:
+Use {{< code >}}stegos/stegos{{< /code >}} image:
 
 {{< highlight bash >}}
 docker run -v $PWD:/stegos:/data stegos/stegos

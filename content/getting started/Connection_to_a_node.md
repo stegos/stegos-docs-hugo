@@ -1,6 +1,5 @@
 +++
 title = "Connecting to a Node"
-head ="<label>Connecting to a Node</label> "
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
 
@@ -14,8 +13,6 @@ lastmodifierdisplayname = "Alaze"
 lastmodifieremail = ""
 +++
 
-{{% tabs_script %}}
-
 In this section we explain how to connect to a **Stegos Node**.
 
 **Prerequisites:**
@@ -27,28 +24,24 @@ ___
 ### Connecting to a Local Node
 
 {{% tabs %}}
-
 {{% tab "Linux" %}}
 {{< highlight bash >}}
 ./stegos
 {{< / highlight >}}
 {{% /tab %}}
-
 {{% tab "macOS" %}}
 {{< highlight bash >}}
 ./stegos
 {{< / highlight >}}
 {{% /tab %}}
-
 {{% tab "Docker" %}}
 {{< highlight bash >}}
 docker exec -t -i <CONTAINER_NAME> stegos
 {{< / highlight >}}
 {{% /tab %}}
-
 {{% /tabs %}}
 
-The command-line client will try to connect to a local node and print `stegos` prompt on success:
+The command-line client will try to connect to a local node and print {{< code >}}stegos{{< /code >}} prompt on success:
 
 {{< highlight bash "linenos=inline" >}}
 Stegos CLI 0.11.13 (e63fb9e 2019-08-09)
@@ -57,7 +50,7 @@ Type 'help' to get help
 account#1>
 {{< / highlight >}}
 
-Type `help` to get help:
+Type {{< code >}}help{{< /code >}} to get help:
 
 {{< highlight bash "linenos=inline" >}}
 stegos> help
@@ -94,7 +87,7 @@ ___
 
 ### Connecting to a Remote Node
 
-Copy `api.token` from a remote host to your host. You can find this token in `STEGOS_DATA_DIR`. See Running a Node for details.
+Copy {{< code >}}api.token{{< /code >}} from a remote host to your host. You can find this token in {{< code >}}STEGOS_DATA_DIR{{< /code >}}. See Running a Node for details.
 
 {{< highlight bash "title=ssh-copy-api-token.sh" >}}
 scp YOURNAME@HOST:~/.local/stegos/api.token .
@@ -111,7 +104,7 @@ Forward WebSocket API port from the remote host to your machine using ssh port f
 ssh -f -N -T -L 127.0.0.1:3145:127.0.0.1:3145 YOURNAME@NODE
 {{< / highlight >}}
 
-On success, ssh will connect to the remote host and forward remote `127.0.0.1:3145` to your local `127.0.0.1:3145`:
+On success, ssh will connect to the remote host and forward remote {{< code >}}127.0.0.1:3145{{< /code >}} to your local {{< code >}}127.0.0.1:3145{{< /code >}}:
 
 {{< highlight bash "linenos=inline" >}}
 local$ nc -z 127.0.0.1 3145
@@ -123,28 +116,24 @@ local$ echo $?
 
 {{% notice info %}}Exposing WebSocket API port to the public Internet is insecure. Please consider to use SSH port forwading or configure firewall.{{% / notice %}}
 
-Connect to remote Node by providing path to `api.token` and API Endpoint:
+Connect to remote Node by providing path to {{< code >}}api.token{{< /code >}} and API Endpoint:
 
 {{% tabs %}}
-
 {{% tab "Linux" %}}
 {{< highlight bash >}}
 ./stegos --api-token <PATH/TO/TOKEN> --api-endpoint <API_ENDPOINT>
 {{< / highlight >}}
 {{% /tab %}}
-
 {{% tab "macOS" %}}
 {{< highlight bash >}}
 ./stegos --api-token <PATH/TO/TOKEN> --api-endpoint <API_ENDPOINT>
 {{< / highlight >}}
 {{% /tab %}}
-
 {{% tab "Docker" %}}
 {{< highlight bash >}}
 docker run -t -i stegos/stegos -- --api-token <PATH/TO/TOKEN> --api-endpoint <API_ENDPOINT>
 {{< / highlight >}}
 {{% /tab %}}
-
 {{% /tabs %}}
 
 {{% notice tip %}}You sucessfully connected to a remote Node.{{% / notice %}}
