@@ -88,6 +88,21 @@ article > aside .menu .alwaysopen > ul > li {
   padding-left: 0 !important;
 }
 
+article > aside .menu .dd-item.active > div * {
+  border-bottom: none;
+}
+
+article > aside .menu .dd-item > div * {
+  padding-left: 1rem !important;
+}
+
+article > aside .menu .dd-item.active {
+  background-color: #eee;
+  border-width: 1px 0px 1px 1px;
+  border-style: solid solid solid;
+  border-color: rgb(230, 236, 241);
+}
+
 article > aside .menu .alwaysopen > div {
   display: none !important;
 }
