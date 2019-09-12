@@ -1,6 +1,6 @@
 <div class="stegos-header-wrapper">
   <div class="stegos-header">
-      <img src="/logo.png"/>
+      <img src="/images/favicon.png"/>
       <h1>Stegos</h1>
   </div>
   <div>
