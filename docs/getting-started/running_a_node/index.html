@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to stegos!</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2019-09-19T18:14:35 &#43;07">
+<title>Running a Node :: Welcome to stegos!</title>
+<link rel="shortcut icon" href="/stegos-docs-hugo/images/favicon.png" type="image/x-icon" />
+<link href="/stegos-docs-hugo/css/font-awesome.min.css" rel="stylesheet">
+<link href="/stegos-docs-hugo/css/nucleus.css" rel="stylesheet">
+<link href="/stegos-docs-hugo/theme-flex/style.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/stegos-docs-hugo/css/bootstrap.min.css">
+<script src="/stegos-docs-hugo/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "\/stegos-docs-hugo";
+</script>
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<link href="style.css" rel="stylesheet">
+<script src="tabs.js"></script>
+
+
+    
+  </head>
+  <body data-url="/stegos-docs-hugo/getting-started/running_a_node/">
+    
+      <header>
+  <div class="logo">
+    
+	
+  
+    <div class="stegos-header-wrapper">
+  <div class="stegos-header">
+      <img src="/images/favicon.png"/>
+      <h1>Stegos</h1>
+  </div>
+  <div>
+    <div class="searchbox">
+      <input data-search-input id="search-by" type="text" placeholder="Search...">
+    </div>
+    <script type="text/javascript" src="/lunr.min.js"></script>
+    <script type="text/javascript" src="/auto-complete.js"></script>
+    <link href="/auto-complete.css" rel="stylesheet">
+    <script type="text/javascript" src="/search.js"></script>
+  </div>
+</div>
+
+  
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+</header>
+<article>
+  <aside>
+    <ul class="menu"><label>ABOUT</label>
+    <li data-nav-id="/stegos-docs-hugo/about/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/stegos-docs-hugo/about/">ABOUT</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="/stegos-docs-hugo/about/funding_and_development/" class="dd-item">
+        <div>
+          <a href="/stegos-docs-hugo/about/funding_and_development/">
+            Funding and Development
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+      <li data-nav-id="/stegos-docs-hugo/about/stg_token_and_sale/" class="dd-item">
+        <div>
+          <a href="/stegos-docs-hugo/about/stg_token_and_sale/">
+            STG Token and Sale
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+      <li data-nav-id="/stegos-docs-hugo/about/stegos_app/" class="dd-item">
+        <div>
+          <a href="/stegos-docs-hugo/about/stegos_app/">
+            Stegos App
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+      <li data-nav-id="/stegos-docs-hugo/about/privacy_blockchain/" class="dd-item">
+        <div>
+          <a href="/stegos-docs-hugo/about/privacy_blockchain/">
+            Stegos Privacy Blockchain
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+      <li data-nav-id="/stegos-docs-hugo/about/privacy/" class="dd-item">
+        <div>
+          <a href="/stegos-docs-hugo/about/privacy/">
+            Stegos Privacy Platform
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+        </ul>
+    </li><label>GETTING STARTED</label>
+    <li data-nav-id="/stegos-docs-hugo/getting-started/" class="dd-item parent alwaysopen haschildren
+        ">
+      <div>
+      <a href="/stegos-docs-hugo/getting-started/">GETTING STARTED</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="/stegos-docs-hugo/getting-started/connection_to_a_node/" class="dd-item">
+        <div>
+          <a href="/stegos-docs-hugo/getting-started/connection_to_a_node/">
+            Connecting to a Node
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+      <li data-nav-id="/stegos-docs-hugo/getting-started/installing_a_node/" class="dd-item">
+        <div>
+          <a href="/stegos-docs-hugo/getting-started/installing_a_node/">
+            Installing a node
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+      <li data-nav-id="/stegos-docs-hugo/getting-started/last_steps/" class="dd-item">
+        <div>
+          <a href="/stegos-docs-hugo/getting-started/last_steps/">
+            Last Steps
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+      <li data-nav-id="/stegos-docs-hugo/getting-started/quick_start/" class="dd-item">
+        <div>
+          <a href="/stegos-docs-hugo/getting-started/quick_start/">
+            Quick Start
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+      <li data-nav-id="/stegos-docs-hugo/getting-started/running_a_node/" class="dd-item active">
+        <div>
+          <a href="/stegos-docs-hugo/getting-started/running_a_node/">
+            Running a Node
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+      <li data-nav-id="/stegos-docs-hugo/getting-started/working_with_accounts/" class="dd-item">
+        <div>
+          <a href="/stegos-docs-hugo/getting-started/working_with_accounts/">
+            Working with Accounts
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+        </ul>
+    </li><label>FOR DEVELOPERS</label>
+    <li data-nav-id="/stegos-docs-hugo/for-developers/" class="dd-item alwaysopen haschildren
+        ">
+      <div>
+      <a href="/stegos-docs-hugo/for-developers/">FOR DEVELOPERS</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="/stegos-docs-hugo/for-developers/building_from_source/" class="dd-item">
+        <div>
+          <a href="/stegos-docs-hugo/for-developers/building_from_source/">
+            Building from Source
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+      <li data-nav-id="/stegos-docs-hugo/for-developers/data_directory_layout/" class="dd-item">
+        <div>
+          <a href="/stegos-docs-hugo/for-developers/data_directory_layout/">
+            Data Directory Layout
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+      <li data-nav-id="/stegos-docs-hugo/for-developers/websocket_api/" class="dd-item">
+        <div>
+          <a href="/stegos-docs-hugo/for-developers/websocket_api/">
+            WebSocket API
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+        </ul>
+    </li>
+
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/stegos-docs-hugo/about/" >
+   ABOUT</option> 
+      <option value="/stegos-docs-hugo/about/funding_and_development/" >- Funding and Development</option>
+      <option value="/stegos-docs-hugo/about/stg_token_and_sale/" >- STG Token and Sale</option>
+      <option value="/stegos-docs-hugo/about/stegos_app/" >- Stegos App</option>
+      <option value="/stegos-docs-hugo/about/privacy_blockchain/" >- Stegos Privacy Blockchain</option>
+      <option value="/stegos-docs-hugo/about/privacy/" >- Stegos Privacy Platform</option>
+  
+    <option value="/stegos-docs-hugo/getting-started/" >
+   GETTING STARTED</option> 
+      <option value="/stegos-docs-hugo/getting-started/connection_to_a_node/" >- Connecting to a Node</option>
+      <option value="/stegos-docs-hugo/getting-started/installing_a_node/" >- Installing a node</option>
+      <option value="/stegos-docs-hugo/getting-started/last_steps/" >- Last Steps</option>
+      <option value="/stegos-docs-hugo/getting-started/quick_start/" >- Quick Start</option>
+      <option value="/stegos-docs-hugo/getting-started/running_a_node/"  selected>- Running a Node</option>
+      <option value="/stegos-docs-hugo/getting-started/working_with_accounts/" >- Working with Accounts</option>
+  
+    <option value="/stegos-docs-hugo/for-developers/" >
+   FOR DEVELOPERS</option> 
+      <option value="/stegos-docs-hugo/for-developers/building_from_source/" >- Building from Source</option>
+      <option value="/stegos-docs-hugo/for-developers/data_directory_layout/" >- Data Directory Layout</option>
+      <option value="/stegos-docs-hugo/for-developers/websocket_api/" >- WebSocket API</option>
+  
+
+
+
+        </select>
+      </center>
+    </div>
+    
+
+    <h1>Running a Node</h1>
+    
+    
+    
+    <p>In this section we explain how to run <strong>Stegos Node</strong>.</p>
+
+<p><strong>Prerequisites:</strong></p>
+
+<ul>
+<li><a href="/stegos-docs-hugo/getting-started/installing_a_node/">Download and install Stegos Node.</a></li>
+</ul>
+
+<p>Run Stegos Node:</p>
+
+<div class="code-tabs">
+    <div class="nav nav-tabs-container"><ul class="nav-tabs"></ul></div>
+    <div class="tab-content"><div class="tab-pane" title="Linux">
+    <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./stegosd</code></pre></div>
+
+<p></div>
+<div class="tab-pane" title="macOS">
+    <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./stegosd</code></pre></div></p>
+
+<p></div>
+<div class="tab-pane" title="Docker">
+    <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -v <span style="color:#111">$PWD</span>/stegos-data:/data -t -i stegos/stegos</code></pre></div></p>
+
+<p></div></p>
+</div>
+</div>
+
+
+<p>Stegos Node will automatically create a data directory to store the blockchain and your accounts:</p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">INFO <span style="color:#f92672">[</span>stegosd<span style="color:#f92672">]</span> Data directory: /home/yourname/.local/share/stegos</code></pre></div>
+
+<p>The default path to the data directory depends on your operating system:</p>
+
+<div class="code-tabs">
+    <div class="nav nav-tabs-container"><ul class="nav-tabs"></ul></div>
+    <div class="tab-content"><div class="tab-pane" title="Linux">
+    <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#111">$HOME</span>/.local/share/stegos</code></pre></div>
+
+<p></div>
+<div class="tab-pane" title="macOS">
+    <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#111">$HOME</span>/Library/Application Support/stegos</code></pre></div></p>
+
+<p></div>
+<div class="tab-pane" title="Windows">
+    <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">C:<span style="color:#8045ff">\U</span>sers<span style="color:#8045ff">\$</span>USER<span style="color:#8045ff">\A</span>ppData<span style="color:#8045ff">\R</span>oaming</code></pre></div></p>
+
+<p></div>
+<div class="tab-pane" title="Docker">
+    <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/data/.local/share/stegos</code></pre></div></p>
+
+<p></div></p>
+</div>
+</div>
+
+
+<div class="notices note" ><p>You can override default path to the data directory by setting <code style="background-color: #eee;">STEGOS_DATA_DIR</code> environment variable or providing<code style="background-color: #eee;">&ndash;data-dir</code> command-line option.</p></div>
+
+<div class="notices note" ><p>See <a href="/stegos-docs-hugo/for-developers/data_directory_layout/"><strong>Data Directory Layout</strong></a> page for additional information about structure of this directory.</p></div>
+
+<p>On the first run, the blockchain database is initialized using  the genesis block for <code style="background-color: #eee;">testnet</code> network:</p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">INFO <span style="color:#f92672">[</span>stegosd<span style="color:#f92672">]</span> Using <span style="color:#111">genesis</span><span style="color:#f92672">=</span>14427eb426e3 <span style="color:#00a8c8">for</span> <span style="color:#d88200">&#39;testnet&#39;</span> chain</code></pre></div>
+
+<div class="notices note" ><p><p>You can override chain by setting <code style="background-color: #eee;">STEGOS_CHAIN</code> environment variable or providing <code style="background-color: #eee;">&ndash;chain</code> command line option. Supported networks:</p>
+
+<ul>
+<li><code style="background-color: #eee;">devnet</code> - development (alpha) network</li>
+<li><code style="background-color: #eee;">testnet</code> - test (beta) network</li>
+<li><del><code style="background-color: #eee;">mainnet</code> - production network (soon!)</del></li>
+</ul>
+</p></div>
+
+<p>On the second and subsequent runs, Node will check the consistency of the blockchain database on the disk. This operation can take up to 5-10 minutes. Please be patient.</p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">1</span><span style="color:#f92672">[</span>stegosd<span style="color:#f92672">]</span> Using <span style="color:#111">genesis</span><span style="color:#f92672">=</span>14427eb426e3 <span style="color:#00a8c8">for</span> <span style="color:#d88200">&#39;testnet&#39;</span> chain
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">2</span><span style="color:#f92672">[</span>stegos_blockchain::blockchain<span style="color:#f92672">]</span> Recovering blockchain from the disk...
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">3</span><span style="color:#f92672">[</span>stegos_blockchain::blockchain<span style="color:#f92672">]</span> Registered a macro block: <span style="color:#111">epoch</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, <span style="color:#111">block</span><span style="color:#f92672">=</span>14427eb426e3, <span style="color:#111">inputs</span><span style="color:#f92672">=[]</span>, <span style="color:#111">outputs</span><span style="color:#f92672">=[</span><span style="color:#d88200">&#34;efe2e7d9345e&#34;</span>, <span style="color:#d88200">&#34;c4a71cb7b835&#34;</span>, <span style="color:#d88200">&#34;a3ed2635fd36&#34;</span>, <span style="color:#d88200">&#34;bd36a6c800e0&#34;</span>, <span style="color:#d88200">&#34;6d40fe3a0032&#34;</span>, <span style="color:#d88200">&#34;6d9e1b1b90a0&#34;</span>, <span style="color:#d88200">&#34;ab37d6de1139&#34;</span>, <span style="color:#d88200">&#34;e93466e994ee&#34;</span>, <span style="color:#d88200">&#34;9970bfac521a&#34;</span>, <span style="color:#d88200">&#34;e5790f9a6867&#34;</span>, <span style="color:#d88200">&#34;d52afa361b21&#34;</span>, <span style="color:#d88200">&#34;13565df8dbd5&#34;</span>, <span style="color:#d88200">&#34;2cda2eee109e&#34;</span>, <span style="color:#d88200">&#34;9769fdebb0bb&#34;</span>, <span style="color:#d88200">&#34;509357d0641a&#34;</span>, <span style="color:#d88200">&#34;ca8ebc480107&#34;</span>, <span style="color:#d88200">&#34;b7e01f660353&#34;</span>, <span style="color:#d88200">&#34;32ea8bb76ffc&#34;</span>, <span style="color:#d88200">&#34;4c9308e435f4&#34;</span>, <span style="color:#d88200">&#34;ad49e09badb6&#34;</span>, <span style="color:#d88200">&#34;dd73ad6ed665&#34;</span>, <span style="color:#d88200">&#34;4ca223595e0f&#34;</span>, <span style="color:#d88200">&#34;e6ac9c730b29&#34;</span>, <span style="color:#d88200">&#34;58cbbce24c97&#34;</span>, <span style="color:#d88200">&#34;67bf703e0898&#34;</span>, <span style="color:#d88200">&#34;d9befd7ce04a&#34;</span>, <span style="color:#d88200">&#34;78012f4be696&#34;</span>, <span style="color:#d88200">&#34;d7063c1d0045&#34;</span>, <span style="color:#d88200">&#34;89a9c2f846ca&#34;</span>, <span style="color:#d88200">&#34;df7b60876366&#34;</span>, <span style="color:#d88200">&#34;3f0beb5ca4f5&#34;</span>, <span style="color:#d88200">&#34;51258f1845d1&#34;</span>, <span style="color:#d88200">&#34;afccfddc0cd5&#34;</span><span style="color:#f92672">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">4</span><span style="color:#f92672">[</span>stegos_blockchain::blockchain<span style="color:#f92672">]</span> Registered a macro block: <span style="color:#111">epoch</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, <span style="color:#111">block</span><span style="color:#f92672">=</span>8c34ff7da352, <span style="color:#111">inputs</span><span style="color:#f92672">=[]</span>, <span style="color:#111">outputs</span><span style="color:#f92672">=[</span><span style="color:#d88200">&#34;a8f300945a8a&#34;</span>, <span style="color:#d88200">&#34;9edc64443130&#34;</span>, <span style="color:#d88200">&#34;46f095ce0594&#34;</span>, <span style="color:#d88200">&#34;0cac9d0dd3d7&#34;</span>, <span style="color:#d88200">&#34;97392156e93d&#34;</span>, <span style="color:#d88200">&#34;b9c408dbd550&#34;</span>, <span style="color:#d88200">&#34;209eba3aaf3f&#34;</span>, <span style="color:#d88200">&#34;325c858befc5&#34;</span>, <span style="color:#d88200">&#34;5d4f4372c103&#34;</span>, <span style="color:#d88200">&#34;04b03bf17bc9&#34;</span>, <span style="color:#d88200">&#34;0607bdc14073&#34;</span>, <span style="color:#d88200">&#34;f21292825d84&#34;</span>, <span style="color:#d88200">&#34;9f6e4229a9f9&#34;</span>, <span style="color:#d88200">&#34;e614d8a02f7f&#34;</span>, <span style="color:#d88200">&#34;f5ca20492fbb&#34;</span>, <span style="color:#d88200">&#34;bb886be5966d&#34;</span>, <span style="color:#d88200">&#34;0cf4bb2d8c31&#34;</span>, <span style="color:#d88200">&#34;a559b615edf2&#34;</span>, <span style="color:#d88200">&#34;8ad7f6099d81&#34;</span>, <span style="color:#d88200">&#34;3dad6b04228b&#34;</span>, <span style="color:#d88200">&#34;ead1c71307e2&#34;</span>, <span style="color:#d88200">&#34;4b47b44b2fb1&#34;</span>, <span style="color:#d88200">&#34;c40831afc9b7&#34;</span>, <span style="color:#d88200">&#34;1f7a4bc9e378&#34;</span>, <span style="color:#d88200">&#34;9e9f08f64fca&#34;</span>, <span style="color:#d88200">&#34;5b8c3dbffa50&#34;</span>, <span style="color:#d88200">&#34;76ae82695b03&#34;</span>, <span style="color:#d88200">&#34;dcf7795be52d&#34;</span>, <span style="color:#d88200">&#34;2bb779ce372c&#34;</span>, <span style="color:#d88200">&#34;87b267f184d2&#34;</span>, <span style="color:#d88200">&#34;e373574277a6&#34;</span>, <span style="color:#d88200">&#34;50e60e1151b5&#34;</span>, <span style="color:#d88200">&#34;3dd502af80e9&#34;</span>, <span style="color:#d88200">&#34;b33faf0b21ef&#34;</span>, <span style="color:#d88200">&#34;b3fb1df41d76&#34;</span>, <span style="color:#d88200">&#34;ad0afdb1e95c&#34;</span>, <span style="color:#d88200">&#34;c43b37515e84&#34;</span>, <span style="color:#d88200">&#34;2c6823c292a1&#34;</span>, <span style="color:#d88200">&#34;64c158a5a5b3&#34;</span>, <span style="color:#d88200">&#34;20efaf2cb1c8&#34;</span>, <span style="color:#d88200">&#34;4ab7b2661820&#34;</span>, <span style="color:#d88200">&#34;12c7e3d3fbc2&#34;</span>, <span style="color:#d88200">&#34;845ce2965787&#34;</span>, <span style="color:#d88200">&#34;42c16d0defcd&#34;</span>, <span style="color:#d88200">&#34;b8c8c9465b84&#34;</span>, <span style="color:#d88200">&#34;de6add48034a&#34;</span>, <span style="color:#d88200">&#34;7b99ae3c76b3&#34;</span>, <span style="color:#d88200">&#34;26ee7635d1c0&#34;</span>, <span style="color:#d88200">&#34;f446aa044ce6&#34;</span>, <span style="color:#d88200">&#34;a3cdf784fe00&#34;</span>, <span style="color:#d88200">&#34;1fbb6a34fe89&#34;</span>, <span style="color:#d88200">&#34;905b46d31104&#34;</span>, <span style="color:#d88200">&#34;944ca6d65631&#34;</span>, <span style="color:#d88200">&#34;c167c69d436d&#34;</span>, <span style="color:#d88200">&#34;9a0b1fd3c2bc&#34;</span>, <span style="color:#d88200">&#34;f85b02998195&#34;</span>, <span style="color:#d88200">&#34;32dce33b0c13&#34;</span>, <span style="color:#d88200">&#34;dcd41e8ef966&#34;</span>, <span style="color:#d88200">&#34;f8e4d03537bd&#34;</span>, <span style="color:#d88200">&#34;c69fce88a5d4&#34;</span>, <span style="color:#d88200">&#34;83d7f566b524&#34;</span><span style="color:#f92672">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">5</span><span style="color:#f92672">[</span>stegos_blockchain::blockchain<span style="color:#f92672">]</span> Registered a macro block: <span style="color:#111">epoch</span><span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, <span style="color:#111">block</span><span style="color:#f92672">=</span><span style="color:#ae81ff">274097597131</span>, <span style="color:#111">inputs</span><span style="color:#f92672">=[</span><span style="color:#d88200">&#34;df7b60876366&#34;</span><span style="color:#f92672">]</span>, <span style="color:#111">outputs</span><span style="color:#f92672">=[</span><span style="color:#d88200">&#34;9c3940c6e076&#34;</span>, <span style="color:#d88200">&#34;01470fe655a6&#34;</span>, <span style="color:#d88200">&#34;8806f75cd82f&#34;</span>, <span style="color:#d88200">&#34;66b81b8bb919&#34;</span>, <span style="color:#d88200">&#34;af471428709e&#34;</span>, <span style="color:#d88200">&#34;a43e044d68be&#34;</span>, <span style="color:#d88200">&#34;6f343c12a4e9&#34;</span>, <span style="color:#d88200">&#34;67d5eaedf65c&#34;</span>, <span style="color:#d88200">&#34;e494ddf85ec7&#34;</span>, <span style="color:#d88200">&#34;f95f2be1f42a&#34;</span>, <span style="color:#d88200">&#34;141f73623e9e&#34;</span>, <span style="color:#d88200">&#34;b555fe2de42c&#34;</span>, <span style="color:#d88200">&#34;53928e98fd0b&#34;</span>, <span style="color:#d88200">&#34;e939bb5ef56b&#34;</span>, <span style="color:#d88200">&#34;aeace9f6e5f3&#34;</span>, <span style="color:#d88200">&#34;da74fb13a672&#34;</span>, <span style="color:#d88200">&#34;baecaffa851d&#34;</span>, <span style="color:#d88200">&#34;e57c250a77d0&#34;</span>, <span style="color:#d88200">&#34;0259b9d7cd8a&#34;</span>, <span style="color:#d88200">&#34;282e5e9c1bb5&#34;</span>, <span style="color:#d88200">&#34;372d47439e78&#34;</span>, <span style="color:#d88200">&#34;6a4fc72491f8&#34;</span>, <span style="color:#d88200">&#34;e17611610d72&#34;</span>, <span style="color:#d88200">&#34;002ce2e1f3df&#34;</span>, <span style="color:#d88200">&#34;83260c621946&#34;</span>, <span style="color:#d88200">&#34;228cad3b252d&#34;</span>, <span style="color:#d88200">&#34;c0b5df04cb7d&#34;</span>, <span style="color:#d88200">&#34;ae58feab2295&#34;</span>, <span style="color:#d88200">&#34;e7025e2eb49e&#34;</span>, <span style="color:#d88200">&#34;af46fd1978cc&#34;</span>, <span style="color:#d88200">&#34;bae56df971bd&#34;</span>, <span style="color:#d88200">&#34;db9df5c88c5c&#34;</span>, <span style="color:#d88200">&#34;24d6bb6376ce&#34;</span>, <span style="color:#d88200">&#34;383fa2cfa811&#34;</span>, <span style="color:#d88200">&#34;e181ff8520c7&#34;</span>, <span style="color:#d88200">&#34;55ccb45a998a&#34;</span>, <span style="color:#d88200">&#34;8189ae47c22e&#34;</span>, <span style="color:#d88200">&#34;d88c0e6fb5e4&#34;</span>, <span style="color:#d88200">&#34;f5e458be8d07&#34;</span>, <span style="color:#d88200">&#34;3d36f28775fe&#34;</span>, <span style="color:#d88200">&#34;69316a81c942&#34;</span>, <span style="color:#d88200">&#34;30ad978c6f31&#34;</span>, <span style="color:#d88200">&#34;3cc5ae9fbf8f&#34;</span>, <span style="color:#d88200">&#34;623c7b7dae49&#34;</span>, <span style="color:#d88200">&#34;ebe313be39cd&#34;</span>, <span style="color:#d88200">&#34;9daaa3ac1f23&#34;</span>, <span style="color:#d88200">&#34;c99b1fdcd022&#34;</span>, <span style="color:#d88200">&#34;fb99227757ce&#34;</span>, <span style="color:#d88200">&#34;f6495e60c45e&#34;</span>, <span style="color:#d88200">&#34;8d71dc0cad92&#34;</span>, <span style="color:#d88200">&#34;bc790a445345&#34;</span>, <span style="color:#d88200">&#34;22c50c2e9539&#34;</span>, <span style="color:#d88200">&#34;2556ea4535a3&#34;</span>, <span style="color:#d88200">&#34;0e5dbc3eb5d0&#34;</span>, <span style="color:#d88200">&#34;10d165e3a8f4&#34;</span>, <span style="color:#d88200">&#34;f427f3cee49a&#34;</span>, <span style="color:#d88200">&#34;3c5ad92b70fa&#34;</span>, <span style="color:#d88200">&#34;ec3ada2b9786&#34;</span>, <span style="color:#d88200">&#34;c28056a38da0&#34;</span>, <span style="color:#d88200">&#34;d75afb405c3b&#34;</span>, <span style="color:#d88200">&#34;dfb71c7eb398&#34;</span>, <span style="color:#d88200">&#34;79eb0020d601&#34;</span>, <span style="color:#d88200">&#34;21298b435832&#34;</span><span style="color:#f92672">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">6</span><span style="color:#f92672">[</span>stegos_blockchain::blockchain<span style="color:#f92672">]</span> Registered a macro block: <span style="color:#111">epoch</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, <span style="color:#111">block</span><span style="color:#f92672">=</span>afe9ad950976, <span style="color:#111">inputs</span><span style="color:#f92672">=[</span><span style="color:#d88200">&#34;e6ac9c730b29&#34;</span>, <span style="color:#d88200">&#34;efe2e7d9345e&#34;</span>, <span style="color:#d88200">&#34;d9befd7ce04a&#34;</span>, <span style="color:#d88200">&#34;51258f1845d1&#34;</span>, <span style="color:#d88200">&#34;dd73ad6ed665&#34;</span>, <span style="color:#d88200">&#34;c4a71cb7b835&#34;</span>, <span style="color:#d88200">&#34;e5790f9a6867&#34;</span>, <span style="color:#d88200">&#34;a3ed2635fd36&#34;</span>, <span style="color:#d88200">&#34;9970bfac521a&#34;</span>, <span style="color:#d88200">&#34;13565df8dbd5&#34;</span>, <span style="color:#d88200">&#34;4ca223595e0f&#34;</span>, <span style="color:#d88200">&#34;e93466e994ee&#34;</span>, <span style="color:#d88200">&#34;32ea8bb76ffc&#34;</span>, <span style="color:#d88200">&#34;6d40fe3a0032&#34;</span>, <span style="color:#d88200">&#34;3f0beb5ca4f5&#34;</span>, <span style="color:#d88200">&#34;67bf703e0898&#34;</span>, <span style="color:#d88200">&#34;2cda2eee109e&#34;</span>, <span style="color:#d88200">&#34;6d9e1b1b90a0&#34;</span>, <span style="color:#d88200">&#34;ab37d6de1139&#34;</span>, <span style="color:#d88200">&#34;ad49e09badb6&#34;</span>, <span style="color:#d88200">&#34;58cbbce24c97&#34;</span>, <span style="color:#d88200">&#34;9769fdebb0bb&#34;</span>, <span style="color:#d88200">&#34;bd36a6c800e0&#34;</span>, <span style="color:#d88200">&#34;ca8ebc480107&#34;</span>, <span style="color:#d88200">&#34;78012f4be696&#34;</span>, <span style="color:#d88200">&#34;afccfddc0cd5&#34;</span>, <span style="color:#d88200">&#34;509357d0641a&#34;</span>, <span style="color:#d88200">&#34;b7e01f660353&#34;</span>, <span style="color:#d88200">&#34;d7063c1d0045&#34;</span>, <span style="color:#d88200">&#34;4c9308e435f4&#34;</span>, <span style="color:#d88200">&#34;89a9c2f846ca&#34;</span>, <span style="color:#d88200">&#34;d52afa361b21&#34;</span><span style="color:#f92672">]</span>, <span style="color:#111">outputs</span><span style="color:#f92672">=[</span><span style="color:#d88200">&#34;301bea8310fa&#34;</span>, <span style="color:#d88200">&#34;b8c790e99d95&#34;</span>, <span style="color:#d88200">&#34;d1d6ae437e73&#34;</span>, <span style="color:#d88200">&#34;0728ea85e189&#34;</span>, <span style="color:#d88200">&#34;7803a6edd227&#34;</span>, <span style="color:#d88200">&#34;d0e0046c4eb3&#34;</span>, <span style="color:#d88200">&#34;bd146c52986e&#34;</span>, <span style="color:#d88200">&#34;f01fd098de0d&#34;</span>, <span style="color:#d88200">&#34;9e7fb4c810a4&#34;</span>, <span style="color:#d88200">&#34;fe3c936f3df8&#34;</span>, <span style="color:#d88200">&#34;be4278261f13&#34;</span>, <span style="color:#d88200">&#34;c7cfd507e5aa&#34;</span>, <span style="color:#d88200">&#34;37b49401e33d&#34;</span>, <span style="color:#d88200">&#34;2a6efca368be&#34;</span>, <span style="color:#d88200">&#34;b605703068b6&#34;</span>, <span style="color:#d88200">&#34;e368d52f5d2c&#34;</span>, <span style="color:#d88200">&#34;027a2c59642f&#34;</span>, <span style="color:#d88200">&#34;75bfa5069496&#34;</span>, <span style="color:#d88200">&#34;35e1fcc3724b&#34;</span>, <span style="color:#d88200">&#34;50e2296dfcf7&#34;</span>, <span style="color:#d88200">&#34;3c896545e656&#34;</span>, <span style="color:#d88200">&#34;973f2e0d0a54&#34;</span>, <span style="color:#d88200">&#34;c54883a0cb3d&#34;</span>, <span style="color:#d88200">&#34;f44be65bb2fb&#34;</span>, <span style="color:#d88200">&#34;ced904878a8e&#34;</span>, <span style="color:#d88200">&#34;01320612f3cf&#34;</span>, <span style="color:#d88200">&#34;07d5ea062f85&#34;</span>, <span style="color:#d88200">&#34;96ba5da7d867&#34;</span>, <span style="color:#d88200">&#34;8b61720550a6&#34;</span>, <span style="color:#d88200">&#34;b938c06c645f&#34;</span>, <span style="color:#d88200">&#34;047cd87af55e&#34;</span>, <span style="color:#d88200">&#34;4b1f8545260c&#34;</span>, <span style="color:#d88200">&#34;b0c28959fbe6&#34;</span>, <span style="color:#d88200">&#34;3c48950769e2&#34;</span>, <span style="color:#d88200">&#34;03e4fbfb5622&#34;</span>, <span style="color:#d88200">&#34;e935a278f82d&#34;</span>, <span style="color:#d88200">&#34;63dda65fac00&#34;</span>, <span style="color:#d88200">&#34;7af778726225&#34;</span>, <span style="color:#d88200">&#34;14e6a0351389&#34;</span>, <span style="color:#d88200">&#34;3bd1db2070dc&#34;</span>, <span style="color:#d88200">&#34;a189f86079b5&#34;</span>, <span style="color:#d88200">&#34;15c03c0bb956&#34;</span>, <span style="color:#d88200">&#34;9878c270bae4&#34;</span>, <span style="color:#d88200">&#34;532961ad49e5&#34;</span>, <span style="color:#d88200">&#34;fc42087cffa2&#34;</span>, <span style="color:#d88200">&#34;936abb6b7bc6&#34;</span>, <span style="color:#d88200">&#34;e8c4fcd68653&#34;</span>, <span style="color:#d88200">&#34;276e844c765a&#34;</span>, <span style="color:#d88200">&#34;a8c45a3b3110&#34;</span>, <span style="color:#d88200">&#34;00d99d457ddb&#34;</span>, <span style="color:#d88200">&#34;3765063bdf75&#34;</span>, <span style="color:#d88200">&#34;c3e20c933efb&#34;</span>, <span style="color:#d88200">&#34;db8b39163254&#34;</span>, <span style="color:#d88200">&#34;70c57bdd4941&#34;</span>, <span style="color:#d88200">&#34;82dee76e676b&#34;</span>, <span style="color:#d88200">&#34;c3ee9fd47fa7&#34;</span>, <span style="color:#d88200">&#34;a88169922017&#34;</span>, <span style="color:#d88200">&#34;89b8ecfe4e7c&#34;</span>, <span style="color:#d88200">&#34;658dbdbddbb8&#34;</span>, <span style="color:#d88200">&#34;ac13dcf56664&#34;</span>, <span style="color:#d88200">&#34;ccb8bdc3e371&#34;</span>, <span style="color:#d88200">&#34;143c257ed620&#34;</span>, <span style="color:#d88200">&#34;71739d5f2543&#34;</span>, <span style="color:#d88200">&#34;5d6405078679&#34;</span>, <span style="color:#d88200">&#34;586ae92e3877&#34;</span>, <span style="color:#d88200">&#34;e9f0caf69630&#34;</span>, <span style="color:#d88200">&#34;d35ac9cf9f46&#34;</span>, <span style="color:#d88200">&#34;3665891f804b&#34;</span>, <span style="color:#d88200">&#34;88afc847a17a&#34;</span>, <span style="color:#d88200">&#34;340ab11c8064&#34;</span>, <span style="color:#d88200">&#34;9372ed5ca2f2&#34;</span>, <span style="color:#d88200">&#34;6ab4291eab78&#34;</span>, <span style="color:#d88200">&#34;c10770d5cdad&#34;</span>, <span style="color:#d88200">&#34;5c40e979efb1&#34;</span>, <span style="color:#d88200">&#34;ae0df4519a9b&#34;</span>, <span style="color:#d88200">&#34;c29ca68aa7e2&#34;</span>, <span style="color:#d88200">&#34;ecf0365e0597&#34;</span>, <span style="color:#d88200">&#34;3dc26cb08549&#34;</span>, <span style="color:#d88200">&#34;d3360fcbc420&#34;</span>, <span style="color:#d88200">&#34;24dfbc886752&#34;</span>, <span style="color:#d88200">&#34;60c1d399f7b3&#34;</span>, <span style="color:#d88200">&#34;59c70d298aff&#34;</span>, <span style="color:#d88200">&#34;0cbcc1975da8&#34;</span>, <span style="color:#d88200">&#34;c88be76db421&#34;</span>, <span style="color:#d88200">&#34;c9a60c11f51c&#34;</span>, <span style="color:#d88200">&#34;f4672510fcff&#34;</span>, <span style="color:#d88200">&#34;de95ce00b33a&#34;</span>, <span style="color:#d88200">&#34;6918fa5c6538&#34;</span>, <span style="color:#d88200">&#34;0da55655a66b&#34;</span>, <span style="color:#d88200">&#34;9fa719012ba5&#34;</span>, <span style="color:#d88200">&#34;e0d75d4c90dd&#34;</span>, <span style="color:#d88200">&#34;73467e041581&#34;</span>, <span style="color:#d88200">&#34;0ad4bf2f1a96&#34;</span><span style="color:#f92672">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">7</span>...
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">8</span><span style="color:#f92672">[</span>stegos_blockchain::blockchain<span style="color:#f92672">]</span> Recovered blockchain from the disk: <span style="color:#111">epoch</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3855</span>, <span style="color:#111">offset</span><span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, <span style="color:#111">last_block</span><span style="color:#f92672">=</span>e4aa224936e9</code></pre></div>
+
+<p><div class="notices note" ><p>Please use different data directories for different networks, e.g. <code style="background-color: #eee;">&ndash;data-dir path/to/testnet</code> for <code style="background-color: #eee;">testnet</code>, <code style="background-color: #eee;">&ndash;data-dir path/to/mainnet</code> for <code style="background-color: #eee;">mainnet</code>.</p></div></p>
+
+<p>The WebSocket API server will start on 3145 port:</p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">1</span>INFO <span style="color:#f92672">[</span>stegos_api::server<span style="color:#f92672">]</span> Starting API Server on <span style="color:#ae81ff">127</span>.0.0.1:3145</code></pre></div>
+
+<p>The network layer will try to authenticate in peer-to-peer network:</p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">1</span><span style="color:#f92672">[</span>stegosd<span style="color:#f92672">]</span> Adding node from seed pool: /ip4/52.221.197.23/tcp/10056
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">2</span><span style="color:#f92672">[</span>stegosd<span style="color:#f92672">]</span> Adding node from seed pool: /ip4/54.89.181.2/tcp/10056
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">3</span><span style="color:#f92672">[</span>stegosd<span style="color:#f92672">]</span> Adding node from seed pool: /ip4/54.254.166.86/tcp/10056
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">4</span>...
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">5</span><span style="color:#f92672">[</span>stegos_network::libp2p_network<span style="color:#f92672">]</span> Network endpoints: <span style="color:#111">node_id</span><span style="color:#f92672">=</span>775070b757e1, <span style="color:#111">peer_id</span><span style="color:#f92672">=</span>QmVmURFbMiHpcRyGzXnkyS6NiPPv2UquZzr2muDuwdQoR1
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">6</span><span style="color:#f92672">[</span>stegos_network::gatekeeper::behavior<span style="color:#f92672">]</span> Solving a VDF puzzle: <span style="color:#111">peer_id</span><span style="color:#f92672">=</span>PeerId<span style="color:#f92672">(</span><span style="color:#d88200">&#34;QmXrDG958SkPrQ95ZVcwKmvh9GTLtXitqxhqmWAVhNWMZg&#34;</span><span style="color:#f92672">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">7</span><span style="color:#f92672">[</span>stegos_network::gatekeeper::behavior<span style="color:#f92672">]</span> Solved a VDF puzzle: <span style="color:#111">peer_id</span><span style="color:#f92672">=</span>PeerId<span style="color:#f92672">(</span><span style="color:#d88200">&#34;QmXrDG958SkPrQ95ZVcwKmvh9GTLtXitqxhqmWAVhNWMZg&#34;</span><span style="color:#f92672">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">8</span>...
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">9</span>INFO <span style="color:#f92672">[</span>stegosd<span style="color:#f92672">]</span> Network is ready</code></pre></div>
+
+<p>After connecting to the network, Node will try to synchronize the blockchain database:</p>
+
+<p><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 1</span>INFO <span style="color:#f92672">[</span>stegos_node::loader<span style="color:#f92672">]</span> Downloading blocks: <span style="color:#111">from</span><span style="color:#f92672">=</span>481ba8e8d5d9, <span style="color:#111">epoch</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, <span style="color:#111">reason</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;init&#39;</span>                                                                                             <span style="color:#ae81ff">2019</span>-08-12 <span style="color:#ae81ff">15</span>:40:06 INFO <span style="color:#f92672">[</span>stegos_network::gatekeeper::behavior<span style="color:#f92672">]</span> Solving a VDF puzzle: <span style="color:#111">peer_id</span><span style="color:#f92672">=</span>PeerId<span style="color:#f92672">(</span><span style="color:#d88200">&#34;QmNVoa8fDUkNaZhcNqLvakaaZH8TZiyS2gLs5rdHTLeN3t&#34;</span><span style="color:#f92672">)</span>                                                   
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 2</span>INFO <span style="color:#f92672">[</span>stegos_node::loader<span style="color:#f92672">]</span> Received blocks: <span style="color:#111">from</span><span style="color:#f92672">=</span>481ba8e8d5d9, <span style="color:#111">first_epoch</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, <span style="color:#111">our_epoch</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, <span style="color:#111">last_epoch</span><span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>, <span style="color:#111">num_blocks</span><span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>                                                              
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 3</span>INFO <span style="color:#f92672">[</span>stegos_node::loader<span style="color:#f92672">]</span> Downloading blocks: <span style="color:#111">from</span><span style="color:#f92672">=</span>ccea059db0a1, <span style="color:#111">epoch</span><span style="color:#f92672">=</span><span style="color:#ae81ff">51</span>, <span style="color:#111">reason</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;prefetch&#39;</span>                                                                                        
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 4</span>INFO <span style="color:#f92672">[</span>stegos_blockchain::blockchain<span style="color:#f92672">]</span> Registered a macro block: <span style="color:#111">epoch</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, <span style="color:#111">block</span><span style="color:#f92672">=</span>8c34ff7da352, <span style="color:#111">inputs</span><span style="color:#f92672">=[]</span>, <span style="color:#111">outputs</span><span style="color:#f92672">=[</span><span style="color:#d88200">&#34;845ce2965787&#34;</span>, <span style="color:#d88200">&#34;42c16d0defcd&#34;</span>, <span style="color:#d88200">&#34;ead1c71307e2&#34;</span>, <span style="color:#d88200">&#34;1fbb6a34fe89&#34;</span>, <span style="color:#d88200">&#34;c69f
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 5</span><span style="color:#d88200">ce88a5d4&#34;</span>, <span style="color:#d88200">&#34;a559b615edf2&#34;</span>, <span style="color:#d88200">&#34;26ee7635d1c0&#34;</span>, <span style="color:#d88200">&#34;a3cdf784fe00&#34;</span>, <span style="color:#d88200">&#34;4b47b44b2fb1&#34;</span>, <span style="color:#d88200">&#34;0cac9d0dd3d7&#34;</span>, <span style="color:#d88200">&#34;83d7f566b524&#34;</span>, <span style="color:#d88200">&#34;f21292825d84&#34;</span>, <span style="color:#d88200">&#34;3dad6b04228b&#34;</span>, <span style="color:#d88200">&#34;9a0b1fd3c2bc&#34;</span>, <span style="color:#d88200">&#34;dcf7795be52d&#34;</span>, <span style="color:#d88200">&#34;0607bdc14073&#34;</span>, <span style="color:#d88200">&#34;9e9f08f64fca&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 6</span>, <span style="color:#d88200">&#34;f8e4d03537bd&#34;</span>, <span style="color:#d88200">&#34;b9c408dbd550&#34;</span>, <span style="color:#d88200">&#34;76ae82695b03&#34;</span>, <span style="color:#d88200">&#34;8ad7f6099d81&#34;</span>, <span style="color:#d88200">&#34;32dce33b0c13&#34;</span>, <span style="color:#d88200">&#34;97392156e93d&#34;</span>, <span style="color:#d88200">&#34;9f6e4229a9f9&#34;</span>, <span style="color:#d88200">&#34;4ab7b2661820&#34;</span>, <span style="color:#d88200">&#34;20efaf2cb1c8&#34;</span>, <span style="color:#d88200">&#34;2c6823c292a1&#34;</span>, <span style="color:#d88200">&#34;3dd502af80e9&#34;</span>, <span style="color:#d88200">&#34;5d4f4372c103&#34;</span>, <span style="color:#d88200">&#34;f85b02
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 7</span><span style="color:#d88200">998195&#34;</span>, <span style="color:#d88200">&#34;e614d8a02f7f&#34;</span>, <span style="color:#d88200">&#34;b33faf0b21ef&#34;</span>, <span style="color:#d88200">&#34;50e60e1151b5&#34;</span>, <span style="color:#d88200">&#34;dcd41e8ef966&#34;</span>, <span style="color:#d88200">&#34;c43b37515e84&#34;</span>, <span style="color:#d88200">&#34;f5ca20492fbb&#34;</span>, <span style="color:#d88200">&#34;0cf4bb2d8c31&#34;</span>, <span style="color:#d88200">&#34;c40831afc9b7&#34;</span>, <span style="color:#d88200">&#34;c167c69d436d&#34;</span>, <span style="color:#d88200">&#34;2bb779ce372c&#34;</span>, <span style="color:#d88200">&#34;bb886be5966d&#34;</span>, <span style="color:#d88200">&#34;b8c8c9465b84&#34;</span>,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 8</span><span style="color:#d88200">&#34;9edc64443130&#34;</span>, <span style="color:#d88200">&#34;64c158a5a5b3&#34;</span>, <span style="color:#d88200">&#34;a8f300945a8a&#34;</span>, <span style="color:#d88200">&#34;46f095ce0594&#34;</span>, <span style="color:#d88200">&#34;f446aa044ce6&#34;</span>, <span style="color:#d88200">&#34;209eba3aaf3f&#34;</span>, <span style="color:#d88200">&#34;7b99ae3c76b3&#34;</span>, <span style="color:#d88200">&#34;325c858befc5&#34;</span>, <span style="color:#d88200">&#34;e373574277a6&#34;</span>, <span style="color:#d88200">&#34;5b8c3dbffa50&#34;</span>, <span style="color:#d88200">&#34;de6add48034a&#34;</span>, <span style="color:#d88200">&#34;87b267f184d2&#34;</span>, <span style="color:#d88200">&#34;1f7a4bc9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 9</span><span style="color:#d88200">e378&#34;</span>, <span style="color:#d88200">&#34;b3fb1df41d76&#34;</span>, <span style="color:#d88200">&#34;905b46d31104&#34;</span>, <span style="color:#d88200">&#34;04b03bf17bc9&#34;</span>, <span style="color:#d88200">&#34;12c7e3d3fbc2&#34;</span>, <span style="color:#d88200">&#34;ad0afdb1e95c&#34;</span>, <span style="color:#d88200">&#34;944ca6d65631&#34;</span><span style="color:#f92672">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">10</span>..
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">11</span>INFO <span style="color:#f92672">[</span>stegos_node<span style="color:#f92672">]</span> Synchronized with the network: <span style="color:#111">epoch</span><span style="color:#f92672">=</span><span style="color:#ae81ff">100500</span>, <span style="color:#111">last_block</span><span style="color:#f92672">=</span>8c34ff7da352</code></pre></div></p>
+
+<p>Synchronization can take up to one day. Please be patient and wait for &ldquo;Synchronized with the network&rdquo; message.</p>
+
+<p><div class="notices tip" ><p>Your Node is up running.</p></div></p>
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="/stegos-docs-hugo/getting-started/quick_start/" title="Quick Start"> <i class="fa fa-chevron-left"></i><label>Quick Start</label></a>
+    <a class="nav nav-next" href="/stegos-docs-hugo/getting-started/working_with_accounts/" title="Working with Accounts" style="margin-right: 0px;"><label>Working with Accounts</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+    <div class="author">
+        <i class='fa fa-user'></i> <a href="mailto:">Alaze</a>
+    </div>
+    
+
+    
+
+    
+    <div class="github-link">
+      <a href="https://github.com/vjeantet/hugo-theme-docdock/edit/master/exampleSite/content/getting%20started/Running_a_Node.md" target="blank"><i class="fa fa-code-fork"></i>
+        Improve this page</a>
+    </div>
+    
+  </div>
+
+
+	<div>
+
+
+  
+    Create a content/_footer.md file to customize the footer content
+  
+
+
+
+	</div>
+</footer>
+
+<script src="/stegos-docs-hugo/js/clipboard.min.js"></script>
+
+<link href="/stegos-docs-hugo/css/featherlight.min.css" rel="stylesheet">
+<script src="/stegos-docs-hugo/js/featherlight.min.js"></script>
+
+
+
+<script src="/stegos-docs-hugo/theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  </body>
+</html>

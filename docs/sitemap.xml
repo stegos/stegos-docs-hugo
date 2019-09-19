@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/stegos-docs-hugo/about/</loc>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/getting-started/</loc>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/for-developers/</loc>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/_header/</loc>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/</loc>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/for-developers/building_from_source/</loc>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/getting-started/connection_to_a_node/</loc>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/for-developers/data_directory_layout/</loc>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/about/funding_and_development/</loc>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/getting-started/installing_a_node/</loc>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/getting-started/last_steps/</loc>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/getting-started/quick_start/</loc>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/getting-started/running_a_node/</loc>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/about/stg_token_and_sale/</loc>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/about/stegos_app/</loc>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/about/privacy_blockchain/</loc>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/about/privacy/</loc>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/for-developers/websocket_api/</loc>
+  </url>
+  
+  <url>
+    <loc>/stegos-docs-hugo/getting-started/working_with_accounts/</loc>
+  </url>
+  
+</urlset>

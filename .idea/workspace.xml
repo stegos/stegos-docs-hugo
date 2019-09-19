@@ -2,25 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85845431-cece-4238-b827-7257ace51bd4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/config.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/about/Funding_and_development.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/about/Funding_and_development.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/about/STG_token_and_sale.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/about/STG_token_and_sale.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/about/Stegos_app.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/about/Stegos_app.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/about/privacy.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/about/privacy.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/about/privacy_blockchain.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/about/privacy_blockchain.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/for developers/Building_from_source.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/for developers/Building_from_source.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/for developers/Data_Directory_Layout.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/for developers/Data_Directory_Layout.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/for developers/WebSocket_api.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/for developers/WebSocket_api.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/for developers/_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/for developers/_index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/getting started/Connection_to_a_node.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/getting started/Connection_to_a_node.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/getting started/Installing_a_node.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/getting started/Installing_a_node.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/getting started/Last_Steps.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/getting started/Last_Steps.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/getting started/Quick_start.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/getting started/Quick_start.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/getting started/Running_a_Node.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/getting started/Running_a_Node.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/getting started/Working_with_Accounts.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/getting started/Working_with_Accounts.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/getting started/_index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/getting started/_index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/partials/head_includes.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/shortcodes/tabs_script.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/docdock" beforeDir="false" afterPath="$PROJECT_DIR$/themes/docdock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/docdock/layouts/shortcodes/notice.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/docdock/layouts/shortcodes/notice.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/docdock/static/theme-flex/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/docdock/static/theme-flex/style.css" afterDir="false" />
@@ -138,6 +119,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -172,16 +154,18 @@
       <workItem from="1568190770437" duration="131000" />
       <workItem from="1568190919441" duration="54000" />
       <workItem from="1568199154121" duration="649000" />
+      <workItem from="1568276029910" duration="37000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="834000" />
+    <option name="totallyTimeSpent" value="871000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1044" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25506938" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25773746" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
