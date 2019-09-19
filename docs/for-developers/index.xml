@@ -36,7 +36,7 @@
       
       <guid>/stegos-docs-hugo/for-developers/websocket_api/</guid>
       <description>Stegos Node offers experimental asynchronous WebSocket API. This API allow you to manage accounts, create and track transactions, receive notifications and so on.
- Prerequisites Protocol  Framing Payload Remote Procedure Calls Notifications  Wallet RPC API  List Accounts Create Account Delete Account Getting Recovery Phrase Recover Account Unseal Account Seal Account Account Information Change Password Account Information Balance Information UTXO Information Payment Cloak Stake Unstake Restake Validate Certificate Payment History  Wallet Notifications  Balance Changed Tokens Received Tokens Spent Tokens Staked Tokens Unstaked Transaction Status Snowball Status  Node RPC API  Escrow Information Election Information Enable Restaking Pop Block  Node Notifications  Synchronization Status Changed New Micro Block Rollback Micro Block New Macro Block  Use Cases  Transaction Tracking   Prerequisites  Node is up and running Any WebSocket client library or a browser.</description>
+ Prerequisites Protocol  Framing Payload Remote Procedure Calls Notifications  Wallet RPC API  List Accounts Create Account Delete Account Getting Recovery Phrase Unsea#unseal-accountaccount&#34;Seal Account  #change-password/a   Payment#paymentxc4207c2500#cloak#stake&#34;Stake Restake   Tokens Received Tokens Spent Tokens Staked Tokens Unstaked Election Information Enable Restaking Pop Block  Node Notifications  Synchronization Status Changed New Micro Block Rollback Micro Block New Macro Block  Use Cases  Transaction Tracking   Prerequisites  Node is up and running Any WebSocket client library or a browser.</description>
     </item>
     
   </channel>

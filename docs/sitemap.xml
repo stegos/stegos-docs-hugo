@@ -16,7 +16,6 @@
   
   <url>
     <loc>/stegos-docs-hugo/_header/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -29,6 +28,7 @@
   
   <url>
     <loc>/stegos-docs-hugo/categories/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -60,6 +60,10 @@
   </url>
   
   <url>
+    <loc>/stegos-docs-hugo/about/stg_token_and_sale/</loc>
+  </url>
+  
+  <url>
     <loc>/stegos-docs-hugo/about/stegos_app/</loc>
   </url>
   
@@ -72,11 +76,8 @@
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/about/stg_token_and_sale/</loc>
-  </url>
-  
-  <url>
     <loc>/stegos-docs-hugo/tags/</loc>
+    <priority>0</priority>
   </url>
   
   <url>

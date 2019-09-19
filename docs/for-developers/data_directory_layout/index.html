@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-09-19T12:30:07 CEST">
+<meta name="revised" content="2019-09-19T18:14:35 &#43;07">
 <title>Data Directory Layout :: Welcome to stegos!</title>
 <link rel="shortcut icon" href="/stegos-docs-hugo/images/favicon.png" type="image/x-icon" />
 <link href="/stegos-docs-hugo/css/font-awesome.min.css" rel="stylesheet">
@@ -17,9 +17,10 @@
 <script type="text/javascript">
       var baseurl = "\/stegos-docs-hugo";
 </script>
-<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
-<link href="/style.css" rel="stylesheet">
-<script src="/tabs.js"></script>
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<link href="style.css" rel="stylesheet">
+<script src="tabs.js"></script>
+
 
     
   </head>
@@ -46,7 +47,6 @@
   </div>
 </div>
 
-
   
 
 
@@ -70,6 +70,13 @@
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
+      <li data-nav-id="/stegos-docs-hugo/about/stg_token_and_sale/" class="dd-item">
+        <div>
+          <a href="/stegos-docs-hugo/about/stg_token_and_sale/">
+            STG Token and Sale
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
       <li data-nav-id="/stegos-docs-hugo/about/stegos_app/" class="dd-item">
         <div>
           <a href="/stegos-docs-hugo/about/stegos_app/">
@@ -88,13 +95,6 @@
         <div>
           <a href="/stegos-docs-hugo/about/privacy/">
             Stegos Privacy Platform
-          </a><i class="fa fa-circle-thin read-icon"></i>
-        </div>
-    </li>
-      <li data-nav-id="/stegos-docs-hugo/about/stg_token_and_sale/" class="dd-item">
-        <div>
-          <a href="/stegos-docs-hugo/about/stg_token_and_sale/">
-            STG Token and Sale
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
@@ -198,10 +198,10 @@
     <option value="/stegos-docs-hugo/about/" >
    ABOUT</option> 
       <option value="/stegos-docs-hugo/about/funding_and_development/" >- Funding and Development</option>
+      <option value="/stegos-docs-hugo/about/stg_token_and_sale/" >- STG Token and Sale</option>
       <option value="/stegos-docs-hugo/about/stegos_app/" >- Stegos App</option>
       <option value="/stegos-docs-hugo/about/privacy_blockchain/" >- Stegos Privacy Blockchain</option>
       <option value="/stegos-docs-hugo/about/privacy/" >- Stegos Privacy Platform</option>
-      <option value="/stegos-docs-hugo/about/stg_token_and_sale/" >- STG Token and Sale</option>
   
     <option value="/stegos-docs-hugo/getting-started/" >
    GETTING STARTED</option> 
@@ -232,19 +232,19 @@
     
     <p>Data directory has the following layout:</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-base" data-lang="base"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>    ├── accounts/  &lt;!-- Accounts
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    │   ├── 1
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    │   │   ├── account.pkey &lt;!-- Account #1 public key (address)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    │   │   ├── account.skey &lt;!-- Account #2 secret key (address)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    │   │   └── history/     &lt;!-- Payment History (RocksDB)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    │   └── 2
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>    │       ├── account.pkey &lt;!-- Account #1 public key (address)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>    │       ├── account.skey &lt;!-- Account #2 secret key (address)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    │       └── history/     &lt;!-- Payment History (RocksDB)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>    ├── api.token            &lt;!-- Generated API Token
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>    ├── chain/               &lt;!-- Blockchain (RocksDB)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>    ├── network.pkey         &lt;!-- Ephemeral network (consensus) public key.
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>    ├── network.skey         &lt;!-- Ephemeral network (consensus) secret key.</code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-base" data-lang="base"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 1</span>    ├── accounts/  &lt;!-- Accounts
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 2</span>    │   ├── 1
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 3</span>    │   │   ├── account.pkey &lt;!-- Account #1 public key (address)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 4</span>    │   │   ├── account.skey &lt;!-- Account #2 secret key (address)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 5</span>    │   │   └── history/     &lt;!-- Payment History (RocksDB)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 6</span>    │   └── 2
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 7</span>    │       ├── account.pkey &lt;!-- Account #1 public key (address)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 8</span>    │       ├── account.skey &lt;!-- Account #2 secret key (address)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 9</span>    │       └── history/     &lt;!-- Payment History (RocksDB)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">10</span>    ├── api.token            &lt;!-- Generated API Token
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">11</span>    ├── chain/               &lt;!-- Blockchain (RocksDB)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">12</span>    ├── network.pkey         &lt;!-- Ephemeral network (consensus) public key.
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">13</span>    ├── network.skey         &lt;!-- Ephemeral network (consensus) secret key.</code></pre></div>
 
 
     

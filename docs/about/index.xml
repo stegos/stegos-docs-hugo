@@ -20,6 +20,19 @@
     </item>
     
     <item>
+      <title>STG Token and Sale</title>
+      <link>/stegos-docs-hugo/about/stg_token_and_sale/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/stegos-docs-hugo/about/stg_token_and_sale/</guid>
+      <description>What is Stegos&amp;rsquo; Monetary Policy? STG token emission will start at 14% during the first 4 years and halve every 4 years thereafter.
+When will tokens be distributed to investors? The tokens will be distributed after mainnet launch.
+What is your ticker name? STG
+What is Stegos&amp;rsquo; Total Emission? 1,000,000,000 STG
+How will the pre-mine be distributed? The one billion pre-mined STG will be distributed as follows: Sale (51.25%); Development (16.</description>
+    </item>
+    
+    <item>
       <title>Stegos App</title>
       <link>/stegos-docs-hugo/about/stegos_app/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -45,19 +58,6 @@ Will I be able to stake directly from the app? The Stegos app is designed to be 
       
       <guid>/stegos-docs-hugo/about/privacy/</guid>
       <description>What is Stegos? The Stegos privacy platform provides users with fully private transactions, messaging and data transmission. Stegos acts as a gateway to an entire ecosystem of privacy services and apps. Stegos combines a unique blockchain and token design to implement the first cryptocurrency that’s absolutely private, secure, efficient and fully mobile compatible. The most up to date information can be found in the Project section of our website at http://stegos.</description>
-    </item>
-    
-    <item>
-      <title>STG Token and Sale</title>
-      <link>/stegos-docs-hugo/about/stg_token_and_sale/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/stegos-docs-hugo/about/stg_token_and_sale/</guid>
-      <description>What is Stegos&amp;rsquo; Monetary Policy? STG token emission will start at 14% during the first 4 years and halve every 4 years thereafter.
-When will tokens be distributed to investors? The tokens will be distributed after mainnet launch.
-What is your ticker name? STG
-What is Stegos&amp;rsquo; Total Emission? 1,000,000,000 STG
-How will the pre-mine be distributed? The one billion pre-mined STG will be distributed as follows: Sale (51.25%); Development (16.</description>
     </item>
     
   </channel>
