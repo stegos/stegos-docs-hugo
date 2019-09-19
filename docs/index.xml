@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Welcome to stegos!</title>
-    <link>/</link>
+    <link>/stegos-docs-hugo/</link>
     <description>Recent content on Welcome to stegos!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/stegos-docs-hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title></title>
-      <link>/_header/</link>
+      <link>/stegos-docs-hugo/_header/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/_header/</guid>
+      <guid>/stegos-docs-hugo/_header/</guid>
       <description>Stegos         </description>
     </item>
     
     <item>
       <title>Building from Source</title>
-      <link>/for-developers/building_from_source/</link>
+      <link>/stegos-docs-hugo/for-developers/building_from_source/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/for-developers/building_from_source/</guid>
+      <guid>/stegos-docs-hugo/for-developers/building_from_source/</guid>
       <description>Building on Linux and Mac Requirements  Stegos requires Rust 1.38.0-nightly (d3f8a0b5d 2019-08-04) to build. The recommended way to install Rust it to use rustup. If you don&amp;rsquo;t already have rustup, you can install it like this: curl https://sh.rustup.rs -sSf | sh Make sure that these binaries are in your PATH. After that, you should be able to build Stegos from the source. Use nightly-2019-08-04 toolchain when asked. libflint and libgmp - we expect libflint.</description>
     </item>
     
     <item>
       <title>Connecting to a Node</title>
-      <link>/getting-started/connection_to_a_node/</link>
+      <link>/stegos-docs-hugo/getting-started/connection_to_a_node/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/getting-started/connection_to_a_node/</guid>
+      <guid>/stegos-docs-hugo/getting-started/connection_to_a_node/</guid>
       <description>In this section we explain how to connect to a Stegos Node.
 Prerequisites:
  Node is up and running  Connecting to a Local Node  ./stegos  ./stegos
@@ -45,29 +45,29 @@ The command-line client will try to connect to a local node and print stegos pro
     
     <item>
       <title>Data Directory Layout</title>
-      <link>/for-developers/data_directory_layout/</link>
+      <link>/stegos-docs-hugo/for-developers/data_directory_layout/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/for-developers/data_directory_layout/</guid>
+      <guid>/stegos-docs-hugo/for-developers/data_directory_layout/</guid>
       <description>Data directory has the following layout:
 1 ├── accounts/ &amp;lt;!-- Accounts 2 │ ├── 1 3 │ │ ├── account.pkey &amp;lt;!-- Account #1 public key (address) 4 │ │ ├── account.skey &amp;lt;!-- Account #2 secret key (address) 5 │ │ └── history/ &amp;lt;!-- Payment History (RocksDB) 6 │ └── 2 7 │ ├── account.pkey &amp;lt;!-- Account #1 public key (address) 8 │ ├── account.skey &amp;lt;!-- Account #2 secret key (address) 9 │ └── history/ &amp;lt;!</description>
     </item>
     
     <item>
       <title>Funding and Development</title>
-      <link>/about/funding_and_development/</link>
+      <link>/stegos-docs-hugo/about/funding_and_development/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/about/funding_and_development/</guid>
+      <guid>/stegos-docs-hugo/about/funding_and_development/</guid>
       <description>How is Stegos being funded? Stegos will generate a pre-mine of 1 billion STG tokens. Up to 51.25% of the STG pre-mine may be privately sold to high net-worth individuals and companies to reach a maximum of $30 million. Stegos has already raised $15 million of this target in 2018. Once the mainnet is launched, STG tokens will be sold directly to the general public using the built-in DEX.</description>
     </item>
     
     <item>
       <title>Installing a node</title>
-      <link>/getting-started/installing_a_node/</link>
+      <link>/stegos-docs-hugo/getting-started/installing_a_node/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/getting-started/installing_a_node/</guid>
+      <guid>/stegos-docs-hugo/getting-started/installing_a_node/</guid>
       <description>In this section we explain how to install Stegos Node (stegosd) and Stegos Command-Line Client (stegos) on your server.
 Prerequisites:
  Linux host (any distro) OR macOS host OR Docker-enabled host.  This instruction is about running Stegos Node server using command-line interface. If you need a desktop application, please see &#34;Installing a Desktop App&#34;.
@@ -76,29 +76,29 @@ Prerequisites:
     
     <item>
       <title>Last Steps</title>
-      <link>/getting-started/last_steps/</link>
+      <link>/stegos-docs-hugo/getting-started/last_steps/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/getting-started/last_steps/</guid>
+      <guid>/stegos-docs-hugo/getting-started/last_steps/</guid>
       <description>Congratulations! If you have made it this far, you belong to a tiny group of people on this planet who knows how to run a blockchain node.
 Please join us on Telegram Chat to get test tokens and let us know your thoughts. Subscribe to official Telegram Channel for the latest news.</description>
     </item>
     
     <item>
       <title>Quick Start</title>
-      <link>/getting-started/quick_start/</link>
+      <link>/stegos-docs-hugo/getting-started/quick_start/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/getting-started/quick_start/</guid>
+      <guid>/stegos-docs-hugo/getting-started/quick_start/</guid>
       <description>Use stegos/stegosDocker image to start Node: docker run -v $PWD/stegos-data:/data --name stegos_node -t -i stegos/stegos Execute stegos command inside container to get into CLI: docker exec -t -i stegos_node stegos CLI will prompt for commands: Stegos CLI 0.11.13 (e63fb9e 2019-08-09) Type &amp;#39;help&amp;#39; to get help stegos&amp;gt; Type create account to create a new account: account#1&amp;gt; create account Enter new password: Enter same password again: --- - type: account_created account_id: &amp;#34;1&amp;#34; .</description>
     </item>
     
     <item>
       <title>Running a Node</title>
-      <link>/getting-started/running_a_node/</link>
+      <link>/stegos-docs-hugo/getting-started/running_a_node/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/getting-started/running_a_node/</guid>
+      <guid>/stegos-docs-hugo/getting-started/running_a_node/</guid>
       <description>In this section we explain how to run Stegos Node.
 Prerequisites:
  Download and install Stegos Node.  Run Stegos Node:
@@ -112,38 +112,38 @@ INFO [stegosd] Data directory: /home/yourname/.local/share/stegos The default pa
     
     <item>
       <title>Stegos App</title>
-      <link>/about/stegos_app/</link>
+      <link>/stegos-docs-hugo/about/stegos_app/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/about/stegos_app/</guid>
+      <guid>/stegos-docs-hugo/about/stegos_app/</guid>
       <description>What features will the Stegos App have? In addition to an integrated STG wallet, the app will include many features, including private chat, mobile node setup, red packets (hongbao) and access to the privacy app store.
 Will I be able to stake directly from the app? The Stegos app is designed to be an accessible gateway to the world of crypto and privacy. You will find full and simple in-app instructions for setting up a node so you can start earning tokens from your pocket within minutes.</description>
     </item>
     
     <item>
       <title>Stegos Privacy Blockchain</title>
-      <link>/about/privacy_blockchain/</link>
+      <link>/stegos-docs-hugo/about/privacy_blockchain/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/about/privacy_blockchain/</guid>
+      <guid>/stegos-docs-hugo/about/privacy_blockchain/</guid>
       <description>How can I be sure that STG transactions are unlinkable, untraceable, and completely confidential? Stegos uses multiple methods to ensure maximum privacy. User identities are obfuscated using cryptographic key pairs, and each transaction uses a new stealth address. Transactions are combined into supertransactions to hide sender and receiver information, while all transaction amounts are hidden using cryptographic commitments (Pedersen commitments) and zero-knowledge range proofs (Bulletproofs). Validator stakes and transaction fees are the only exception since these must be visible for blockchain validation to work.</description>
     </item>
     
     <item>
       <title>Stegos Privacy Platform</title>
-      <link>/about/privacy/</link>
+      <link>/stegos-docs-hugo/about/privacy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/about/privacy/</guid>
+      <guid>/stegos-docs-hugo/about/privacy/</guid>
       <description>What is Stegos? The Stegos privacy platform provides users with fully private transactions, messaging and data transmission. Stegos acts as a gateway to an entire ecosystem of privacy services and apps. Stegos combines a unique blockchain and token design to implement the first cryptocurrency that’s absolutely private, secure, efficient and fully mobile compatible. The most up to date information can be found in the Project section of our website at http://stegos.</description>
     </item>
     
     <item>
       <title>STG Token and Sale</title>
-      <link>/about/stg_token_and_sale/</link>
+      <link>/stegos-docs-hugo/about/stg_token_and_sale/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/about/stg_token_and_sale/</guid>
+      <guid>/stegos-docs-hugo/about/stg_token_and_sale/</guid>
       <description>What is Stegos&amp;rsquo; Monetary Policy? STG token emission will start at 14% during the first 4 years and halve every 4 years thereafter.
 When will tokens be distributed to investors? The tokens will be distributed after mainnet launch.
 What is your ticker name? STG
@@ -153,20 +153,20 @@ How will the pre-mine be distributed? The one billion pre-mined STG will be dist
     
     <item>
       <title>WebSocket API</title>
-      <link>/for-developers/websocket_api/</link>
+      <link>/stegos-docs-hugo/for-developers/websocket_api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/for-developers/websocket_api/</guid>
+      <guid>/stegos-docs-hugo/for-developers/websocket_api/</guid>
       <description>Stegos Node offers experimental asynchronous WebSocket API. This API allow you to manage accounts, create and track transactions, receive notifications and so on.
  Prerequisites Protocol  Framing Payload Remote Procedure Calls Notifications  Wallet RPC API  List Accounts Create Account Delete Account Getting Recovery Phrase Recover Account Unseal Account Seal Account Account Information Change Password Account Information Balance Information UTXO Information Payment Cloak Stake Unstake Restake Validate Certificate Payment History  Wallet Notifications  Balance Changed Tokens Received Tokens Spent Tokens Staked Tokens Unstaked Transaction Status Snowball Status  Node RPC API  Escrow Information Election Information Enable Restaking Pop Block  Node Notifications  Synchronization Status Changed New Micro Block Rollback Micro Block New Macro Block  Use Cases  Transaction Tracking   Prerequisites  Node is up and running Any WebSocket client library or a browser.</description>
     </item>
     
     <item>
       <title>Working with Accounts</title>
-      <link>/getting-started/working_with_accounts/</link>
+      <link>/stegos-docs-hugo/getting-started/working_with_accounts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/getting-started/working_with_accounts/</guid>
+      <guid>/stegos-docs-hugo/getting-started/working_with_accounts/</guid>
       <description>Creating an Account Type create account to create a new account. You will be asked for a password. This password is used locally to encrypt your data on the disk. Please remember it.
 Type show recovery to get 24-word recovery phrase. This recovery phrase is an encoded representation of your secret key. Please write down it and keep it in a safe place. There are no other password recovery mechanisms.</description>
     </item>

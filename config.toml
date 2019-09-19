@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "/stegos-docs-hugo"
 
 languageCode = "en-us"
 DefaultContentLanguage = "en"
