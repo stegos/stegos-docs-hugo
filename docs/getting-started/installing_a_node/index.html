@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-09-20T18:57:46 &#43;07">
+<meta name="revised" content="2019-09-20T19:01:54 &#43;07">
 <title>Installing a node :: Welcome to stegos!</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -298,56 +298,7 @@
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">5</span>./stegosd --version
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">6</span>./stegos --version</code></pre></div>
 
-<p>The script above will download <code style="background-color: #eee;">stegosd</code> binary from <a href="https://github.com/stegos/stegos/releases"><strong>GitHub Releases</strong></a>, change file permissions to &ldquo;Executable&rdquo; and print Node&rsquo;s version:</p>
-
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 1</span>yourname@mac:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegosd-macos-x64 -o stegosd
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 2</span>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 3</span>                                 Dload  Upload   Total   Spent    Left  Speed
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 4</span><span style="color:#ae81ff">100</span>   <span style="color:#ae81ff">608</span>    <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">608</span>    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">1859</span>      <span style="color:#ae81ff">0</span> --:--:-- --:--:-- --:--:--  <span style="color:#ae81ff">1859</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 5</span><span style="color:#ae81ff">100</span> <span style="color:#ae81ff">22</span>.0M  <span style="color:#ae81ff">100</span> <span style="color:#ae81ff">22</span>.0M    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>  5996k      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>:00:03  <span style="color:#ae81ff">0</span>:00:03 --:--:-- 7197k
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 6</span>you@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegos-macos-x64 -o stegos
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 7</span>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 8</span>                                 Dload  Upload   Total   Spent    Left  Speed
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 9</span><span style="color:#ae81ff">100</span>   <span style="color:#ae81ff">607</span>    <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">607</span>    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">1833</span>      <span style="color:#ae81ff">0</span> --:--:-- --:--:-- --:--:--  <span style="color:#ae81ff">1833</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">10</span><span style="color:#ae81ff">100</span> 6022k  <span style="color:#ae81ff">100</span> 6022k    <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>  3033k      <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">0</span>:00:01  <span style="color:#ae81ff">0</span>:00:01 --:--:-- 5435k
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">11</span>yourname@mac:~$ chmod a+x stegosd stegos
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">12</span>yourname@mac:~$ ./stegosd --version
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">13</span>Stegos Node <span style="color:#ae81ff">0</span>.10.0 <span style="color:#f92672">(</span>5d9b289 <span style="color:#ae81ff">2019</span>-07-02<span style="color:#f92672">)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">14</span>yourname@mac:~$ ./stegos --version
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">15</span>Stegos CLI <span style="color:#ae81ff">0</span>.10.0 <span style="color:#f92672">(</span>5d9b289 <span style="color:#ae81ff">2019</span>-07-02<span style="color:#f92672">)</span></code></pre></div>
-
-<p><div class="notices info" ><p>If you see &ldquo;undefined symbol&rdquo; message or other errors - please file an issue on GitHub.</p></div></p>
-
-<div class="notices tip" ><p>Your Node has been downloaded and installed successfully.</p></div>
-
-<h4 id="from-source-1">From Source</h4>
-
-<p>See <strong><a href="/docs/for-developers/building_from_source/">Building from Source</a></strong> page.</p>
-
-<hr />
-
-<h3 id="installing-in-docker">Installing in Docker</h3>
-
-<p>Use <code style="background-color: #eee;">stegos/stegos</code> image:</p>
-
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -v <span style="color:#111">$PWD</span>:/stegos:/data stegos/stegos</code></pre></div>
-
-<hr />
-
-<h3 id="installing-on-windows">Installing on Windows</h3>
-
-<h4 id="using-wsl">Using WSL</h4>
-
-<p>Please folow Linux installation instructions <a href="/docs/getting-started/installing_a_node/#installing-on-linux"><strong>above.</strong></a></p>
-
-<h4 id="using-pre-built-binaries-2">Using Pre-Built Binaries</h4>
-
-<p>Native binaries for Windows are coming soon.</p>
-
-<h4 id="from-source-2">From Source</h4>
-
-<p>See <strong><a href="/docs/for-developers/building_from_source/">Building from Source</a></strong> page.</p>
-
+<p>The script above will download <code style="background-color: #eee;">stegosd</code> binary from <a href="https://github.com/stegos/stegos/releases">
 
     
     

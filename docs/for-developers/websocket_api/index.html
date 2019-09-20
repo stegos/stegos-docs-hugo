@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-09-20T18:57:46 &#43;07">
+<meta name="revised" content="2019-09-20T19:01:54 &#43;07">
 <title>WebSocket API :: Welcome to stegos!</title>
 <link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
 <link href="/docs/css/font-awesome.min.css" rel="stylesheet">
@@ -1305,135 +1305,7 @@
 
 <p>WIP</p>
 
-<h4 id="new-macro-block">New Macro Block</h4>
-
-<p>WIP</p>
-
-<hr />
-
-<h3 id="use-cases">Use Cases</h3>
-
-<h4 id="transaction-tracking">Transaction Tracking</h4>
-
-<p>1) Initiate a new transaction by using <code style="background-color: #eee;">payment</code> , <code style="background-color: #eee;">secure_payment</code> or <code style="background-color: #eee;">public_payment</code> call:</p>
-
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;secure_payment&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">3</span>  <span style="color:#f92672">&#34;recipient&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">4</span>  <span style="color:#f92672">&#34;amount&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">5</span>  <span style="color:#f92672">&#34;payment_fee&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">6</span>  <span style="color:#f92672">&#34;comment&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">7</span>  <span style="color:#f92672">&#34;locked_timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">null</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">8</span>  <span style="color:#f92672">&#34;with_certificate&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">false</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">9</span><span style="color:#111">}</span></code></pre></div>
-
-<p>See Payment for details.</p>
-
-<p>2) Wait until TX is created by the Wallet:</p>
-
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;transaction_created&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 4</span>  <span style="color:#f92672">&#34;tx_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 5</span>  <span style="color:#f92672">&#34;fee&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2000</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 6</span>  <span style="color:#f92672">&#34;outputs&#34;</span><span style="color:#111">:</span> <span style="color:#111">[</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 7</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 8</span>    <span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 9</span>      <span style="color:#f92672">&#34;output_type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;payment&#34;</span><span style="color:#111">,</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">10</span>      <span style="color:#f92672">&#34;utxo&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;17c6556fbe25ccc7e7e8adb3e2000366cdef08e19d36478b5716c24778ecb3b2&#34;</span><span style="color:#111">,</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">11</span>      <span style="color:#f92672">&#34;amount&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">12</span>      <span style="color:#f92672">&#34;comment&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;&#34;</span><span style="color:#111">,</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">13</span>      <span style="color:#f92672">&#34;locked_timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">null</span><span style="color:#111">,</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">14</span>      <span style="color:#f92672">&#34;recipient&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw&#34;</span><span style="color:#111">,</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">15</span>      <span style="color:#f92672">&#34;is_change&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">false</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">16</span>    <span style="color:#111">},</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">17</span>    <span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">18</span>      <span style="color:#f92672">&#34;output_type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;payment&#34;</span><span style="color:#111">,</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">19</span>      <span style="color:#f92672">&#34;utxo&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;eb05b05c5dd4c6f972b85f5848ccaa75fc7d49cb3b10009f6559e0274e92dd16&#34;</span><span style="color:#111">,</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">20</span>      <span style="color:#f92672">&#34;amount&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">999982699</span><span style="color:#111">,</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">21</span>      <span style="color:#f92672">&#34;comment&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;Change&#34;</span><span style="color:#111">,</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">22</span>      <span style="color:#f92672">&#34;locked_timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">null</span><span style="color:#111">,</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">23</span>      <span style="color:#f92672">&#34;recipient&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw&#34;</span><span style="color:#111">,</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">24</span>      <span style="color:#f92672">&#34;is_change&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">true</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">25</span>    <span style="color:#111">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">26</span>    
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">27</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">28</span>  <span style="color:#111">],</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">29</span>  <span style="color:#f92672">&#34;inputs&#34;</span><span style="color:#111">:</span> <span style="color:#111">[</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">30</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">31</span>    <span style="color:#d88200">&#34;299512da5957b689b0862ef080cc64e54593ab6d1db74b426608a60ce7f1df2f&#34;</span><span style="color:#111">,</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">32</span>    <span style="color:#d88200">&#34;ae485d68ef6dbc4b17a6ad61befbb8ce072e10341eb2f827246bd321cf8b4b07&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">33</span>    
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">34</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">35</span>  <span style="color:#111">],</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">36</span>  <span style="color:#f92672">&#34;status&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;created&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">37</span><span style="color:#111">}</span></code></pre></div>
-
-<p>TX has been created and sent to the Node.
-For Snowball ( <code style="background-color: #eee;">secure_payment</code> ) transactions you will also see intermediate <code style="background-color: #eee;">snowball_status</code> notifications between <code style="background-color: #eee;">secure_payment</code> request and <code style="background-color: #eee;">transaction_created</code> response:</p>
-
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 4</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;pool_wait&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 5</span><span style="color:#111">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 6</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 7</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 8</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 9</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;commitment&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">10</span><span style="color:#111">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">11</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">12</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">13</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">14</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;cloaked_vals&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">15</span><span style="color:#111">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">16</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">17</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">18</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">19</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;signature&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">20</span><span style="color:#111">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">21</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">22</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">23</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">24</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;succeeded&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">25</span><span style="color:#111">}</span></code></pre></div>
-
-<p>3) Wait until TX is accepted into a mempool:</p>
-
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;transaction_status&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">4</span>  <span style="color:#f92672">&#34;tx_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">5</span>  <span style="color:#f92672">&#34;status&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;accepted&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">6</span><span style="color:#111">}</span></code></pre></div>
-
-<p>TX has been accepted into Node&rsquo;s mempool.</p>
-
-<p>4) Wait until the transaction is added to a block:</p>
-
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;transaction_status&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">4</span>  <span style="color:#f92672">&#34;tx_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">5</span>  <span style="color:#f92672">&#34;status&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;prepared&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">6</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1230</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">7</span>  <span style="color:#f92672">&#34;offset&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">56</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">8</span><span style="color:#111">}</span></code></pre></div>
-
-<p>TX has been added to the blockchain.</p>
-
-<p>5) Wait until TX is finalized by consensus:</p>
-
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;transaction_status&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">4</span>  <span style="color:#f92672">&#34;tx_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">5</span>  <span style="color:#f92672">&#34;status&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;committed&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">6</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1230</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">7</span><span style="color:#111">}</span></code></pre></div>
-
-<p>TX has been finalized by PoS consensus.</p>
-
+<h4 i
 
     
     
