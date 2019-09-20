@@ -3,14 +3,6 @@ title = "Building from Source"
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
 
-# Creator's Display name
-creatordisplayname = "Alaze"
-# Creator's Email
-creatoremail = ""
-# LastModifier's Display name
-lastmodifierdisplayname = "Alaze"
-# LastModifier's Email
-lastmodifieremail = ""
 +++
 
 ### Building on Linux and Mac

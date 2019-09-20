@@ -3,14 +3,6 @@ title = "Connecting to a Node"
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
 
-# Creator's Display name
-creatordisplayname = "Alaze"
-# Creator's Email
-creatoremail = ""
-# LastModifier's Display name
-lastmodifierdisplayname = "Alaze"
-# LastModifier's Email
-lastmodifieremail = ""
 +++
 
 In this section we explain how to connect to a **Stegos Node**.

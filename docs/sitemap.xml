@@ -3,89 +3,93 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/stegos-docs-hugo/about/</loc>
+    <loc>/docs/about/</loc>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/getting-started/</loc>
+    <loc>/docs/getting-started/</loc>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/for-developers/</loc>
+    <loc>/docs/for-developers/</loc>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/_header/</loc>
+    <loc>/docs/_footer/</loc>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/</loc>
+    <loc>/docs/_header/</loc>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/for-developers/building_from_source/</loc>
+    <loc>/docs/</loc>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/categories/</loc>
+    <loc>/docs/for-developers/building_from_source/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/getting-started/connection_to_a_node/</loc>
+    <loc>/docs/getting-started/connection_to_a_node/</loc>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/for-developers/data_directory_layout/</loc>
+    <loc>/docs/for-developers/data_directory_layout/</loc>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/about/funding_and_development/</loc>
+    <loc>/docs/about/funding_and_development/</loc>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/getting-started/installing_a_node/</loc>
+    <loc>/docs/getting-started/installing_a_node/</loc>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/getting-started/last_steps/</loc>
+    <loc>/docs/getting-started/last_steps/</loc>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/getting-started/quick_start/</loc>
+    <loc>/docs/getting-started/quick_start/</loc>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/getting-started/running_a_node/</loc>
+    <loc>/docs/getting-started/running_a_node/</loc>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/about/stg_token_and_sale/</loc>
+    <loc>/docs/about/stg_token_and_sale/</loc>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/about/stegos_app/</loc>
+    <loc>/docs/about/stegos_app/</loc>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/about/privacy_blockchain/</loc>
+    <loc>/docs/about/privacy_blockchain/</loc>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/about/privacy/</loc>
+    <loc>/docs/about/privacy/</loc>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/tags/</loc>
+    <loc>/docs/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/for-developers/websocket_api/</loc>
+    <loc>/docs/for-developers/websocket_api/</loc>
   </url>
   
   <url>
-    <loc>/stegos-docs-hugo/getting-started/working_with_accounts/</loc>
+    <loc>/docs/getting-started/working_with_accounts/</loc>
   </url>
   
 </urlset>

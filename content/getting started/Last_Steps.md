@@ -3,14 +3,6 @@ title = "Last Steps"
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
 
-# Creator's Display name
-creatordisplayname = "Alaze"
-# Creator's Email
-creatoremail = ""
-# LastModifier's Display name
-lastmodifierdisplayname = "Alaze"
-# LastModifier's Email
-lastmodifieremail = ""
 +++
 
 Congratulations! If you have made it this far, you belong to a tiny group of people on this planet who knows how to run a blockchain node. 
