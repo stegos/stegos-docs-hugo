@@ -24,7 +24,7 @@ a:hover {
 }
 #sidebar #header-wrapper {
     background: var(--SIDE-MAIN-color);
-    color: var(--BF-color)
+    color: var(--BF-color);
     border-color: var(--SIDE-FOCUS-BACK-color);
 }
 #sidebar .searchbox {

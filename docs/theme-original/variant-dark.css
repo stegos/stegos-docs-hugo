@@ -1,17 +1,17 @@
 
 :root{
-    --SIDE-MAIN-color:#91A437;
-    --SIDE-MAIN-TXT-color:black;
-    --MAIN-HOVER-color:#465400;
-    --SIDE-FOCUS-BACK-color:#667B00;
-    --SIDE-FOCUS-FORE-color:black;
-    --MENU-LINK-color:black;
-    --MENU-ACTIVE-BACK-color:#465400;
-    --MENU-ACTIVE-LINK-color:white;
+    --SIDE-MAIN-color:#F5F7F9;
+    --SIDE-MAIN-TXT-color:#242A31;
+    --MAIN-HOVER-color:#e6ecf1;
+    --SIDE-FOCUS-BACK-color:#e6ecf1;
+    --SIDE-FOCUS-FORE-color:#0F0F1A;
+    --MENU-LINK-color:#0F0F1A;
+    --MENU-ACTIVE-BACK-color:#242A31;
+    --MENU-ACTIVE-LINK-color:#0f0f1a;
     
 }
 a, #sidebar ul li.visited > a .read-icon {
-	color: var(--SIDE-MAIN-color);
+	color: var(--SIDE-MAIN-TXT-color);
 }
 a:hover {
     color: var(--MAIN-HOVER-color);
@@ -38,7 +38,7 @@ a:hover {
     color: var(--SIDE-FOCUS-FORE-color);
 }
 #sidebar a , #sidebar a:hover {
-    color: var(--MENU-LINK-color);
+    color: var(--MENU-LINK-color) !important;
 }
 #sidebar .parent li, #sidebar .active li {
     border-color: var(--MENU-ACTIVE-LINK-color);

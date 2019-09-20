@@ -5,26 +5,28 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-09-19T18:14:35 &#43;07">
+<meta name="revised" content="2019-09-20T16:13:48 &#43;07">
 <title>WebSocket API :: Welcome to stegos!</title>
-<link rel="shortcut icon" href="/stegos-docs-hugo/images/favicon.png" type="image/x-icon" />
-<link href="/stegos-docs-hugo/css/font-awesome.min.css" rel="stylesheet">
-<link href="/stegos-docs-hugo/css/nucleus.css" rel="stylesheet">
-<link href="/stegos-docs-hugo/theme-flex/style.css" rel="stylesheet">
+<link rel="shortcut icon" href="/docs/images/favicon.png" type="image/x-icon" />
+<link href="/docs/css/font-awesome.min.css" rel="stylesheet">
+<link href="/docs/css/nucleus.css" rel="stylesheet">
+<link href="/docs/theme-flex/style.css" rel="stylesheet">
 
-<link rel="stylesheet" href="/stegos-docs-hugo/css/bootstrap.min.css">
-<script src="/stegos-docs-hugo/js/jquery-2.x.min.js"></script>
+<link rel="stylesheet" href="/docs/css/bootstrap.min.css">
+<script src="/docs/js/jquery-2.x.min.js"></script>
 <script type="text/javascript">
-      var baseurl = "\/stegos-docs-hugo";
+      var baseurl = "\/docs";
 </script>
-<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
-<link href="style.css" rel="stylesheet">
-<script src="tabs.js"></script>
-
+<link href="/docs/style.css" rel="stylesheet">
+<script src="/docs/tabs.js"></script>
+<script type="text/javascript" src="/docs/lunr.min.js"></script>
+<script type="text/javascript" src="/docs/auto-complete.js"></script>
+<link href="/docs/auto-complete.css" rel="stylesheet">
+<script type="text/javascript" src="/docs/search.js"></script>
 
     
   </head>
-  <body data-url="/stegos-docs-hugo/for-developers/websocket_api/">
+  <body data-url="/docs/for-developers/websocket_api/">
     
       <header>
   <div class="logo">
@@ -33,19 +35,14 @@
   
     <div class="stegos-header-wrapper">
   <div class="stegos-header">
-      <img src="/images/favicon.png"/>
+      <img src="/docs/images/favicon.png"/>
       <h1>Stegos</h1>
   </div>
-  <div>
     <div class="searchbox">
-      <input data-search-input id="search-by" type="text" placeholder="Search...">
-    </div>
-    <script type="text/javascript" src="/lunr.min.js"></script>
-    <script type="text/javascript" src="/auto-complete.js"></script>
-    <link href="/auto-complete.css" rel="stylesheet">
-    <script type="text/javascript" src="/search.js"></script>
+      <input data-search-input id="search-by" type="text" placeholder="Search..." />
   </div>
-</div>
+</div> 
+
 
   
 
@@ -56,125 +53,125 @@
 <article>
   <aside>
     <ul class="menu"><label>ABOUT</label>
-    <li data-nav-id="/stegos-docs-hugo/about/" class="dd-item alwaysopen haschildren
+    <li data-nav-id="/docs/about/" class="dd-item alwaysopen haschildren
         ">
       <div>
-      <a href="/stegos-docs-hugo/about/">ABOUT</a>
+      <a href="/docs/about/">ABOUT</a>
             <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="/stegos-docs-hugo/about/funding_and_development/" class="dd-item">
+      <li data-nav-id="/docs/about/funding_and_development/" class="dd-item">
         <div>
-          <a href="/stegos-docs-hugo/about/funding_and_development/">
+          <a href="/docs/about/funding_and_development/">
             Funding and Development
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
-      <li data-nav-id="/stegos-docs-hugo/about/stg_token_and_sale/" class="dd-item">
+      <li data-nav-id="/docs/about/stg_token_and_sale/" class="dd-item">
         <div>
-          <a href="/stegos-docs-hugo/about/stg_token_and_sale/">
+          <a href="/docs/about/stg_token_and_sale/">
             STG Token and Sale
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
-      <li data-nav-id="/stegos-docs-hugo/about/stegos_app/" class="dd-item">
+      <li data-nav-id="/docs/about/stegos_app/" class="dd-item">
         <div>
-          <a href="/stegos-docs-hugo/about/stegos_app/">
+          <a href="/docs/about/stegos_app/">
             Stegos App
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
-      <li data-nav-id="/stegos-docs-hugo/about/privacy_blockchain/" class="dd-item">
+      <li data-nav-id="/docs/about/privacy_blockchain/" class="dd-item">
         <div>
-          <a href="/stegos-docs-hugo/about/privacy_blockchain/">
+          <a href="/docs/about/privacy_blockchain/">
             Stegos Privacy Blockchain
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
-      <li data-nav-id="/stegos-docs-hugo/about/privacy/" class="dd-item">
+      <li data-nav-id="/docs/about/privacy/" class="dd-item">
         <div>
-          <a href="/stegos-docs-hugo/about/privacy/">
+          <a href="/docs/about/privacy/">
             Stegos Privacy Platform
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
         </ul>
     </li><label>GETTING STARTED</label>
-    <li data-nav-id="/stegos-docs-hugo/getting-started/" class="dd-item alwaysopen haschildren
+    <li data-nav-id="/docs/getting-started/" class="dd-item alwaysopen haschildren
         ">
       <div>
-      <a href="/stegos-docs-hugo/getting-started/">GETTING STARTED</a>
+      <a href="/docs/getting-started/">GETTING STARTED</a>
             <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="/stegos-docs-hugo/getting-started/connection_to_a_node/" class="dd-item">
+      <li data-nav-id="/docs/getting-started/connection_to_a_node/" class="dd-item">
         <div>
-          <a href="/stegos-docs-hugo/getting-started/connection_to_a_node/">
+          <a href="/docs/getting-started/connection_to_a_node/">
             Connecting to a Node
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
-      <li data-nav-id="/stegos-docs-hugo/getting-started/installing_a_node/" class="dd-item">
+      <li data-nav-id="/docs/getting-started/installing_a_node/" class="dd-item">
         <div>
-          <a href="/stegos-docs-hugo/getting-started/installing_a_node/">
+          <a href="/docs/getting-started/installing_a_node/">
             Installing a node
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
-      <li data-nav-id="/stegos-docs-hugo/getting-started/last_steps/" class="dd-item">
+      <li data-nav-id="/docs/getting-started/last_steps/" class="dd-item">
         <div>
-          <a href="/stegos-docs-hugo/getting-started/last_steps/">
+          <a href="/docs/getting-started/last_steps/">
             Last Steps
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
-      <li data-nav-id="/stegos-docs-hugo/getting-started/quick_start/" class="dd-item">
+      <li data-nav-id="/docs/getting-started/quick_start/" class="dd-item">
         <div>
-          <a href="/stegos-docs-hugo/getting-started/quick_start/">
+          <a href="/docs/getting-started/quick_start/">
             Quick Start
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
-      <li data-nav-id="/stegos-docs-hugo/getting-started/running_a_node/" class="dd-item">
+      <li data-nav-id="/docs/getting-started/running_a_node/" class="dd-item">
         <div>
-          <a href="/stegos-docs-hugo/getting-started/running_a_node/">
+          <a href="/docs/getting-started/running_a_node/">
             Running a Node
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
-      <li data-nav-id="/stegos-docs-hugo/getting-started/working_with_accounts/" class="dd-item">
+      <li data-nav-id="/docs/getting-started/working_with_accounts/" class="dd-item">
         <div>
-          <a href="/stegos-docs-hugo/getting-started/working_with_accounts/">
+          <a href="/docs/getting-started/working_with_accounts/">
             Working with Accounts
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
         </ul>
     </li><label>FOR DEVELOPERS</label>
-    <li data-nav-id="/stegos-docs-hugo/for-developers/" class="dd-item parent alwaysopen haschildren
+    <li data-nav-id="/docs/for-developers/" class="dd-item parent alwaysopen haschildren
         ">
       <div>
-      <a href="/stegos-docs-hugo/for-developers/">FOR DEVELOPERS</a>
+      <a href="/docs/for-developers/">FOR DEVELOPERS</a>
             <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="/stegos-docs-hugo/for-developers/building_from_source/" class="dd-item">
+      <li data-nav-id="/docs/for-developers/building_from_source/" class="dd-item">
         <div>
-          <a href="/stegos-docs-hugo/for-developers/building_from_source/">
+          <a href="/docs/for-developers/building_from_source/">
             Building from Source
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
-      <li data-nav-id="/stegos-docs-hugo/for-developers/data_directory_layout/" class="dd-item">
+      <li data-nav-id="/docs/for-developers/data_directory_layout/" class="dd-item">
         <div>
-          <a href="/stegos-docs-hugo/for-developers/data_directory_layout/">
+          <a href="/docs/for-developers/data_directory_layout/">
             Data Directory Layout
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
-      <li data-nav-id="/stegos-docs-hugo/for-developers/websocket_api/" class="dd-item active">
+      <li data-nav-id="/docs/for-developers/websocket_api/" class="dd-item active">
         <div>
-          <a href="/stegos-docs-hugo/for-developers/websocket_api/">
+          <a href="/docs/for-developers/websocket_api/">
             WebSocket API
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
@@ -195,28 +192,28 @@
       <center>Navigation : 
         <select onchange="javascript:location.href = this.value;">
           
-    <option value="/stegos-docs-hugo/about/" >
+    <option value="/docs/about/" >
    ABOUT</option> 
-      <option value="/stegos-docs-hugo/about/funding_and_development/" >- Funding and Development</option>
-      <option value="/stegos-docs-hugo/about/stg_token_and_sale/" >- STG Token and Sale</option>
-      <option value="/stegos-docs-hugo/about/stegos_app/" >- Stegos App</option>
-      <option value="/stegos-docs-hugo/about/privacy_blockchain/" >- Stegos Privacy Blockchain</option>
-      <option value="/stegos-docs-hugo/about/privacy/" >- Stegos Privacy Platform</option>
+      <option value="/docs/about/funding_and_development/" >- Funding and Development</option>
+      <option value="/docs/about/stg_token_and_sale/" >- STG Token and Sale</option>
+      <option value="/docs/about/stegos_app/" >- Stegos App</option>
+      <option value="/docs/about/privacy_blockchain/" >- Stegos Privacy Blockchain</option>
+      <option value="/docs/about/privacy/" >- Stegos Privacy Platform</option>
   
-    <option value="/stegos-docs-hugo/getting-started/" >
+    <option value="/docs/getting-started/" >
    GETTING STARTED</option> 
-      <option value="/stegos-docs-hugo/getting-started/connection_to_a_node/" >- Connecting to a Node</option>
-      <option value="/stegos-docs-hugo/getting-started/installing_a_node/" >- Installing a node</option>
-      <option value="/stegos-docs-hugo/getting-started/last_steps/" >- Last Steps</option>
-      <option value="/stegos-docs-hugo/getting-started/quick_start/" >- Quick Start</option>
-      <option value="/stegos-docs-hugo/getting-started/running_a_node/" >- Running a Node</option>
-      <option value="/stegos-docs-hugo/getting-started/working_with_accounts/" >- Working with Accounts</option>
+      <option value="/docs/getting-started/connection_to_a_node/" >- Connecting to a Node</option>
+      <option value="/docs/getting-started/installing_a_node/" >- Installing a node</option>
+      <option value="/docs/getting-started/last_steps/" >- Last Steps</option>
+      <option value="/docs/getting-started/quick_start/" >- Quick Start</option>
+      <option value="/docs/getting-started/running_a_node/" >- Running a Node</option>
+      <option value="/docs/getting-started/working_with_accounts/" >- Working with Accounts</option>
   
-    <option value="/stegos-docs-hugo/for-developers/" >
+    <option value="/docs/for-developers/" >
    FOR DEVELOPERS</option> 
-      <option value="/stegos-docs-hugo/for-developers/building_from_source/" >- Building from Source</option>
-      <option value="/stegos-docs-hugo/for-developers/data_directory_layout/" >- Data Directory Layout</option>
-      <option value="/stegos-docs-hugo/for-developers/websocket_api/"  selected>- WebSocket API</option>
+      <option value="/docs/for-developers/building_from_source/" >- Building from Source</option>
+      <option value="/docs/for-developers/data_directory_layout/" >- Data Directory Layout</option>
+      <option value="/docs/for-developers/websocket_api/"  selected>- WebSocket API</option>
   
 
 
@@ -251,30 +248,45 @@
 <li><a href="#create-account">Create Account</a></li>
 <li><a href="#delete-account">Delete Account</a></li>
 <li><a href="#get-recovery-phrase">Getting Recovery Phrase</a></li>
-<li><a href="#recover-account/li>
-<li><a href="#unseal-account">Unsea#unseal-accountaccount">Seal Account</a></li>
-<li><a href="#account-informationationa></li>
-<li><a href="#change-password">#change-password/a></li>
-<li><a href="#account-informationion</a></li>
-<li><a href="#balance-informationion</a></li>
-<li><a href="#utxo-information"#utxo-information="#payment">Payment</a>#paymentxc4207c2500#cloak#stake">Stake</a></li>
-<li><a hr#stakehref="#restake">Restake</a></li>
-<li><#restake#validate-certificate>
-<li><a href="#payment-history/li>
+<li><a href="#recover-account">Recover Account</a></li>
+<li><a href="#unseal-account">Unseal Account</a></li>
+<li><a href="#seal-account">Seal Account</a></li>
+<li><a href="#account-information">Account Information</a></li>
+<li><a href="#change-password">Change Password</a></li>
+<li><a href="#account-information">Account Information</a></li>
+<li><a href="#balance-information">Balance Information</a></li>
+<li><a href="#utxo-information">UTXO Information</a></li>
+<li><a href="#payment">Payment</a></li>
+<li><a href="#cloak">Cloak</a></li>
+<li><a href="#stake">Stake</a></li>
+<li><a href="#unstake">Unstake</a></li>
+<li><a href="#restake">Restake</a></li>
+<li><a href="#validate-certificate">Validate Certificate</a></li>
+<li><a href="#payment-history">Payment History</a></li>
 </ul></li>
-<li><a href="/li>
+<li><a href="#wallet-notifications">Wallet Notifications</a>
+
+<ul>
+<li><a href="#balance_changed">Balance Changed</a></li>
 <li><a href="#tokens-received">Tokens Received</a></li>
 <li><a href="#tokens-spent">Tokens Spent</a></li>
 <li><a href="#tokens-staked">Tokens Staked</a></li>
 <li><a href="#tokens-unstak">Tokens Unstaked</a></li>
-<li><a href="">Election Information</a></li>
+<li><a href="#transaction-status">Transaction Status</a></li>
+<li><a href="#snowball-status">Snowball Status</a></li>
+</ul></li>
+<li><a href="#node-rpc-api">Node RPC API</a>
+
+<ul>
+<li><a href="#escrow-information">Escrow Information</a></li>
+<li><a href="#election-information">Election Information</a></li>
 <li><a href="#enable-restaking">Enable Restaking</a></li>
 <li><a href="#pop-block">Pop Block</a></li>
 </ul></li>
 <li><a href="#node-notifications">Node Notifications</a>
 
 <ul>
-<li><a href="">Synchronization Status Changed</a></li>
+<li><a href="#synchronization-status-changed">Synchronization Status Changed</a></li>
 <li><a href="#new-micro_block">New Micro Block</a></li>
 <li><a href="#rollback-micro-block">Rollback Micro Block</a></li>
 <li><a href="#new-macro_block">New Macro Block</a></li>
@@ -282,7 +294,7 @@
 <li><a href="#use-cases">Use Cases</a>
 
 <ul>
-<l#transaction-trackingORTCODE-0xc4207c2500-46-HBHB">Transaction Tracking</a></li>
+<li><a href="#transaction-tracking">Transaction Tracking</a></li>
 </ul></li>
 </ul>
 
@@ -291,13 +303,13 @@
 <h3 id="prerequisites">Prerequisites</h3>
 
 <ul>
-<li><a href="/stegos-docs-hugo/getting-started/running_a_node/"><strong>Node is up and running</strong></a></li>
+<li><a href="/docs/getting-started/running_a_node/"><strong>Node is up and running</strong></a></li>
 <li>Any <a href="https://github.com/facundofarias/awesome-websockets"><strong>WebSocket client library</strong></a> or a browser.</li>
 </ul>
 
-<p>By default, <strong>Node</strong> starts WebSocket API server on e="background-color: #eee;">--api-endpoint</code> command-line option to <strong>Node</strong> or by setting <code style="background-color: #eee;">STEGOS_API_ENDPOINT</code> environment variable.</p>
+<p>By default, <strong>Node</strong> starts WebSocket API server on <code style="background-color: #eee;">ws://127.0.0.1:3144/</code> . You can override this value by providing <code style="background-color: #eee;">--api-endpoint</code> command-line option to <strong>Node</strong> or by setting <code style="background-color: #eee;">STEGOS_API_ENDPOINT</code> environment variable.</p>
 
-<p>To communicate with <stro<code style="background-color: #eee;">STEGOS_API<code style="background-color: #GOSHORTCODE-0xc4207c2500-51-HBHB</strong> generated by Node on the first run. By default, this file is stored in <strong>Node</strong> data directory:</p>
+<p>To communicate with <strong>Node</strong>, you will need 128-bit <strong><code style="background-color: #eee;">API TOKEN</code></strong> generated by Node on the first run. By default, this file is stored in <strong>Node</strong> data directory:</p>
 
 <div class="code-tabs">
     <div class="nav nav-tabs-container"><ul class="nav-tabs"></ul></div>
@@ -319,100 +331,31 @@
 <p></div></p>
 </div>
 </div>
-av-tabs-container"><ul class="nav-tabs"></ul></div>
-    <div class="tab-content"><div class="tab-pane" title="Linux">
-    <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-base" data-lang="base">$HOME/.local/share/stegos/api.token</code></pre></div>
 
-<p></div>
-<div class="tab-pane" title="macOS">
-    <div class="highlight"><pre style="color:#272822;background-col<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">payload</span> <span style="color:#f92672">=</span> <span style="color:#75af00">aes128_decode</span><span style="color:#111">(</span><span style="color:#75af00">base64_decode</span><span style="color:#111">(</span><span style="color:#75af00">websocket_text_message</span><span style="color:#111">),</span> <span style="color:#75af00">API_TOKEN</span><span style="color:#111">)</span>
+
+<hr />
+
+<h3 id="protocol">Protocol</h3>
+
+<h4 id="framing">Framing</h4>
+
+<p><strong>API</strong> uses <strong>Text</strong> WebSocket frames. Binary frames are no currently supported.</p>
+
+<p>Each Text frame contains a Base64-encoded version of AES-128 encrypted JSON payload. This design decision was dictated by the limitations of Rust&rsquo;s WebSocket technology. We plan to switch to SSL/TLS in the future.</p>
+
+<p><strong>Encoding:</strong></p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">payload</span> <span style="color:#f92672">=</span> <span style="color:#75af00">aes128_decode</span><span style="color:#111">(</span><span style="color:#75af00">base64_decode</span><span style="color:#111">(</span><span style="color:#75af00">websocket_text_message</span><span style="color:#111">),</span> <span style="color:#75af00">API_TOKEN</span><span style="color:#111">)</span>
 </code></pre></div>
 
 <p><strong>Decoding:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75af00">websocket_text_message</span> <span style="color:#f92672">=</span> <span style="color:#75af00">base64_encode</span><span style="color:#111">(</span><span style="color:#75af00">aes128_encode</span><span style="color:#111">(</span><span style="color:#75af00">payload</span><span style="color:#111">),</span> <span style="color:#75af00">API_TOKEN</span><span style="color:#111">)</span>
-</code></pre></div>822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size<div class="code-tabs">
-    <div class="nav nav-tabs-container"><ul class="nav-tabs"></ul></div>
-    <div class="tab-content"><div class="tab-pane" title="Python">
-    <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 1</span><span style="color:#f92672">import</span> <span style="color:#111">base64</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 2</span><span style="color:#f92672">import</span> <span style="color:#111">binascii</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 3</span><span style="color:#f92672">import</span> <span style="color:#111">json</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 4</span><span style="color:#f92672">import</span> <span style="color:#111">sys</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 5</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 6</span><span style="color:#f92672">from</span> <span style="color:#111">Crypto.Cipher</span> <span style="color:#f92672">import</span> <span style="color:#111">AES</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 7</span><span style="color:#f92672">from</span> <span style="color:#111">Crypto.Util</span> <span style="color:#f92672">import</span> <span style="color:#111">Counter</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 8</span><span style="color:#f92672">from</span> <span style="color:#111">Crypto</span> <span style="color:#f92672">import</span> <span style="color:#111">Random</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 9</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">10</span><span style="color:#00a8c8">def</span> <span style="color:#75af00">encrypt</span><span style="color:#111">(</span><span style="color:#111">key</span><span style="color:#111">,</span> <span style="color:#111">plaintext</span><span style="color:#111">):</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">11</span>    <span style="color:#00a8c8">assert</span> <span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#111">key</span><span style="color:#111">)</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">16</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">12</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">13</span>    <span style="color:#75715e"># Choose a random, 16-byte IV.</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">14</span>    <span style="color:#111">iv</span> <span style="color:#f92672">=</span> <span style="color:#111">Random</span><span style="color:#f92672">.</span><span style="color:#111">new</span><span style="color:#111">()</span><span style="color:#f92672">.</span><span style="color:#111">read</span><span style="color:#111">(</span><span style="color:#111">AES</span><span style="color:#f92672">.</span><span style="color:#111">block_size</span><span style="color:#111">)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">15</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">16</span>    <span style="color:#75715e"># Convert the IV to a Python integer.</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">17</span>    <span style="color:#111">iv_int</span> <span style="color:#f92672">=</span> <span style="color:#111">int</span><span style="color:#111">(</span><span style="color:#111">binascii</span><span style="color:#f92672">.</span><span style="color:#111">hexlify</span><span style="color:#111">(</span><span style="color:#111">iv</span><span style="color:#111">),</span> <span style="color:#ae81ff">16</span><span style="color:#111">)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">18</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">19</span>    <span style="color:#75715e"># Create a new Counter object with IV = iv_int.</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">20</span>    <span style="color:#111">ctr</span> <span style="color:#f92672">=</span> <span style="color:#111">Counter</span><span style="color:#f92672">.</span><span style="color:#111">new</span><span style="color:#111">(</span><span style="color:#111">AES</span><span style="color:#f92672">.</span><span style="color:#111">block_size</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">8</span><span style="color:#111">,</span> <span style="color:#111">initial_value</span><span style="color:#f92672">=</span><span style="color:#111">iv_int</span><span style="color:#111">)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">21</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">22</span>    <span style="color:#75715e"># Create AES-CTR cipher.</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">23</span>    <span style="color:#111">aes</span> <span style="color:#f92672">=</span> <span style="color:#111">AES</span><span style="color:#f92672">.</span><span style="color:#111">new</span><span style="color:#111">(</span><span style="color:#111">key</span><span style="color:#111">,</span> <span style="color:#111">AES</span><span style="color:#f92672">.</span><span style="color:#111">MODE_CTR</span><span style="color:#111">,</span> <span style="color:#111">counter</span><span style="color:#f92672">=</span><span style="color:#111">ctr</span><span style="color:#111">)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">24</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">25</span>    <span style="color:#75715e"># Encrypt and return IV and ciphertext.</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">26</span>    <span style="color:#111">ciphertext</span> <span style="color:#f92672">=</span> <span style="color:#111">aes</span><span style="color:#f92672">.</span><span style="color:#111">encrypt</span><span style="color:#111">(</span><span style="color:#111">plaintext</span><span style="color:#111">)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">27</span>    <span style="color:#00a8c8">return</span> <span style="color:#111">iv</span><span style="color:#f92672">+</span><span style="color:#111">ciphertext</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">28</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">29</span><span style="color:#00a8c8">def</span> <span style="color:#75af00">decrypt</span><span style="color:#111">(</span><span style="color:#111">key</span><span style="color:#111">,</span> <span style="color:#111">ciphertext</span><span style="color:#111">):</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">30</span>    <span style="color:#00a8c8">assert</span> <span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#111">key</span><span style="color:#111">)</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">16</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">31</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">32</span>    <span style="color:#75715e"># Convert the IV to a Python integer.</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">33</span>    <span style="color:#111">iv_int</span> <span style="color:#f92672">=</span> <span style="color:#111">int</span><span style="color:#111">(</span><span style="color:#111">binascii</span><span style="color:#f92672">.</span><span style="color:#111">hexlify</span><span style="color:#111">(</span><span style="color:#111">ciphertext</span><span style="color:#111">[:</span><span style="color:#ae81ff">16</span><span style="color:#111">]),</span> <span style="color:#ae81ff">16</span><span style="color:#111">)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">34</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">35</span>    <span style="color:#75715e"># Create a new Counter object with IV = iv_int.</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">36</span>    <span style="color:#111">ctr</span> <span style="color:#f92672">=</span> <span style="color:#111">Counter</span><span style="color:#f92672">.</span><span style="color:#111">new</span><span style="color:#111">(</span><span style="color:#111">AES</span><span style="color:#f92672">.</span><span style="color:#111">block_size</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">8</span><span style="color:#111">,</span> <span style="color:#111">initial_value</span><span style="color:#f92672">=</span><span style="color:#111">iv_int</span><span style="color:#111">)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">37</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">38</span>    <span style="color:#75715e"># Create AES-CTR cipher.</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">39</span>    <span style="color:#111">aes</span> <span style="color:#f92672">=</span> <span style="color:#111">AES</span><span style="color:#f92672">.</span><span style="color:#111">new</span><span style="color:#111">(</span><span style="color:#111">key</span><span style="color:#111">,</span> <span style="color:#111">AES</span><span style="color:#f92672">.</span><span style="color:#111">MODE_CTR</span><span style="color:#111">,</span> <span style="color:#111">counter</span><span style="color:#f92672">=</span><span style="color:#111">ctr</span><span style="color:#111">)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">40</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">41</span>    <span style="color:#75715e"># Decrypt and return the plaintext.</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">42</span>    <span style="color:#111">plaintext</span> <span style="color:#f92672">=</span> <span style="color:#111">aes</span><span style="color:#f92672">.</span><span style="color:#111">decrypt</span><span style="color:#111">(</span><span style="color:#111">ciphertext</span><span style="color:#111">[</span><span style="color:#ae81ff">16</span><span style="color:#111">:])</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">43</span>    <span style="color:#00a8c8">return</span> <span style="color:#111">plaintext</span></code></pre></div>
-
-<p></div>
-<div class="tab-pane" title="Rust">
-    <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 1</span><span style="color:#00a8c8">use</span> <span style="color:#111">crypto</span>::<span style="color:#111">aes</span>::<span style="color:#111">{</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">KeySize</span><span style="color:#111">};</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 2</span><span style="color:#00a8c8">use</span> <span style="color:#111">crypto</span>::<span style="color:#111">symmetriccipher</span>::<span style="color:#111">SynchronousStreamCipher</span><span style="color:#111">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 3</span><span style="color:#00a8c8">use</span> <span style="color:#111">std</span>::<span style="color:#111">iter</span>::<span style="color:#111">repeat</span><span style="color:#111">;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 4</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 5</span><span style="color:#00a8c8">pub</span> <span style="color:#00a8c8">fn</span> <span style="color:#75af00">encrypt</span><span style="color:#111">(</span><span style="color:#111">key</span>: <span style="color:#111">[</span><span style="color:#00a8c8">u8</span><span style="color:#111">;</span> <span style="color:#ae81ff">16</span><span style="color:#111">],</span> <span style="color:#111">plaintext</span>: <span style="color:#00a8c8">&amp;</span><span style="color:#111">[</span><span style="color:#00a8c8">u8</span><span style="color:#111">])</span> -&gt; <span style="color:#111">Vec</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">u8</span><span style="color:#f92672">&gt;</span> <span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 6</span>    <span style="color:#00a8c8">let</span> <span style="color:#00a8c8">mut</span> <span style="color:#111">gen</span> <span style="color:#f92672">=</span> <span style="color:#111">thread_rng</span><span style="color:#111">();</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 7</span>    <span style="color:#00a8c8">let</span> <span style="color:#00a8c8">mut</span> <span style="color:#111">nonce</span>: <span style="color:#111">Vec</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">u8</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> <span style="color:#111">repeat</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#00a8c8">u8</span><span style="color:#111">).</span><span style="color:#111">take</span><span style="color:#111">(</span><span style="color:#ae81ff">16</span><span style="color:#111">).</span><span style="color:#111">collect</span><span style="color:#111">();</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 8</span>    <span style="color:#111">gen</span><span style="color:#111">.</span><span style="color:#111">fill_bytes</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#00a8c8">mut</span> <span style="color:#111">nonce</span><span style="color:#111">[..]);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 9</span>    <span style="color:#00a8c8">let</span> <span style="color:#00a8c8">mut</span> <span style="color:#111">cipher</span> <span style="color:#f92672">=</span> <span style="color:#111">aes</span>::<span style="color:#111">ctr</span><span style="color:#111">(</span><span style="color:#111">KeySize</span>::<span style="color:#111">KeySize128</span><span style="color:#111">,</span> <span style="color:#f92672">&amp;</span><span style="color:#111">key</span><span style="color:#111">.</span><span style="color:#ae81ff">0</span><span style="color:#111">[..],</span> <span style="color:#f92672">&amp;</span><span style="color:#111">nonce</span><span style="color:#111">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">10</span>    <span style="color:#00a8c8">let</span> <span style="color:#00a8c8">mut</span> <span style="color:#111">output</span>: <span style="color:#111">Vec</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">u8</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> <span style="color:#111">repeat</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#00a8c8">u8</span><span style="color:#111">).</span><span style="color:#111">take</span><span style="color:#111">(</span><span style="color:#ae81ff">16</span> <span style="color:#f92672">+</span> <span style="color:#111">plaintext</span><span style="color:#111">.</span><span style="color:#111">len</span><span style="color:#111">()).</span><span style="color:#111">collect</span><span style="color:#111">();</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">11</span>    <span style="color:#111">output</span><span style="color:#111">[..</span><span style="color:#ae81ff">16</span><span style="color:#111">].</span><span style="color:#111">copy_from_slice</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">nonce</span><span style="color:#111">[..]);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">12</span>    <span style="color:#111">cipher</span><span style="color:#111">.</span><span style="color:#111">process</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">plaintext</span><span style="color:#111">,</span> <span style="color:#f92672">&amp;</span><span style="color:#00a8c8">mut</span> <span style="color:#111">output</span><span style="color:#111">[</span><span style="color:#ae81ff">16</span><span style="color:#111">..]);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">13</span>    <span style="color:#111">output</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">14</span><span style="color:#111">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">15</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">16</span><span style="color:#00a8c8">pub</span> <span style="color:#00a8c8">fn</span> <span style="color:#75af00">decrypt</span><span style="color:#111">(</span><span style="color:#111">key</span>: <span style="color:#111">[</span><span style="color:#00a8c8">u8</span><span style="color:#111">;</span> <span style="color:#ae81ff">16</span><span style="color:#111">],</span> <span style="color:#111">ciphertext</span>: <span style="color:#00a8c8">&amp;</span><span style="color:#111">[</span><span style="color:#00a8c8">u8</span><span style="color:#111">])</span> -&gt; <span style="color:#111">Vec</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">u8</span><span style="color:#f92672">&gt;</span> <span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">17</span>    <span style="color:#00a8c8">let</span> <span style="color:#00a8c8">mut</span> <span style="color:#111">iv</span>: <span style="color:#111">Vec</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">u8</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> <span style="color:#111">repeat</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#00a8c8">u8</span><span style="color:#111">).</span><span style="color:#111">take</span><span style="color:#111">(</span><span style="color:#ae81ff">16</span><span style="color:#111">).</span><span style="color:#111">collect</span><span style="color:#111">();</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">18</span>    <span style="color:#111">iv</span><span style="color:#111">[..].</span><span style="color:#111">copy_from_slice</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">ciphertext</span><span style="color:#111">[..</span><span style="color:#ae81ff">16</span><span style="color:#111">]);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">19</span>    <span style="color:#00a8c8">let</span> <span style="color:#00a8c8">mut</span> <span style="color:#111">cipher</span> <span style="color:#f92672">=</span> <span style="color:#111">aes</span>::<span style="color:#111">ctr</span><span style="color:#111">(</span><span style="color:#111">KeySize</span>::<span style="color:#111">KeySize128</span><span style="color:#111">,</span> <span style="color:#f92672">&amp;</span><span style="color:#111">key</span><span style="color:#111">.</span><span style="color:#ae81ff">0</span><span style="color:#111">[..],</span> <span style="color:#f92672">&amp;</span><span style="color:#111">iv</span><span style="color:#111">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">20</span>    <span style="color:#00a8c8">let</span> <span style="color:#00a8c8">mut</span> <span style="color:#111">output</span>: <span style="color:#111">Vec</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">u8</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> <span style="color:#111">repeat</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#00a8c8">u8</span><span style="color:#111">).</span><span style="color:#111">take</span><span style="color:#111">(</span><span style="color:#111">ciphertext</span><span style="color:#111">.</span><span style="color:#111">len</span><span style="color:#111">()</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">16</span><span style="color:#111">).</span><span style="color:#111">collect</span><span style="color:#111">();</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">21</span>    <span style="color:#111">cipher</span><span style="color:#111">.</span><span style="color:#111">process</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">ciphertext</span><span style="color:#111">[</span><span style="color:#ae81ff">16</span><span style="color:#111">..],</span> <span style="color:#f92672">&amp;</span><span style="color:#00a8c8">mut</span> <span style="color:#111">output</span><span style="color:#111">);</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">22</span>    <span style="color:#111">output</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">23</span><span style="color:#111">}</span></code></pre></div></p>
-
-<p></div></p>
-</div>
-</div>
-<span style="color:#75af00">websocket_text_message</span> <span style="color:#f92672">=</span> <span style="color:#75af00">base64_encode</span><span style="color:#111">(</span><span style="color:#75af00">aes128_encode</span><span style="color:#111">(</span><span style="color:#75af00">payload</span><span style="color:#111">),</span> <span style="color:#75af00">API_TOKEN</span><span style="color:#111">)</span>
 </code></pre></div>
 
 <p>Here is basic example how to encode/decode AES messages:</p>
 
-<p><div class="code-tabs">
+<div class="code-tabs">
     <div class="nav nav-tabs-container"><ul class="nav-tabs"></ul></div>
     <div class="tab-content"><div class="tab-pane" title="Python">
     <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 1</span><span style="color:#f92672">import</span> <span style="color:#111">base64</span>
@@ -488,7 +431,7 @@ av-tabs-container"><ul class="nav-tabs"></ul></div>
 <p></div></p>
 </div>
 </div>
-</p>
+
 
 <h4 id="payload">Payload</h4>
 
@@ -531,7 +474,7 @@ av-tabs-container"><ul class="nav-tabs"></ul></div>
 
 <p>The protocol supports multiplexing. Client library can send multiple requests at once on the same connection and receive responses back in any order. Please note, that responses are sent as soon as they are ready. Never rely on the order of responses and use <code style="background-color: #eee;">id</code> field for tracking! Optional field <code style="background-color: #eee;">id</code> can be used to map responses to requests. This field is opaque, i.e.your client library can generate some arbitrary <code style="background-color: #eee;">id</code> for each request and server will include provided value to a reply.</p>
 
-<p>Field <code style="background-color: #eee;">type</code> is a discriminator of requests and responses as e below). A value of <code style="background-color: #eee;">type</code> in a request doesn&rsquo;t necessary matches the value of type field in a response. Some requests may return different types of responses. For example, any RPC request can end up with an error:</p>
+<p>Field <code style="background-color: #eee;">type</code> is a discriminator of requests and responses as well as notifications (see below). A value of <code style="background-color: #eee;">type</code> in a request doesn&rsquo;t necessary matches the value of type field in a response. Some requests may return different types of responses. For example, any RPC request can end up with an error:</p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">1</span><span style="color:#111">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;error&#34;</span><span style="color:#111">,</span> 
@@ -540,7 +483,7 @@ av-tabs-container"><ul class="nav-tabs"></ul></div>
 
 <h4 id="notifications">Notifications</h4>
 
-<p>Out-of-band notifications are sent by server to notify a client about has been added or accounts&rsquo;s balance has changed:</p>
+<p>Out-of-band notifications are sent by server to notify a client about some events, e.g.when block has been added or accounts&rsquo;s balance has changed:</p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">1</span><span style="color:#111">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;balance_changed&#34;</span><span style="color:#111">,</span> 
@@ -686,9 +629,14 @@ av-tabs-container"><ul class="nav-tabs"></ul></div>
 
 <p><strong>Response:</strong></p>
 
-<p>HAHAHUGOSH2-HBHB</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;unsealed&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">4</span><span style="color:#111">}</span></code></pre></div>
 
-<h4 id="seal-account">Seal s an account, i.e., removes an account&rsquo;s secret key from memory.</p>
+<h4 id="seal-account">Seal Account</h4>
+
+<p>Seals an account, i.e., removes an account&rsquo;s secret key from memory.</p>
 
 <p><strong>Unsealed:</strong> yes</p>
 
@@ -901,9 +849,13 @@ av-tabs-container"><ul class="nav-tabs"></ul></div>
 <li><code style="background-color: #eee;">rejected</code> - rejected by the local mempool.</li>
 <li><code style="background-color: #eee;">prepared</code> - added to the blockchain.</li>
 <li><code style="background-color: #eee;">committed</code> - finalized by the consensus.</li>
-<li>HAHAHUGOSHORTCO24-HBHB - rejected because of conflict with another TX.</li>
+<li><code style="background-color: #eee;">conflicted</code> - rejected because of conflict with another TX.</li>
 </ul></li>
-</ul>aked tokens to cloaked tokens.</p>
+</ul>
+
+<h4 id="cloak">Cloak</h4>
+
+<p>Exchange all uncloaked tokens to cloaked tokens.</p>
 
 <p><strong>Unsealed:</strong> yes</p>
 
@@ -944,7 +896,17 @@ av-tabs-container"><ul class="nav-tabs"></ul></div>
 
 <p><strong>Request:</strong></p>
 
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;unstake&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">3</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">4</span>  <span style="color:#f92672">&#34;amount&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2000</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">5</span>  <span style="color:#f92672">&#34;payment_fee&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">6</span><span style="color:#111">}</span></code></pre></div>
 
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;unstake_all&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">3</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">4</span><span style="color:#111">}</span></code></pre></div>
 
 <p><strong>Response:</strong></p>
 
@@ -1470,28 +1432,15 @@ For Snowball ( <code style="background-color: #eee;">secure_payment</code> ) tra
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">6</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1230</span><span style="color:#111">,</span> 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">7</span><span style="color:#111">}</span></code></pre></div>
 
-<p>TX has been final bS consensus.</p>
- by PoS consensus.</p>
-by PoS consensus.</p>
- by PoS consensus.</p>
-onsensus.</p</p>
-onsensus.</p>
-ali</p>
-onsensus.</p</p>
-onsensus.</p>
-alized by PoS consensus.</p>
-al</p>
-onsensus.</p>
-alized by PoS consensus.</p>
-alized by PoS consensus.</p>
-lized by 
+<p>TX has been finalized by PoS consensus.</p>
+
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/stegos-docs-hugo/for-developers/data_directory_layout/" title="Data Directory Layout"> <i class="fa fa-chevron-left"></i><label>Data Directory Layout</label></a>
-    <a class="nav nav-next" href="/stegos-docs-hugo/for-developers/building_from_source/" title="Building from Source" style="margin-right: 0px;"><label>Building from Source</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/docs/for-developers/data_directory_layout/" title="Data Directory Layout"> <i class="fa fa-chevron-left"></i><label>Data Directory Layout</label></a>
+    <a class="nav nav-next" href="/docs/for-developers/building_from_source/" title="Building from Source" style="margin-right: 0px;"><label>Building from Source</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -1531,14 +1480,14 @@ lized by
 	</div>
 </footer>
 
-<script src="/stegos-docs-hugo/js/clipboard.min.js"></script>
+<script src="/docs/js/clipboard.min.js"></script>
 
-<link href="/stegos-docs-hugo/css/featherlight.min.css" rel="stylesheet">
-<script src="/stegos-docs-hugo/js/featherlight.min.js"></script>
+<link href="/docs/css/featherlight.min.css" rel="stylesheet">
+<script src="/docs/js/featherlight.min.js"></script>
 
 
 
-<script src="/stegos-docs-hugo/theme-flex/script.js"></script>
+<script src="/docs/theme-flex/script.js"></script>
 
 
     
