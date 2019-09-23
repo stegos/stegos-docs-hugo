@@ -5,11 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<<<<<<< HEAD
-<meta name="revised" content="2019-09-23T16:53:11 &#43;07">
-=======
-<meta name="revised" content="2019-09-20T19:04:51 &#43;07">
->>>>>>> 7234ab7e2844c1e4d04dc826d6b03d98d1ab2860
+<meta name="revised" content="2019-09-23T17:04:33 &#43;07">
 <title>Building from Source :: Welcome to stegos!</title>
 <link rel="shortcut icon" href="/stegos-docs-hugo/images/favicon.png" type="image/x-icon" />
 <link href="/stegos-docs-hugo/css/font-awesome.min.css" rel="stylesheet">
@@ -245,7 +241,15 @@ Make sure that these binaries are in your <code style="background-color: #eee;">
 <li><code style="background-color: #eee;">libflint</code> and <code style="background-color: #eee;">libgmp</code> - we expect <code style="background-color: #eee;">libflint.a</code> and <code style="background-color: #eee;">libgmp.a</code> static libraries and headers installed in <code style="background-color: #eee;">/usr/local</code>. Binaries for Linux and MacOS can be grabbed at <strong><a href="https://github.com/stegos/stegos-external-libs/releases">https://github.com/stegos/stegos-external-libs/releases</a></strong>.</li>
 </ul>
 
-<h4 
+<h4 id="building">Building</h4>
+
+<p>Run <code style="background-color: #eee;">cargo build</code> to create the main executable:</p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">1</span><span style="color:#75715e"># build in release mode
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">2</span><span style="color:#75715e"></span>$ cargo build --release</code></pre></div>
+
+<p>This produces <code style="background-color: #eee;">stegos</code> and <code style="background-color: #eee;">stegosd</code> executable in the <code style="background-color: #eee;">./target/release</code> subdirectory.</p>
+
 
     
     
