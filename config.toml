@@ -1,4 +1,4 @@
-baseURL = "/stegos-docs-hugo"
+# baseURL = "/stegos-docs-hugo"
 
 languageCode = "en-us"
 DefaultContentLanguage = "en"
