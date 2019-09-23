@@ -2,62 +2,62 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ABOUT on Welcome to stegos!</title>
-    <link>/stegos-docs-hugo/about/</link>
+    <link>/about/</link>
     <description>Recent content in ABOUT on Welcome to stegos!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="/stegos-docs-hugo/about/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/about/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Funding and Development</title>
-      <link>/stegos-docs-hugo/about/funding_and_development/</link>
+      <link>/about/funding_and_development/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/stegos-docs-hugo/about/funding_and_development/</guid>
+      <guid>/about/funding_and_development/</guid>
       <description>How is Stegos being funded? Stegos will generate a pre-mine of 1 billion STG tokens. Up to 51.25% of the STG pre-mine may be privately sold to high net-worth individuals and companies to reach a maximum of $30 million. Stegos has already raised $15 million of this target in 2018. Once the mainnet is launched, STG tokens will be sold directly to the general public using the built-in DEX.</description>
     </item>
     
     <item>
-      <title>STG Token and Sale</title>
-      <link>/stegos-docs-hugo/about/stg_token_and_sale/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/stegos-docs-hugo/about/stg_token_and_sale/</guid>
-      <description>What is Stegos&amp;rsquo; Monetary Policy? STG token emission will start at 14% during the first 4 years and halve every 4 years thereafter.
-When will tokens be distributed to investors? The tokens will be distributed after mainnet launch.
-What is your ticker name? STG
-What is Stegos&amp;rsquo; Total Emission? 1,000,000,000 STG
-How will the pre-mine be distributed? The one billion pre-mined STG will be distributed as follows: Sale (51.25%); Development (16.</description>
-    </item>
-    
-    <item>
       <title>Stegos App</title>
-      <link>/stegos-docs-hugo/about/stegos_app/</link>
+      <link>/about/stegos_app/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/stegos-docs-hugo/about/stegos_app/</guid>
+      <guid>/about/stegos_app/</guid>
       <description>What features will the Stegos App have? In addition to an integrated STG wallet, the app will include many features, including private chat, mobile node setup, red packets (hongbao) and access to the privacy app store.
 Will I be able to stake directly from the app? The Stegos app is designed to be an accessible gateway to the world of crypto and privacy. You will find full and simple in-app instructions for setting up a node so you can start earning tokens from your pocket within minutes.</description>
     </item>
     
     <item>
       <title>Stegos Privacy Blockchain</title>
-      <link>/stegos-docs-hugo/about/privacy_blockchain/</link>
+      <link>/about/privacy_blockchain/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/stegos-docs-hugo/about/privacy_blockchain/</guid>
+      <guid>/about/privacy_blockchain/</guid>
       <description>How can I be sure that STG transactions are unlinkable, untraceable, and completely confidential? Stegos uses multiple methods to ensure maximum privacy. User identities are obfuscated using cryptographic key pairs, and each transaction uses a new stealth address. Transactions are combined into supertransactions to hide sender and receiver information, while all transaction amounts are hidden using cryptographic commitments (Pedersen commitments) and zero-knowledge range proofs (Bulletproofs). Validator stakes and transaction fees are the only exception since these must be visible for blockchain validation to work.</description>
     </item>
     
     <item>
       <title>Stegos Privacy Platform</title>
-      <link>/stegos-docs-hugo/about/privacy/</link>
+      <link>/about/privacy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/stegos-docs-hugo/about/privacy/</guid>
+      <guid>/about/privacy/</guid>
       <description>What is Stegos? The Stegos privacy platform provides users with fully private transactions, messaging and data transmission. Stegos acts as a gateway to an entire ecosystem of privacy services and apps. Stegos combines a unique blockchain and token design to implement the first cryptocurrency that’s absolutely private, secure, efficient and fully mobile compatible. The most up to date information can be found in the Project section of our website at http://stegos.</description>
+    </item>
+    
+    <item>
+      <title>STG Token and Sale</title>
+      <link>/about/stg_token_and_sale/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/stg_token_and_sale/</guid>
+      <description>What is Stegos&amp;rsquo; Monetary Policy? STG token emission will start at 14% during the first 4 years and halve every 4 years thereafter.
+When will tokens be distributed to investors? The tokens will be distributed after mainnet launch.
+What is your ticker name? STG
+What is Stegos&amp;rsquo; Total Emission? 1,000,000,000 STG
+How will the pre-mine be distributed? The one billion pre-mined STG will be distributed as follows: Sale (51.25%); Development (16.</description>
     </item>
     
   </channel>
