@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-09-23T15:14:52 CEST">
+<meta name="revised" content="2019-09-25T21:20:08 MSK">
 <title>WebSocket API :: Welcome to stegos!</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -241,7 +241,7 @@
 <li><a href="#remote-procedure-calls">Remote Procedure Calls</a></li>
 <li><a href="#notifications">Notifications</a></li>
 </ul></li>
-<li><a href="#wallet-rpc-api">Wallet RPC API</a>
+<li><a href="#wallet-api">Wallet API</a>
 
 <ul>
 <li><a href="#list-accounts">List Accounts</a></li>
@@ -256,7 +256,9 @@
 <li><a href="#account-information">Account Information</a></li>
 <li><a href="#balance-information">Balance Information</a></li>
 <li><a href="#utxo-information">UTXO Information</a></li>
-<li><a href="#payment">Payment</a></li>
+<li><a href="#create-public-address">Create Public Address</a></li>
+<li><a href="#public-addresses-information">Public Addresses Information</a></li>
+<li><a href="#payments"><strong>Payments</strong></a></li>
 <li><a href="#cloak">Cloak</a></li>
 <li><a href="#stake">Stake</a></li>
 <li><a href="#unstake">Unstake</a></li>
@@ -264,32 +266,17 @@
 <li><a href="#validate-certificate">Validate Certificate</a></li>
 <li><a href="#payment-history">Payment History</a></li>
 </ul></li>
-<li><a href="#wallet-notifications">Wallet Notifications</a>
+<li><a href="#node-api">Node API</a>
 
 <ul>
-<li><a href="#balance_changed">Balance Changed</a></li>
-<li><a href="#tokens-received">Tokens Received</a></li>
-<li><a href="#tokens-spent">Tokens Spent</a></li>
-<li><a href="#tokens-staked">Tokens Staked</a></li>
-<li><a href="#tokens-unstak">Tokens Unstaked</a></li>
-<li><a href="#transaction-status">Transaction Status</a></li>
-<li><a href="#snowball-status">Snowball Status</a></li>
-</ul></li>
-<li><a href="#node-rpc-api">Node RPC API</a>
-
-<ul>
+<li><a href="#status-information">Status Information</a></li>
+<li><a href="#blockchain-notifications">Status Notifications</a></li>
+<li><a href="#blockchain-notifications">Blockchain Information</a></li>
+<li><a href="#status-notifications">Blockchain Notifications</a></li>
+<li><a href="#pop-micro-block">Pop Micro Block</a></li>
 <li><a href="#escrow-information">Escrow Information</a></li>
 <li><a href="#election-information">Election Information</a></li>
 <li><a href="#enable-restaking">Enable Restaking</a></li>
-<li><a href="#pop-block">Pop Block</a></li>
-</ul></li>
-<li><a href="#node-notifications">Node Notifications</a>
-
-<ul>
-<li><a href="#synchronization-status-changed">Synchronization Status Changed</a></li>
-<li><a href="#new-micro_block">New Micro Block</a></li>
-<li><a href="#rollback-micro-block">Rollback Micro Block</a></li>
-<li><a href="#new-macro_block">New Macro Block</a></li>
 </ul></li>
 <li><a href="#use-cases">Use Cases</a>
 
@@ -438,12 +425,25 @@
 
 <p>Payload is just a pure JSON:</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;id&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">100500</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;balance_info&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;balance&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">999996000</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#111">}</span></code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;id&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">100500</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;balance_info&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>  <span style="color:#f92672">&#34;payment&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    <span style="color:#f92672">&#34;current&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000000</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>    <span style="color:#f92672">&#34;available&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000000</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>  <span style="color:#111">},</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>  <span style="color:#f92672">&#34;public_payment&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>    <span style="color:#f92672">&#34;current&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>    <span style="color:#f92672">&#34;available&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>  <span style="color:#111">},</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>  <span style="color:#f92672">&#34;stake&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>    <span style="color:#f92672">&#34;current&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>    <span style="color:#f92672">&#34;available&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>  <span style="color:#111">},</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>  <span style="color:#f92672">&#34;current&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000000</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>  <span style="color:#f92672">&#34;available&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000000</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span style="color:#111">}</span></code></pre></div>
 
 <p>There are two kinds of JSON messages:</p>
 
@@ -459,26 +459,40 @@
 <p><strong>Sample request</strong>:</p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>   <span style="color:#f92672">&#34;id&#34;</span><span style="color:#111">:</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>   <span style="color:#f92672">&#34;id&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>   <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span><span style="color:#d88200">&#34;balance_info&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>   <span style="color:#d88200">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>   <span style="color:#d88200">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#111">}</span></code></pre></div>
 
 <p><strong>Sample response</strong>:</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>   <span style="color:#f92672">&#34;id&#34;</span><span style="color:#111">:</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>   <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span><span style="color:#d88200">&#34;balance_info&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>   <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>   <span style="color:#f92672">&#34;balance&#34;</span><span style="color:#111">:</span><span style="color:#ae81ff">999996000</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#111">}</span></code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;id&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;balance_info&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>  <span style="color:#f92672">&#34;payment&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    <span style="color:#f92672">&#34;current&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000000</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>    <span style="color:#f92672">&#34;available&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000000</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>  <span style="color:#111">},</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>  <span style="color:#f92672">&#34;public_payment&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>    <span style="color:#f92672">&#34;current&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>    <span style="color:#f92672">&#34;available&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>  <span style="color:#111">},</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>  <span style="color:#f92672">&#34;stake&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>    <span style="color:#f92672">&#34;current&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>    <span style="color:#f92672">&#34;available&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>  <span style="color:#111">},</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>  <span style="color:#f92672">&#34;current&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000000</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>  <span style="color:#f92672">&#34;available&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000000</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>  <span style="color:#f92672">&#34;is_final&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">false</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span style="color:#111">}</span></code></pre></div>
 
 <p>The protocol supports multiplexing. Client library can send multiple requests at once on the same connection and receive responses back in any order. Please note, that responses are sent as soon as they are ready. Never rely on the order of responses and use <code style="background-color: #eee;">id</code> field for tracking! Optional field <code style="background-color: #eee;">id</code> can be used to map responses to requests. This field is opaque, i.e.your client library can generate some arbitrary <code style="background-color: #eee;">id</code> for each request and server will include provided value to a reply.</p>
 
 <p>Field <code style="background-color: #eee;">type</code> is a discriminator of requests and responses as well as notifications (see below). A value of <code style="background-color: #eee;">type</code> in a request doesn&rsquo;t necessary matches the value of type field in a response. Some requests may return different types of responses. For example, any RPC request can end up with an error:</p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;error&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;error&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;error&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;Not enough money.&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#111">}</span></code></pre></div>
 
@@ -487,8 +501,8 @@
 <p>Out-of-band notifications are sent by server to notify a client about some events, e.g.when block has been added or accounts&rsquo;s balance has changed:</p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;balance_changed&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;balance_changed&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;balance&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">999996010</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#111">}</span></code></pre></div>
 
@@ -496,17 +510,60 @@
 
 <hr />
 
-<h3 id="wallet-rpc-api">Wallet RPC API</h3>
+<h3 id="wallet-api">Wallet API</h3>
 
-<p>Wallet RPC API is used to manage account and sending transactions.</p>
+<p><strong>Stegos Node</strong> provides API to manage accounts and sending transactions.</p>
 
-<p>One <strong>Node</strong> has exactly one <strong>Wallet</strong>. One <strong>Wallet</strong> can hold multiple <strong>Accounts</strong>. One <strong>Account</strong> has exactly one <strong>Address</strong>.<strong>Address</strong> is Base58-encoded public key of an <strong>Account</strong>:</p>
+<p>One <strong>Node</strong> has exactly one attached <strong>Wallet</strong>. One <strong>Wallet</strong> can hold
+multiple <strong>Accounts</strong>. One <strong>Account</strong> has exactly one primary Curve25519
+keypair. Each <strong>Account</strong> is uniquely identified its <strong>Public Key</strong>.</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#75af00">MAGIC_BYTE</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">198</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#75af00">address</span> <span style="color:#f92672">=</span> <span style="color:#75af00">base58_check_encode</span><span style="color:#111">(</span><span style="color:#75af00">MAGIC_BYTE</span><span style="color:#111">,</span> <span style="color:#75af00">curve25519_public_key</span><span style="color:#111">)</span>
+<p><strong>Account&rsquo;s Public Key</strong> can be used to receive both private and public payments.
+There is no special need in temporary addreses like in Bitcoin, because
+our private payments implements Confidental Transactios and all recepient&rsquo;
+addressese are always clocked.</p>
+
+<p>However, for the sake of Bitcoin compatibility, we also support
+<strong>Virtual Public Addresses</strong>. <strong>Virtual Public Address</strong> is like a regular
+public keys, but it can only be used for receiving public (uncloaked) payments.
+All PublicUTXO sent to such addresses will be deposited to the primary
+keypair and can be spent as usual by using <strong>cloak</strong> API CALL. All other
+kinds of UTXO sent to such virtual address <strong>will be permanently lost</strong>.
+Each <strong>Account</strong> can have zero or more such <strong>Virtual Public Addresses</strong>.
+You can use public addresses to implement Bitcoin-like behaviour. For example,
+exchanges can use virtual public addresses to receive deposits from customers.
+But please never use virtual public addresses for private payments.
+It makes no sense since private payments are always cloaked.</p>
+
+<p>Under the hood virtual public addresses implemented as deterministic
+key pairs generated from the primary account key + sequential
+uint32 number, called <code>public_address_id</code>. The first key will have
+id=1, second- id=2 and so far. However, some numbers doesn&rsquo;t produce
+valid Curve25519 keys and should be ignored. Since all addresses
+are deterministically generated, there is no need in separate
+backup. Please remember the last used <code>public_address_id</code> and provide
+this value during recovery. Wallet will automatically re-create
+all public addreses up to <code>public_address_id</code>. This patch changes
+<code>show recovery</code> and <code>recover account</code> to support `public_address_id.</p>
+
+<p>All public keys and addresses in API calls are encoded using bech32:</p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#75af00">account_pkey</span> <span style="color:#f92672">=</span> <span style="color:#75af00">bech32_encode</span><span style="color:#111">(</span><span style="color:#75af00">prefix</span><span style="color:#111">,</span> <span style="color:#75af00">curve25519_public_key</span><span style="color:#111">)</span>
 </code></pre></div>
 
-<p>Each <strong>Account</strong> is uniquely identified its address. Since public keys are quite large, <strong>Wallet</strong> automatically assigns a short unique surrogate identifier to each keypair to use in API calls. This identifier is called by <code style="background-color: #eee;">account_id</code> . Please do not confuse with <code style="background-color: #eee;">account_pkey</code> which is an account public key.</p>
+<p>Where supported prefixes are:</p>
+
+<ul>
+<li><code>stg</code> - MainNet</li>
+<li><code>stt</code> - TestNet</li>
+<li><code>str</code> - DevNet</li>
+<li><code>dev</code> - tests</li>
+</ul>
+
+<p><strong>Wallet</strong> automatically assigns a short unique surrogate identifier to each
+keypair to use in API calls. This identifier is called by <code>account_id</code>.
+Please do not confuse with <code style="background-color: #eee;">account_pkey</code> which is an
+Account&rsquo;s Public Key.</p>
 
 <p>Each <strong>Account</strong> has associated password. This password is used as a seed for a key derivation function for AES-128 encryption. Encryption protects a secret key and other sensitive data. Since this password is never stored in any way, there are no possible technical ways to recover it from the node. This obviously doesn&rsquo;t protect from possible leaks via side-channels or via Rubber-hose cryptanalysis.</p>
 
@@ -526,19 +583,19 @@
 <p><strong>Request:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;accounts_info&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;accounts_info&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#111">}</span></code></pre></div>
 
 <p><strong>Response:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;accounts_info&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;accounts_info&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;accounts&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#f92672">&#34;1&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>      <span style="color:#f92672">&#34;account_pkey&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>    <span style="color:#111">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>    
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>  <span style="color:#111">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#111">}</span></code></pre></div>
@@ -550,14 +607,14 @@
 <p><strong>Request:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;create_account&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;create_account&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;password&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;plain-text-password&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#111">}</span></code></pre></div>
 
 <p><strong>Response:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;account_created&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;account_created&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#111">}</span></code></pre></div>
 
@@ -566,14 +623,14 @@
 <p><strong>Request:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;delete_account&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;delete_account&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#111">}</span></code></pre></div>
 
 <p><strong>Response:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;account_deleted&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;account_deleted&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#111">}</span></code></pre></div>
 
@@ -587,14 +644,14 @@
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;recovery_info&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#d88200">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#d88200">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#111">}</span></code></pre></div>
 
 <p><strong>Response:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;recovery&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;recovery&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;recovery&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;swear praise ginger oxygen anchor ten small planet crime cave fold chuckle foot dragon decorate guess poverty grass crew depend define twice mother update&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#111">}</span></code></pre></div>
 
@@ -606,13 +663,13 @@
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;recover_account&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#d88200">&#34;recovery&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;swear praise ginger oxygen anchor ten small planet crime cave fold chuckle foot dragon decorate guess poverty grass crew depend define twice mother update&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#d88200">&#34;recovery&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;swear praise ginger oxygen anchor ten small planet crime cave fold chuckle foot dragon decorate guess poverty grass crew depend define twice mother update&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#111">}</span></code></pre></div>
 
 <p><strong>Response:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;account_created&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;account_created&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#111">}</span></code></pre></div>
 
@@ -624,14 +681,14 @@
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;unseal&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#d88200">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#d88200">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;password&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;plain-text-password&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#111">}</span></code></pre></div>
 
 <p><strong>Response:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;unsealed&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#111">}</span></code></pre></div>
 
@@ -645,13 +702,13 @@
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;seal&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#d88200">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#d88200">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#111">}</span></code></pre></div>
 
 <p><strong>Response:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;sealed&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#111">}</span></code></pre></div>
 
@@ -664,14 +721,14 @@
 <p><strong>Request:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;change_password&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;new_password&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;plain-text-password&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;change_password&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;new_password&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;plain-text-password&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#111">}</span></code></pre></div>
 
 <p><strong>Response:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;password_changed&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#111">}</span></code></pre></div>
 
@@ -684,16 +741,16 @@
 <p><strong>Request:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;account_info&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;account_info&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#111">}</span></code></pre></div>
 
 <p><strong>Response:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;account_info&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;account_pkey&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;account_info&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;account_pkey&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#111">}</span></code></pre></div>
 
 <h4 id="balance-information">Balance Information</h4>
@@ -710,14 +767,63 @@
 
 <p><strong>Response:</strong></p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;balance_info&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;balance&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;available_balance&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#111">}</span></code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;balance_info&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;payment&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#f92672">&#34;current&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000000</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    <span style="color:#f92672">&#34;available&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000000</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>  <span style="color:#111">},</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>  <span style="color:#f92672">&#34;public_payment&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    <span style="color:#f92672">&#34;current&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>    <span style="color:#f92672">&#34;available&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>  <span style="color:#111">},</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>  <span style="color:#f92672">&#34;stake&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>    <span style="color:#f92672">&#34;current&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>    <span style="color:#f92672">&#34;available&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>  <span style="color:#111">},</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>  <span style="color:#f92672">&#34;current&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000000</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>  <span style="color:#f92672">&#34;available&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000000</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>  <span style="color:#f92672">&#34;is_final&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">false</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span style="color:#111">}</span></code></pre></div>
 
-<p><code style="background-color: #eee;">available_balance</code> doesn&rsquo;t include tokens used by pending transactions, locked-by-timestamp UTXO, stakes and Service Awards payouts.</p>
+<ul>
+<li><code>payment</code> - balance of PaymentUTXO.</li>
+<li><code>public_payment</code> - balance of PublicPaymentUTXO.</li>
+<li><code>stake</code> - balance of StakeUTXO.</li>
+
+<li><p><code>is_final</code> - true if this state has been finalized by consensus.</p></li>
+
+<li><p><code>current</code> - total amount, including in-flight transactions and locked UTXO.</p></li>
+
+<li><p><code>available</code> - amount available to spent.</p></li>
+</ul>
+
+<h4 id="balance-notifications">Balance Notifications</h4>
+
+<p>Sent when an account&rsquo;s balance has been changed.</p>
+
+<p><strong>Notifications</strong>:</p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;balance_changed&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;payment&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#f92672">&#34;current&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000000</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    <span style="color:#f92672">&#34;available&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000000</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>  <span style="color:#111">},</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>  <span style="color:#f92672">&#34;public_payment&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    <span style="color:#f92672">&#34;current&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>    <span style="color:#f92672">&#34;available&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>  <span style="color:#111">},</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>  <span style="color:#f92672">&#34;stake&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>    <span style="color:#f92672">&#34;current&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>    <span style="color:#f92672">&#34;available&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>  <span style="color:#111">},</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>  <span style="color:#f92672">&#34;current&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000000</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>  <span style="color:#f92672">&#34;available&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000000</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>  <span style="color:#f92672">&#34;is_final&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">false</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span style="color:#111">}</span></code></pre></div>
 
 <h4 id="utxo-information">UTXO Information</h4>
 
@@ -734,9 +840,9 @@
 <p><strong>Response:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;unspent_info&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;public_payments&#34;</span><span style="color:#111">:</span> <span style="color:#111">[],</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;unspent_info&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;public_payments&#34;</span><span style="color:#111">:</span> <span style="color:#111">[],</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>  <span style="color:#f92672">&#34;payments&#34;</span><span style="color:#111">:</span> <span style="color:#111">[</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>    <span style="color:#111">{</span>
@@ -747,27 +853,70 @@
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>      <span style="color:#f92672">&#34;recipient&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>      <span style="color:#f92672">&#34;is_change&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">false</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>    <span style="color:#111">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>    
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>  <span style="color:#111">],</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>  <span style="color:#f92672">&#34;stakes&#34;</span><span style="color:#111">:</span> <span style="color:#111">[]</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span style="color:#111">}</span></code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>  <span style="color:#111">],</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>  <span style="color:#f92672">&#34;stakes&#34;</span><span style="color:#111">:</span> <span style="color:#111">[]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span style="color:#111">}</span></code></pre></div>
 
-<h4 id="payment">Payment</h4>
+<h4 id="create-public-address">Create Public Address</h4>
 
-<p>Creates a payment transaction to transfer money.</p>
+<p>Creates a new public address.</p>
 
 <p><strong>Unsealed:</strong> yes</p>
 
 <p><strong>Request:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;payment&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;recipient&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eiszB5iVFPCAWSmmkQ5ARyiLpvf1hifQrJ8FikJ1QJQ1k8WrQv&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;amount&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">100</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;payment_fee&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;comment&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;Test&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>  <span style="color:#f92672">&#34;locked_timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2019-08-22T12:35:06.343300856Z&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;create_public_address&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#111">}</span></code></pre></div>
+
+<p><strong>Response:</strong></p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;public_address_created&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;public_address&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;dev18c98gtemyps2x29n2sc73gp4qqnqdzqufq6cdjlku003u8w64cdqhe9pxe&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;public_address_id&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#111">}</span></code></pre></div>
+
+<h4 id="public-addresses-information">Public Addresses Information</h4>
+
+<p>Returns information about created public addresses.</p>
+
+<p><strong>Unsealed:</strong> yes</p>
+
+<p><strong>Request:</strong></p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;public_addresses_info&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#111">}</span></code></pre></div>
+
+<p><strong>Response:</strong></p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;public_addresses_info&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;public_addresses&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>    <span style="color:#f92672">&#34;1&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>      <span style="color:#f92672">&#34;address&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;dev18c98gtemyps2x29n2sc73gp4qqnqdzqufq6cdjlku003u8w64cdqhe9pxe&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>    <span style="color:#111">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span>  <span style="color:#111">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span style="color:#111">}</span></code></pre></div>
+
+<h4 id="payments">Payments</h4>
+
+<p>API for creating transactions to transfer money.</p>
+
+<p><strong>Unsealed:</strong> yes</p>
+
+<p><strong>Request:</strong></p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;payment&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;recipient&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eiszB5iVFPCAWSmmkQ5ARyiLpvf1hifQrJ8FikJ1QJQ1k8WrQv&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;amount&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">100</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;payment_fee&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;comment&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;Test&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>  <span style="color:#f92672">&#34;locked_timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2019-08-22T12:35:06.343300856Z&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span>  <span style="color:#f92672">&#34;with_certificate&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">false</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span style="color:#111">}</span></code></pre></div>
 
@@ -790,10 +939,10 @@
 <p><strong>Response:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;transaction_created&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;tx_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;b9132147148715da31d9ac95ec1efee9aec374deb356b3fedefc17322c3b63c2&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>  <span style="color:#f92672">&#34;fee&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2000</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;transaction_created&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;tx_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;b9132147148715da31d9ac95ec1efee9aec374deb356b3fedefc17322c3b63c2&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>  <span style="color:#f92672">&#34;fee&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2000</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>  <span style="color:#f92672">&#34;outputs&#34;</span><span style="color:#111">:</span> <span style="color:#111">[</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>    <span style="color:#111">{</span>
@@ -815,17 +964,57 @@
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>      <span style="color:#f92672">&#34;recipient&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>      <span style="color:#f92672">&#34;is_change&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">true</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>    <span style="color:#111">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>    
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>  <span style="color:#111">],</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>  <span style="color:#111">],</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>  <span style="color:#f92672">&#34;inputs&#34;</span><span style="color:#111">:</span> <span style="color:#111">[</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span>    <span style="color:#d88200">&#34;13257da5cdef20d47dba473deb182f0d24c2a1ed717ba379c2b1830fdfadbd7e&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span>    
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span>  <span style="color:#111">],</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span>  <span style="color:#111">],</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span>  <span style="color:#f92672">&#34;status&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;created&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span style="color:#111">}</span></code></pre></div>
+
+<p><strong>Notifications</strong>:</p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;transaction_status&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;tx_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;049db1e1979f2c8d876df876011f12764fb8ef5c578203dcba35bb9a8f09cfa3&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;status&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;committed&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1192</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#111">}</span></code></pre></div>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;pool_wait&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#111">}</span></code></pre></div>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;shared_keying&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#111">}</span></code></pre></div>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;commitment&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#111">}</span></code></pre></div>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;cloaked_vals&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#111">}</span></code></pre></div>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;succeeded&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#111">}</span></code></pre></div>
 
 <ul>
 <li><code style="background-color: #eee;">tx_hash</code> - a hash of created transaction.</li>
@@ -863,7 +1052,7 @@
 <p><strong>Request:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;cloak_all&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;cloak_all&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;payment_fee&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#111">}</span></code></pre></div>
 
@@ -880,8 +1069,8 @@
 <p><strong>Request:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;stake&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;amount&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2000</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;stake&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;amount&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2000</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;payment_fee&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#111">}</span></code></pre></div>
 
@@ -898,15 +1087,15 @@
 <p><strong>Request:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;unstake&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;amount&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2000</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;unstake&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;amount&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2000</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;payment_fee&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#111">}</span></code></pre></div>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;unstake_all&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;unstake_all&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#111">}</span></code></pre></div>
 
 <p><strong>Response:</strong></p>
@@ -922,7 +1111,7 @@
 <p><strong>Request:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;restake_all&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;restake_all&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#111">}</span></code></pre></div>
 
 <p><strong>Response:</strong></p>
@@ -936,10 +1125,10 @@
 <p>Request:</p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;validate_certificate&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;utxo&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;0fdb42aa9433bc6f7079426ebbe0d5464ca713b2aad2bb5ff4fe163f98a80674&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;spender&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;recipient&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eiszB5iVFPCAWSmmkQ5ARyiLpvf1hifQrJ8FikJ1QJQ1k8WrQv&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;validate_certificate&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;utxo&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;0fdb42aa9433bc6f7079426ebbe0d5464ca713b2aad2bb5ff4fe163f98a80674&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;spender&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;recipient&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eiszB5iVFPCAWSmmkQ5ARyiLpvf1hifQrJ8FikJ1QJQ1k8WrQv&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;rvalue&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;0dbb132afbfdcc7bfb25191f89007f27919fceaceea03b015d98458cba1a4200&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#111">}</span></code></pre></div>
 
@@ -950,11 +1139,11 @@
 <p><strong>Response:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;certificate_valid&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1181</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;block_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;5e8a4429338ac775b40472d0cee6a439cbf0542c966bca9a089f1a84bdb2e680&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;is_final&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2019-08-21T13:05:53.045364692Z&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;certificate_valid&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1181</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;block_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;5e8a4429338ac775b40472d0cee6a439cbf0542c966bca9a089f1a84bdb2e680&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;is_final&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2019-08-21T13:05:53.045364692Z&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>  <span style="color:#f92672">&#34;amount&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">100</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span style="color:#111">}</span></code></pre></div>
 
@@ -973,16 +1162,16 @@
 <p><strong>Request:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;history_info&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;starting_from&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2019-08-20T13:48:40.877231494Z&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;history_info&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;starting_from&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2019-08-20T13:48:40.877231494Z&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;limit&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">50</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#111">}</span></code></pre></div>
 
 <p><strong>Response:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#111">{</span>                                                                                                                            <span style="color:#960050;background-color:#1e0010">[31/9149]</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;history_info&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;history_info&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;log&#34;</span><span style="color:#111">:</span> <span style="color:#111">[</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    <span style="color:#111">{</span>
@@ -1043,136 +1232,173 @@
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61</span>      <span style="color:#f92672">&#34;recipient&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62</span>      <span style="color:#f92672">&#34;is_change&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">true</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63</span>    <span style="color:#111">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64</span>    
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66</span>  <span style="color:#111">]</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67</span><span style="color:#111">}</span></code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64</span>  <span style="color:#111">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65</span><span style="color:#111">}</span></code></pre></div>
 
 <hr />
 
-<h4 id="wallet-notifications">Wallet Notifications</h4>
+<h3 id="node-api">Node API</h3>
 
-<p>Out of band notifications.</p>
+<h4 id="status-information">Status Information</h4>
 
-<h4 id="balance-changed">Balance Changed</h4>
+<p>Return information about the current Node status.</p>
 
-<p>Sent when an account&rsquo;s balance has been changed.</p>
+<p><strong>Request:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;balance_changed&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;balance&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">999988700</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;available_balance&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">999988700</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#111">}</span></code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;status_info&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#111">}</span></code></pre></div>
 
-<h4 id="tokens-received">Tokens Received</h4>
-
-<p>Sent when an account has received some tokens.</p>
+<p><strong>Response:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;received&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;utxo&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;cef3b6ca7aa04383ee20c95b9c0071d751fa6b19e6ca75760e86380d402ed597&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>  <span style="color:#f92672">&#34;amount&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">999988699</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>  <span style="color:#f92672">&#34;comment&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;Change&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>  <span style="color:#f92672">&#34;locked_timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">null</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>  <span style="color:#f92672">&#34;recipient&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>  <span style="color:#f92672">&#34;is_change&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">false</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#111">}</span></code></pre></div>
-
-<h4 id="tokens-spent">Tokens Spent</h4>
-
-<p>Sent when an account has spent some tokens.</p>
-
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;spent&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;utxo&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;8c662fb663b59dcedf60a9db59edc88cefdc36c2db50d8ce8db105fd0af58004&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>  <span style="color:#f92672">&#34;amount&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">999990700</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>  <span style="color:#f92672">&#34;comment&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;Change&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>  <span style="color:#f92672">&#34;locked_timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">null</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>  <span style="color:#f92672">&#34;pending_timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2019-08-21T13:21:05.168083847Z&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>  <span style="color:#f92672">&#34;recipient&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>  <span style="color:#f92672">&#34;is_change&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">false</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;status_info&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;is_synchronized&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">false</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">16</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>  <span style="color:#f92672">&#34;offset&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>  <span style="color:#f92672">&#34;view_change&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>  <span style="color:#f92672">&#34;last_block_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2a4eae2807d771170c41ade13bc405ce95d54b5c1cc7e3a674ddfa17e427a70a&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>  <span style="color:#f92672">&#34;last_macro_block_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1e17d6048385f79eb2d8ba2b3ded80f76c9121d175575b0cd1d47d3aade18150&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>  <span style="color:#f92672">&#34;last_macro_block_timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2019-09-25T14:17:56.647442627Z&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>  <span style="color:#f92672">&#34;local_timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2019-09-25T14:23:26.304454862Z&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#111">}</span></code></pre></div>
 
-<h4 id="tokens-staked">Tokens Staked</h4>
+<h4 id="status-notification">Status Notification</h4>
 
-<p>Sent when an account staked some tokens into the escrow.</p>
+<p>Subscribe for Node status changes.</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;staked&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;utxo&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;47c1b06d67794d72d2a5538f233823d6819b7ff6f8a73ddc41a3c8bbc08b74ce&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;account_pkey&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;active_until_epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1194</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>  <span style="color:#f92672">&#34;is_active&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span>  <span style="color:#f92672">&#34;amount&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2000</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span style="color:#111">}</span></code></pre></div>
-
-<h4 id="tokens-unstaked">Tokens Unstaked</h4>
-
-<p>Sent when an account unsteaked some tokens have from the escrow.</p>
+<p><strong>Request:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;unstaked&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;utxo&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;8b3fdbec4c3435dee88d1a3fabb7db4cb08805bbef9ad213d8d04d483168a1d1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;account_pkey&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;active_until_epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1191</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>  <span style="color:#f92672">&#34;is_active&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span>  <span style="color:#f92672">&#34;amount&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2000</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span style="color:#111">}</span></code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;subscribe_status&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#111">}</span></code></pre></div>
 
-<h4 id="transaction-status">Transaction Status</h4>
+<p><strong>Response:</strong></p>
 
-<p>Sent when TX status has changed. See Payment.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;subscribed_status&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;is_synchronized&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">false</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">16</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>  <span style="color:#f92672">&#34;offset&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>  <span style="color:#f92672">&#34;view_change&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>  <span style="color:#f92672">&#34;last_block_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2a4eae2807d771170c41ade13bc405ce95d54b5c1cc7e3a674ddfa17e427a70a&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>  <span style="color:#f92672">&#34;last_macro_block_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1e17d6048385f79eb2d8ba2b3ded80f76c9121d175575b0cd1d47d3aade18150&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>  <span style="color:#f92672">&#34;last_macro_block_timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2019-09-25T14:17:56.647442627Z&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>  <span style="color:#f92672">&#34;local_timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2019-09-25T14:25:15.436308374Z&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#111">}</span></code></pre></div>
+
+<p><strong>Notifications:</strong></p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;status_changed&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;is_synchronized&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">false</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">16</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>  <span style="color:#f92672">&#34;offset&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>  <span style="color:#f92672">&#34;view_change&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>  <span style="color:#f92672">&#34;last_block_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2a4eae2807d771170c41ade13bc405ce95d54b5c1cc7e3a674ddfa17e427a70a&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>  <span style="color:#f92672">&#34;last_macro_block_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1e17d6048385f79eb2d8ba2b3ded80f76c9121d175575b0cd1d47d3aade18150&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>  <span style="color:#f92672">&#34;last_macro_block_timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2019-09-25T14:17:56.647442627Z&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>  <span style="color:#f92672">&#34;local_timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2019-09-25T14:26:31.882240890Z&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#111">}</span></code></pre></div>
+
+<h4 id="blockchain-information">Blockchain Information</h4>
+
+<p>Get information about a micro/macro block.</p>
+
+<p><strong>Request</strong>:</p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;transaction_status&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;tx_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;049db1e1979f2c8d876df876011f12764fb8ef5c578203dcba35bb9a8f09cfa3&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;status&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;committed&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1192</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;macro_block_info&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">16</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#111">}</span></code></pre></div>
+
+<p><strong>Response:</strong></p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;macro_block_info&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;version&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">16</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;see the actual output in CLI&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;..&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#111">}</span></code></pre></div>
+
+<p><strong>Request</strong>:</p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;micro_block_info&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">16</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;offset&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;see the actual output in CLI&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;..&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#111">}</span></code></pre></div>
+
+<p><strong>Response:</strong></p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;micro_block_info&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;version&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">16</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;offset&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;see the actual output in CLI&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;..&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#111">}</span></code></pre></div>
 
-<h4 id="snowball-status">Snowball Status</h4>
+<h4 id="blockchain-notifications">Blockchain Notifications</h4>
 
-<p>Sent when Snowball status has changed. See Payment.</p>
-
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;pool_wait&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#111">}</span></code></pre></div>
+<p>Subscribe for the raw Blockchain changes.</p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;shared_keying&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;subscribe_chain&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">15</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;offset&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">59</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#111">}</span></code></pre></div>
+
+<ul>
+<li><code>epoch</code>, <code>offset</code> - starting epoch and offset.</li>
+</ul>
+
+<p><strong>Response:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;commitment&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;subscribed_chain&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;current_epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">16</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;current_offset&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#111">}</span></code></pre></div>
+
+<p><strong>Notifications</strong>:</p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;cloaked_vals&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#111">}</span></code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;macro_block_committed&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;version&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">15</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;view_change&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;see the actual output in CLI&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;..&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#111">}</span></code></pre></div>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;succeeded&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#111">}</span></code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;micro_block_prepared&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;version&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">16</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;offset&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;see the actual output in CLI&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;..&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#111">}</span></code></pre></div>
 
-<hr />
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;micro_block_reverted&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;version&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">16</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;offset&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;see the actual output in CLI&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;..&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#111">}</span></code></pre></div>
 
-<h3 id="node-rpc-api">Node RPC API</h3>
+<h4 id="pop-micro-block">Pop Micro Block</h4>
+
+<p>Pop the last micro block. For debug purposes only.</p>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;pop_micro_block&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#111">}</span></code></pre></div>
+
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;micro_block_popped&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#111">}</span></code></pre></div>
 
 <h4 id="escrow-information">Escrow Information</h4>
 
@@ -1187,14 +1413,14 @@
 <p><strong>Response:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;escrow_info&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;escrow_info&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;validators&#34;</span><span style="color:#111">:</span> <span style="color:#111">[</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#111">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>      <span style="color:#f92672">&#34;network_pkey&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;c4dad2cd223433429ebd4bb25e25e447c6f1d97d9ac97336a02fe0321129224a6b30d69fe6f7c29e9af1e7328e033607a91e5d732673d4b
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#d88200">    
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#d88200">
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#d88200">
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#d88200">bbbd38e666ddf86d99a9dc709513b5537d7e723349ecacdb1992c861dce8e49ac6fb329f703646985&#34;</span><span style="color:#111">,</span> 
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#d88200">bbbd38e666ddf86d99a9dc709513b5537d7e723349ecacdb1992c861dce8e49ac6fb329f703646985&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>      <span style="color:#f92672">&#34;active_stake&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">100000000000</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>      <span style="color:#f92672">&#34;expired_stake&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
@@ -1208,7 +1434,7 @@
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>        <span style="color:#111">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>      <span style="color:#111">]</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>    <span style="color:#111">},</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>    
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>  <span style="color:#111">]</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span style="color:#111">}</span></code></pre></div>
@@ -1224,12 +1450,12 @@
 <p><strong>Response:</strong></p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;election_info&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1199</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;offset&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">40</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;view_change&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;slots_count&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>  <span style="color:#f92672">&#34;current_leader&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;ba6419bc26c8505a83222815a2c0459a43a377f9331b481c522aaa2473b0b3cd48cba7fd953b51303c45e018b17a310efce926b8ac11be8904a0ac74150ee8c503b616925a6742031668b421054aba0469e6fa223131a57a5370ac630a5091b5&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;election_info&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1199</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;offset&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">40</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;view_change&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;slots_count&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>  <span style="color:#f92672">&#34;current_leader&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;ba6419bc26c8505a83222815a2c0459a43a377f9331b481c522aaa2473b0b3cd48cba7fd953b51303c45e018b17a310efce926b8ac11be8904a0ac74150ee8c503b616925a6742031668b421054aba0469e6fa223131a57a5370ac630a5091b5&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span style="color:#111">}</span></code></pre></div>
 
 <h4 id="enable-restaking">Enable Restaking</h4>
@@ -1254,62 +1480,6 @@
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;restaking_disabled&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#111">}</span></code></pre></div>
 
-<h4 id="pop-block">Pop Block</h4>
-
-<p>Pop the last unconfirmed block. For debug purposes only.</p>
-
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;pop_block&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#111">}</span></code></pre></div>
-
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;block_popped&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#111">}</span></code></pre></div>
-
-<hr />
-
-<h3 id="node-notifications">Node Notifications</h3>
-
-<h4 id="synchronization-status-changed">Synchronization Status Changed</h4>
-
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;sync_changed&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;is_synchronized&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1203</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>  <span style="color:#f92672">&#34;offset&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">32</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>  <span style="color:#f92672">&#34;view_change&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>  <span style="color:#f92672">&#34;last_block_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;58400c4fb82d5e7f5baa34f6d23ae76f01dc1f789910aa73380f78da5f646d5e&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>  <span style="color:#f92672">&#34;last_macro_block_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;64e53a321c9bc160574eefec84b2961f358e449ff73efa2c6d2b47afd9681196&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>  <span style="color:#f92672">&#34;last_macro_block_timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2019-08-21T13:26:07.559157693Z&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>  <span style="color:#f92672">&#34;local_timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;2019-08-21T13:26:40.984563552Z&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#111">}</span></code></pre></div>
-
-<h4 id="new-micro-block">New Micro Block</h4>
-
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;new_micro_block&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1203</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;offset&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">31</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>  <span style="color:#f92672">&#34;statuses&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>    <span style="color:#f92672">&#34;891cd7863bdf3775f8c95b0dbf12d33393b16186c6a55761addcb42fdb6a69de&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>      <span style="color:#f92672">&#34;status&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;prepared&#34;</span><span style="color:#111">,</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>      <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1203</span><span style="color:#111">,</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>      <span style="color:#f92672">&#34;offset&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">31</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>    <span style="color:#111">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>    
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>  <span style="color:#111">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span style="color:#111">}</span></code></pre></div>
-
-<h4 id="rollback-micro-block">Rollback Micro Block</h4>
-
-<p>WIP</p>
-
-<h4 id="new-macro-block">New Macro Block</h4>
-
-<p>WIP</p>
-
 <hr />
 
 <h3 id="use-cases">Use Cases</h3>
@@ -1319,12 +1489,12 @@
 <p>1) Initiate a new transaction by using <code style="background-color: #eee;">payment</code> , <code style="background-color: #eee;">secure_payment</code> or <code style="background-color: #eee;">public_payment</code> call:</p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;secure_payment&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;recipient&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;amount&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;payment_fee&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;comment&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>  <span style="color:#f92672">&#34;locked_timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">null</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;secure_payment&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;recipient&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;amount&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;payment_fee&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1000</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;comment&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>  <span style="color:#f92672">&#34;locked_timestamp&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">null</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span>  <span style="color:#f92672">&#34;with_certificate&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">false</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span style="color:#111">}</span></code></pre></div>
 
@@ -1333,10 +1503,10 @@
 <p>2) Wait until TX is created by the Wallet:</p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;transaction_created&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;tx_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>  <span style="color:#f92672">&#34;fee&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2000</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;transaction_created&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;tx_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>  <span style="color:#f92672">&#34;fee&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2000</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>  <span style="color:#f92672">&#34;outputs&#34;</span><span style="color:#111">:</span> <span style="color:#111">[</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>    <span style="color:#111">{</span>
@@ -1357,16 +1527,16 @@
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>      <span style="color:#f92672">&#34;recipient&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>      <span style="color:#f92672">&#34;is_change&#34;</span><span style="color:#111">:</span> <span style="color:#00a8c8">true</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>    <span style="color:#111">}</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>    
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>  <span style="color:#111">],</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>  <span style="color:#111">],</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>  <span style="color:#f92672">&#34;inputs&#34;</span><span style="color:#111">:</span> <span style="color:#111">[</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span>    <span style="color:#d88200">&#34;299512da5957b689b0862ef080cc64e54593ab6d1db74b426608a60ce7f1df2f&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span>    <span style="color:#d88200">&#34;ae485d68ef6dbc4b17a6ad61befbb8ce072e10341eb2f827246bd321cf8b4b07&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span>    
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span>  <span style="color:#111">],</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span>  <span style="color:#111">],</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span>  <span style="color:#f92672">&#34;status&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;created&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span style="color:#111">}</span></code></pre></div>
 
@@ -1374,37 +1544,37 @@
 For Snowball ( <code style="background-color: #eee;">secure_payment</code> ) transactions you will also see intermediate <code style="background-color: #eee;">snowball_status</code> notifications between <code style="background-color: #eee;">secure_payment</code> request and <code style="background-color: #eee;">transaction_created</code> response:</p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;pool_wait&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#111">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;commitment&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#111">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;cloaked_vals&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span style="color:#111">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;signature&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span style="color:#111">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;snowball_status&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>  <span style="color:#f92672">&#34;state&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;succeeded&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span style="color:#111">}</span></code></pre></div>
 
 <p>3) Wait until TX is accepted into a mempool:</p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;transaction_status&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;tx_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4&#34;</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;transaction_status&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;tx_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4&#34;</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;status&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;accepted&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#111">}</span></code></pre></div>
 
@@ -1413,11 +1583,11 @@ For Snowball ( <code style="background-color: #eee;">secure_payment</code> ) tra
 <p>4) Wait until the transaction is added to a block:</p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;transaction_status&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;tx_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;status&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;prepared&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1230</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;transaction_status&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;tx_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;status&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;prepared&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1230</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>  <span style="color:#f92672">&#34;offset&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">56</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span style="color:#111">}</span></code></pre></div>
 
@@ -1426,11 +1596,11 @@ For Snowball ( <code style="background-color: #eee;">secure_payment</code> ) tra
 <p>5) Wait until TX is finalized by consensus:</p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#111">{</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;transaction_status&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;tx_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;status&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;committed&#34;</span><span style="color:#111">,</span> 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1230</span><span style="color:#111">,</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#f92672">&#34;account_id&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;1&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;transaction_status&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#f92672">&#34;tx_hash&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#f92672">&#34;status&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;committed&#34;</span><span style="color:#111">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#f92672">&#34;epoch&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1230</span><span style="color:#111">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#111">}</span></code></pre></div>
 
 <p>TX has been finalized by PoS consensus.</p>
