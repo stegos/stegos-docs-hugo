@@ -361,12 +361,10 @@ Returns a list of account.
 {
   "type": "accounts_info",
   "accounts": {
-
     "1": {
-      "account_pkey": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
+      "account_pkey": "dev1jjufnwk6u5scyj05259tpy2a7096dap0umj5uhqlynfdfua255fs5fm7w4",
+      "network_pkey": "984f5b13828d4747f7442861c138eaa575d4875df29e37bfcd985c7ca27147475cabf32416cd7935f9c897a720ba6f039693765e72e0f6aadd92a9642fb61639a0370eef5e8ee3a0570e34a629515c98f56b0095b16825b50e602f70f34ca398"
     }
-
-
   }
 }
 {{< / highlight >}}
@@ -435,8 +433,11 @@ Returns 24-word recovery phrase.
   "account_id": "1",
   "type": "recovery",
   "recovery": "swear praise ginger oxygen anchor ten small planet crime cave fold chuckle foot dragon decorate guess poverty grass crew depend define twice mother update"
+  "last_public_address_id": 4
 }
 {{< / highlight >}}
+
+* `last_public_address_id` - ID of the last created public address. Remember this number if you want to recover public addresses.
 
 #### Recover Account
 
@@ -448,8 +449,11 @@ Recovers an account from 24-word recovery phrase:
 {
   "type": "recover_account"
   "recovery": "swear praise ginger oxygen anchor ten small planet crime cave fold chuckle foot dragon decorate guess poverty grass crew depend define twice mother update",
+  "last_public_address_id": 4
 }
 {{< / highlight >}}
+
+* `last_public_address_id` (optional) - ID of the last created public address if any.
 
 **Response:**
 
@@ -552,7 +556,8 @@ Returns information about account's public key (address).
 {
   "account_id": "1",
   "type": "account_info",
-  "account_pkey": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
+  "account_pkey": "dev1jjufnwk6u5scyj05259tpy2a7096dap0umj5uhqlynfdfua255fs5fm7w4",
+  "network_pkey": "984f5b13828d4747f7442861c138eaa575d4875df29e37bfcd985c7ca27147475cabf32416cd7935f9c897a720ba6f039693765e72e0f6aadd92a9642fb61639a0370eef5e8ee3a0570e34a629515c98f56b0095b16825b50e602f70f34ca398"
 }
 {{< / highlight >}}
 
@@ -593,7 +598,6 @@ Returns information about current and availabe account's balances.
   "is_final": false
 }
 {{< / highlight >}}
-
 
 - `payment` - balance of PaymentUTXO.
 - `public_payment` - balance of PublicPaymentUTXO.
@@ -659,7 +663,7 @@ Returns information about account's UTXO.
       "amount": 1000000000,
       "comment": "Gift from Stegos Leprechaun",
       "locked_timestamp": null,
-      "recipient": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
+      "recipient": "dev1jjufnwk6u5scyj05259tpy2a7096dap0umj5uhqlynfdfua255fs5fm7w4",
       "is_change": false
     }
   ],
@@ -731,7 +735,7 @@ API for creating transactions to transfer money.
 {{< highlight json "linenos=inline" >}}
 {
   "type": "payment",
-  "recipient": "7eiszB5iVFPCAWSmmkQ5ARyiLpvf1hifQrJ8FikJ1QJQ1k8WrQv",
+  "recipient": "dev1jjufnwk6u5scyj05259tpy2a7096dap0umj5uhqlynfdfua255fs5fm7w4",
   "amount": 100,
   "payment_fee": 1000,
   "comment": "Test",
@@ -767,7 +771,7 @@ API for creating transactions to transfer money.
       "amount": 100,
       "comment": "Test",
       "locked_timestamp": "2019-08-22T12:35:06.343300856Z",
-      "recipient": "7eiszB5iVFPCAWSmmkQ5ARyiLpvf1hifQrJ8FikJ1QJQ1k8WrQv",
+      "recipient": "dev1jjufnwk6u5scyj05259tpy2a7096dap0umj5uhqlynfdfua255fs5fm7w4",
       "rvalue": "0dbb132afbfdcc7bfb25191f89007f27919fceaceea03b015d98458cba1a4200",
       "is_change": false
     },
@@ -777,7 +781,7 @@ API for creating transactions to transfer money.
       "amount": 999997900,
       "comment": "Change",
       "locked_timestamp": null,
-      "recipient": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
+      "recipient": "dev1cn559rq08pvxkkkwdl5xcha33ql8g73npvgxkcjl57a34f8e856smqcgac",
       "is_change": true
     }
 
@@ -960,8 +964,8 @@ Request:
 {
   "type": "validate_certificate",
   "utxo": "0fdb42aa9433bc6f7079426ebbe0d5464ca713b2aad2bb5ff4fe163f98a80674",
-  "spender": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
-  "recipient": "7eiszB5iVFPCAWSmmkQ5ARyiLpvf1hifQrJ8FikJ1QJQ1k8WrQv",
+  "spender": "dev1jjufnwk6u5scyj05259tpy2a7096dap0umj5uhqlynfdfua255fs5fm7w4",
+  "recipient": "dev1cn559rq08pvxkkkwdl5xcha33ql8g73npvgxkcjl57a34f8e856smqcgac",
   "rvalue": "0dbb132afbfdcc7bfb25191f89007f27919fceaceea03b015d98458cba1a4200"
 }
 {{< / highlight >}}
@@ -1021,7 +1025,7 @@ Validate a payment certificate for a payment. This API is doesn't require existi
           "amount": 1,
           "comment": "",
           "locked_timestamp": null,
-          "recipient": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
+          "recipient": "dev1cn559rq08pvxkkkwdl5xcha33ql8g73npvgxkcjl57a34f8e856smqcgac",
           "is_change": false
         },
         {
@@ -1030,7 +1034,7 @@ Validate a payment certificate for a payment. This API is doesn't require existi
           "amount": 999986699,
           "comment": "Change",
           "locked_timestamp": null,
-          "recipient": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
+          "recipient": "dev1cn559rq08pvxkkkwdl5xcha33ql8g73npvgxkcjl57a34f8e856smqcgac",
           "is_change": true
         }
       ],
@@ -1053,7 +1057,7 @@ Validate a payment certificate for a payment. This API is doesn't require existi
       "amount": 1,
       "comment": "",
       "locked_timestamp": null,
-      "recipient": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
+      "recipient": "dev1cn559rq08pvxkkkwdl5xcha33ql8g73npvgxkcjl57a34f8e856smqcgac",
       "is_change": false
     },
     {
@@ -1064,7 +1068,7 @@ Validate a payment certificate for a payment. This API is doesn't require existi
       "amount": 999986699,
       "comment": "Change",
       "locked_timestamp": null,
-      "recipient": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
+      "recipient": "dev14ehru5zmyjuc64m25t8k9kqv4q95h0y20cwm5csgkpgups9e2ersmdp3e4",
       "is_change": true
     }
   ]
@@ -1182,7 +1186,7 @@ Get information about a micro/macro block.
   "inputs_range_hash": "8a06abe726ebf49e173d516e4d257c4058bb41ece18e37bf2ca48925a1841c00",
   "inputs_len": 3,
   "outputs_range_hash": "06015764beb6577ef6a75ca553b1bff27dd55803777e87bc8115c167b972d2f3",
-  "outputs_len": 64,
+  "outputs_len": 2,
   "multisig": "1c17b1c3314c45f2bf06c0331334937d4873cbc787bcedb0f83780b6d1dfa2e3160f7d948817ec332b384599036587a2",
   "multisigmap": "111",
   "inputs": [
@@ -1673,14 +1677,13 @@ See Payment for details.
   "tx_hash": "3de346b3c41f173b931f18bb9baf300afaa4724052c01efa008333f8a0e881d4",
   "fee": 2000,
   "outputs": [
-
     {
       "output_type": "payment",
       "utxo": "17c6556fbe25ccc7e7e8adb3e2000366cdef08e19d36478b5716c24778ecb3b2",
       "amount": 1,
       "comment": "",
       "locked_timestamp": null,
-      "recipient": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
+      "recipient": "dev1cn559rq08pvxkkkwdl5xcha33ql8g73npvgxkcjl57a34f8e856smqcgac",
       "is_change": false
     },
     {
@@ -1689,18 +1692,13 @@ See Payment for details.
       "amount": 999982699,
       "comment": "Change",
       "locked_timestamp": null,
-      "recipient": "7eAYuCBLQJNomPM7dHEmAp3Ku7H3wv76MdqpRBiuYdJseNwqcfw",
+      "recipient": "dev14ehru5zmyjuc64m25t8k9kqv4q95h0y20cwm5csgkpgups9e2ersmdp3e4",
       "is_change": true
     }
-
-
   ],
   "inputs": [
-
     "299512da5957b689b0862ef080cc64e54593ab6d1db74b426608a60ce7f1df2f",
     "ae485d68ef6dbc4b17a6ad61befbb8ce072e10341eb2f827246bd321cf8b4b07"
-
-
   ],
   "status": "created"
 }
