@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2019-09-27T16:06:15 MSK">
-<title>Stegos Privacy Blockchain :: Welcome to stegos!</title>
+<title>GETTING STARTED :: Welcome to stegos!</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -26,7 +26,7 @@
 
     
   </head>
-  <body data-url="/about/privacy_blockchain/">
+  <body data-url="/getting_started/">
     
       <header>
   <div class="logo">
@@ -53,7 +53,7 @@
 <article>
   <aside>
     <ul class="menu"><label>ABOUT</label>
-    <li data-nav-id="/about/" class="dd-item parent alwaysopen haschildren
+    <li data-nav-id="/about/" class="dd-item alwaysopen haschildren
         ">
       <div>
       <a href="/about/">ABOUT</a>
@@ -74,7 +74,7 @@
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
-      <li data-nav-id="/about/privacy_blockchain/" class="dd-item active">
+      <li data-nav-id="/about/privacy_blockchain/" class="dd-item">
         <div>
           <a href="/about/privacy_blockchain/">
             Stegos Privacy Blockchain
@@ -97,7 +97,7 @@
     </li>
         </ul>
     </li><label>GETTING STARTED</label>
-    <li data-nav-id="/getting_started/" class="dd-item alwaysopen haschildren
+    <li data-nav-id="/getting_started/" class="dd-item parent active alwaysopen haschildren
         ">
       <div>
       <a href="/getting_started/">GETTING STARTED</a>
@@ -196,11 +196,11 @@
    ABOUT</option> 
       <option value="/about/funding_and_development/" >- Funding and Development</option>
       <option value="/about/stegos_app/" >- Stegos App</option>
-      <option value="/about/privacy_blockchain/"  selected>- Stegos Privacy Blockchain</option>
+      <option value="/about/privacy_blockchain/" >- Stegos Privacy Blockchain</option>
       <option value="/about/privacy/" >- Stegos Privacy Platform</option>
       <option value="/about/stg_token_and_sale/" >- STG Token and Sale</option>
   
-    <option value="/getting_started/" >
+    <option value="/getting_started/"  selected>
    GETTING STARTED</option> 
       <option value="/getting_started/connection_to_a_node/" >- Connecting to a Node</option>
       <option value="/getting_started/installing_a_node/" >- Installing a node</option>
@@ -223,82 +223,154 @@
     </div>
     
 
-    <h1>Stegos Privacy Blockchain</h1>
+    <h1>GETTING STARTED</h1>
     
     
     
-    
 
-<h4 id="how-can-i-be-sure-that-stg-transactions-are-unlinkable-untraceable-and-completely-confidential">How can I be sure that STG transactions are unlinkable, untraceable, and completely confidential?</h4>
 
-<p>Stegos uses multiple methods to ensure maximum privacy. User identities are obfuscated using cryptographic key pairs, and each transaction uses a new stealth address. Transactions are combined into supertransactions to hide sender and receiver information, while all transaction amounts are hidden using cryptographic commitments (Pedersen commitments) and zero-knowledge range proofs (Bulletproofs). Validator stakes and transaction fees are the only exception since these must be visible for blockchain validation to work. However, users can create as many wallets as they choose, so validation and staking can be performed separately and privately.</p>
 
-<hr />
+<div class="extra-pagination inner">
+<nav class="pagination" role="navigation">
+	
+	<span class="page-number">Page 1 of 1</span>
+	
+</nav>
 
-<h4 id="how-does-the-stegos-blockchawhat-is-stegos">How does the Stegos blockchaWhat is Stegos?</h4>
+</div>
 
-<p>The Stegos privacy platform provides users with fully private transactions, messaging and data transmission. Stegos acts as a gateway to an entire ecosystem of privacy services and apps. Stegos combines a unique blockchain and token design to implement the first cryptocurrency that’s absolutely private, secure, efficient and fully mobile compatible. The most up to date information can be found in the Project section of our website at <a href="http://stegos.com">http://stegos.com</a>.</p>
 
-<hr />
+   <article class="post getting_started">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/getting_started/connection_to_a_node/">Connecting to a Node</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>In this section we explain how to connect to a Stegos Node.
+Prerequisites:
+ Node is up and running  Connecting to a Local Node  ./stegos  ./stegos
+ docker exec -t -i &lt;CONTAINER_NAME&gt; stegos
+  
+The command-line client will try to connect to a local node and print stegos prompt on success:
+1Stegos CLI 0.11.13 (e63fb9e 2019-08-09) 2Type &#39;help&#39; to get help 3 4account#1&gt; Type help to get help: <a class="read-more" href="/getting_started/connection_to_a_node/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
 
-<h4 id="who-is-building-stegos">Who is building Stegos?</h4>
+        
+        
 
-<p>The Stegos team doesn&rsquo;t just bring blockchain experience to the table (although we have plenty of that, too). With backgrounds in finance, aerospace, and cryptography, the team has a breadth of experience in applying technology to some of the most sensitive challenges facing society. Want to know more about the team? Check them out here: <a href="https://github.com/stegos/stegos/wiki/Whitepaper-EN#team">https://github.com/stegos/stegos/wiki/Whitepaper-EN#team</a></p>
+    </footer>
+</article>
 
-<hr />
+   <article class="post getting_started">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/getting_started/installing_a_node/">Installing a node</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>In this section we explain how to install Stegos Node (stegosd) and Stegos Command-Line Client (stegos) on your server.
+Prerequisites:
+ Linux host (any distro) OR macOS host OR Docker-enabled host.  This instruction is about running Stegos Node server using command-line interface. If you need a desktop application, please see "Installing a Desktop App".
+ ___ ### Installing on Linux For production purposes, we recommend official binaries from GitHub Release page. <a class="read-more" href="/getting_started/installing_a_node/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
 
-<h4 id="how-can-stegos-send-messages-and-data-via-the-blockchain">How can Stegos send messages and data via the blockchain?</h4>
+        
+        
 
-<p>Unlike other blockchains, Stegos is regularly pruned to keep it small. This means the Stegos blockchain has space for messages and data, in addition to standard transactions.</p>
+    </footer>
+</article>
 
-<hr />
+   <article class="post getting_started">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/getting_started/last_steps/">Last Steps</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Congratulations! If you have made it this far, you belong to a tiny group of people on this planet who knows how to run a blockchain node.
+Please join us on Telegram Chat to get test tokens and let us know your thoughts. Subscribe to official Telegram Channel for the latest news. <a class="read-more" href="/getting_started/last_steps/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
 
-<h4 id="how-can-stegos-work-on-mobile">How can Stegos work on mobile?</h4>
+        
+        
 
-<p>Stegos is optimized for use on mobile. The Stegos chain is compact, and we use a version of Proof-of-stake to secure it, which makes it viable to run full nodes on your phone and earn STG tokens from your pocket.</p>
+    </footer>
+</article>
 
-<hr />
+   <article class="post getting_started">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/getting_started/quick_start/">Quick Start</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Use stegos/stegosDocker image to start Node: docker run -v $PWD/stegos-data:/data --name stegos_node -t -i stegos/stegos Execute stegos command inside container to get into CLI: docker exec -t -i stegos_node stegos CLI will prompt for commands: Stegos CLI 0.11.13 (e63fb9e 2019-08-09) Type &#39;help&#39; to get help stegos&gt; Type create account to create a new account: account#1&gt; create account Enter new password: Enter same password again: --- - type: account_created account_id: &#34;1&#34; . <a class="read-more" href="/getting_started/quick_start/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
 
-<h4 id="will-there-be-an-app">Will there be an app?</h4>
+        
+        
 
-<p>Yes, there will be a primary Stegos app which serves as a user-friendly gateway to the Stegos privacy ecosystem. See the Stegos App section below for more details and questions.in scale?
-Stegos is designed with users in mind and optimized for mobile. Therefore, it is essential for the blockchain to remain small and efficient. This is done using transactional sharding and block pruning: spent coins and expired data are safely and securely removed from the blockchain.</p>
+    </footer>
+</article>
 
-<hr />
+   <article class="post getting_started">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/getting_started/running_a_node/">Running a Node</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>In this section we explain how to run Stegos Node.
+Prerequisites:
+ Download and install Stegos Node.  Run Stegos Node:
+ ./stegosd  ./stegosd
+ docker run -v $PWD/stegos-data:/data -t -i stegos/stegos
+  
+Stegos Node will automatically create a data directory to store the blockchain and your accounts:
+INFO [stegosd] Data directory: /home/yourname/.local/share/stegos The default path to the data directory depends on your operating system:
+ $HOME/.local/share/stegos  $HOME/Library/Application Support/stegos <a class="read-more" href="/getting_started/running_a_node/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
 
-<h4 id="what-consensus-mechanism-does-the-stegos-privacy-blockchain-use">What consensus mechanism does the Stegos privacy blockchain use?</h4>
+        
+        
 
-<p>The Stegos privacy blockchain uses a version of Albatross which has been optimized for privacy and mobile compatibility. Stegos block rewards are distributed using gamified Proof-of-stake (gPoS), a unique modification to Proof-of-stake which ensures that all users have a fair chance to earn tokens for maintaining and validating the network, not just whales.</p>
+    </footer>
+</article>
 
-<hr />
+   <article class="post getting_started">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/getting_started/working_with_accounts/">Working with Accounts</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Creating an Account Type create account to create a new account. You will be asked for a password. This password is used locally to encrypt your data on the disk. Please remember it.
+Type show recovery to get 24-word recovery phrase. This recovery phrase is an encoded representation of your secret key. Please write down it and keep it in a safe place. There are no other password recovery mechanisms. <a class="read-more" href="/getting_started/working_with_accounts/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
 
-<h4 id="how-does-gpos-work">How does gPoS work?</h4>
+        
+        
 
-<p>In addition to regular staking, gPoS adds a validator sevice award, a randomly distributed award which will be distributed to a single user who has helped to maintain the Stegos blockchain in the most recent award cycle.</p>
+    </footer>
+</article>
 
-<hr />
 
-<h4 id="how-is-the-validator-service-award-funded">How is the validator service award funded?</h4>
+<div style="margin-bottom:2rem"></div>
 
-<p>One-third of the block reward from each newly created block is added to the award pool.</p>
+<nav class="pagination" role="navigation">
+	
+	<span class="page-number">Page 1 of 1</span>
+	
+</nav>
 
-<hr />
 
-<h3 id="how-much-is-the-validator-service-award">How much is the validator service award?</h3>
-
-<p>The validator service award grows with each block until it is randomly triggered to be distributed to a single eligible user. The current size of the validator service award will be displayed on the Stegos website and in the Stegos app.</p>
-
-<hr />
-
-<h3 id="how-often-is-the-validator-service-award-distributed">How often is the validator service award distributed?</h3>
-
-<p>In order to keep the award exciting and to prevent manipulation, the award is distributed to a random user at a random time, with the likelihood of the award being released increasing as the award pool grows. On average, however, we expect the award to be allocated every few thousand blocks. This ensures that all active users have an extremely high chance of being selected to help validate the blockchain by the time the award is triggered.</p>
-
-<hr />
-
-<h4 id="how-can-you-guarantee-that-the-validator-service-award-is-random">How can you guarantee that the validator service award is random?</h4>
-
-<p>Many features of Stegos require randomness to work. This randomness is ensured via verifiably unbiased distributed randomness, ensuring that no-one can predict or manipulate the result.</p>
 
 
     
