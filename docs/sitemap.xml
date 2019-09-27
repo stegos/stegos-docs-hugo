@@ -7,11 +7,11 @@
   </url>
   
   <url>
-    <loc>/getting-started/</loc>
+    <loc>/getting_started/</loc>
   </url>
   
   <url>
-    <loc>/for-developers/</loc>
+    <loc>/developers/</loc>
   </url>
   
   <url>
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>/for-developers/building_from_source/</loc>
+    <loc>/developers/building_from_source/</loc>
   </url>
   
   <url>
@@ -37,11 +37,11 @@
   </url>
   
   <url>
-    <loc>/getting-started/connection_to_a_node/</loc>
+    <loc>/getting_started/connection_to_a_node/</loc>
   </url>
   
   <url>
-    <loc>/for-developers/data_directory_layout/</loc>
+    <loc>/developers/data_directory_layout/</loc>
   </url>
   
   <url>
@@ -49,19 +49,19 @@
   </url>
   
   <url>
-    <loc>/getting-started/installing_a_node/</loc>
+    <loc>/getting_started/installing_a_node/</loc>
   </url>
   
   <url>
-    <loc>/getting-started/last_steps/</loc>
+    <loc>/getting_started/last_steps/</loc>
   </url>
   
   <url>
-    <loc>/getting-started/quick_start/</loc>
+    <loc>/getting_started/quick_start/</loc>
   </url>
   
   <url>
-    <loc>/getting-started/running_a_node/</loc>
+    <loc>/getting_started/running_a_node/</loc>
   </url>
   
   <url>
@@ -85,11 +85,11 @@
   </url>
   
   <url>
-    <loc>/for-developers/websocket_api/</loc>
+    <loc>/developers/websocket_api/</loc>
   </url>
   
   <url>
-    <loc>/getting-started/working_with_accounts/</loc>
+    <loc>/getting_started/working_with_accounts/</loc>
   </url>
   
 </urlset>

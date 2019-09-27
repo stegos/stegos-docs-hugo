@@ -52,7 +52,7 @@ ___
 
 ### Prerequisites
 
-* [**Node is up and running**]({{< relref "/getting started/Running_a_Node.md">}})
+* [**Node is up and running**]({{< relref "/getting_started/Running_a_Node.md">}})
 * Any [**WebSocket client library**](https://github.com/facundofarias/awesome-websockets) or a browser.
 
 By default, **Node** starts WebSocket API server on {{< code >}}ws://127.0.0.1:3144/{{< /code >}} . You can override this value by providing {{< code >}}--api-endpoint{{< /code >}} command-line option to **Node** or by setting {{< code >}}STEGOS_API_ENDPOINT{{< /code >}} environment variable.

@@ -57,7 +57,7 @@ Stegos CLI 0.10.0 (5d9b289 2019-07-02)
 
 #### From Source
 
-See **[Building from Source]({{< ref "/for developers/Building_from_source.md">}})** page.
+See **[Building from Source]({{< ref "/developers/Building_from_source.md">}})** page.
 ___
 
 ### Installing on Mac
@@ -102,7 +102,7 @@ Stegos CLI 0.10.0 (5d9b289 2019-07-02)
 
 #### From Source
 
-See **[Building from Source]({{< ref "/for developers/Building_from_source.md">}})** page.
+See **[Building from Source]({{< ref "/developers/Building_from_source.md">}})** page.
 ___
 
 ### Installing in Docker
@@ -126,4 +126,4 @@ Native binaries for Windows are coming soon.
 
 #### From Source
 
-See **[Building from Source]({{< ref "/for developers/Building_from_source.md">}})** page.
+See **[Building from Source]({{< ref "/developers/Building_from_source.md">}})** page.

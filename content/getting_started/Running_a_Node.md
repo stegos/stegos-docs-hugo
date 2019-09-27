@@ -64,7 +64,7 @@ C:\Users\$USER\AppData\Roaming
 
 {{% notice note %}}You can override default path to the data directory by setting {{< code >}}STEGOS_DATA_DIR{{< /code >}} environment variable or providing{{< code >}}--data-dir{{< /code >}} command-line option.{{% / notice %}}
 
-{{% notice note %}}See [**Data Directory Layout**]({{< relref "/for developers/Data_Directory_Layout.md">}}) page for additional information about structure of this directory.{{% / notice %}}
+{{% notice note %}}See [**Data Directory Layout**]({{< relref "/developers/Data_Directory_Layout.md">}}) page for additional information about structure of this directory.{{% / notice %}}
 
 On the first run, the blockchain database is initialized using  the genesis block for {{< code >}}testnet{{< /code >}} network:
 
