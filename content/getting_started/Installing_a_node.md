@@ -68,9 +68,9 @@ ___
 Download the latest version of {{< code >}}stegosd{{< /code >}} and {{< code >}}stegos{{< /code >}} binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases)
 
 {{< highlight bash "linenos=inline, title=install-macos.sh" >}}
-curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegosd-
+curl -L https://github.com/stegos/stegos/releases/download/v0.14/stegosd-
 macos-x64 -o stegosd
-curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegos-macos-x64 -o stegos
+curl -L https://github.com/stegos/stegos/releases/download/v0.14/stegos-macos-x64 -o stegos
 chmod a+x stegosd stegos
 ./stegosd --version
 ./stegos --version
@@ -79,12 +79,12 @@ chmod a+x stegosd stegos
 The script above will download {{< code >}}stegosd{{< /code >}} binary from [**GitHub Releases**](https://github.com/stegos/stegos/releases), change file permissions to "Executable" and print Node's version:
 
 {{< highlight bash "linenos=inline" >}}
-yourname@mac:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegosd-macos-x64 -o stegosd
+yourname@mac:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.14/stegosd-macos-x64 -o stegosd
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   608    0   608    0     0   1859      0 --:--:-- --:--:-- --:--:--  1859
 100 22.0M  100 22.0M    0     0  5996k      0  0:00:03  0:00:03 --:--:-- 7197k
-you@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.12/stegos-macos-x64 -o stegos
+you@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.14/stegos-macos-x64 -o stegos
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   607    0   607    0     0   1833      0 --:--:-- --:--:-- --:--:--  1833
@@ -122,7 +122,7 @@ Please folow Linux installation instructions [**above.**]({{< relref "/Installin
 
 #### Using Pre-Built Binaries
 
-Native binaries for Windows are coming soon.
+Native binaries for Windows can be downloaded from https://github.com/stegos/stegos/releases/download/v0.14/stegosd-macos-x64.
 
 #### From Source
 
