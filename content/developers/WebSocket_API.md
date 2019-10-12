@@ -521,6 +521,7 @@ Re-encrypts an account's sensitive data using a new password.
 
 {{< highlight json "linenos=inline" >}}
 {
+  "account_id": "1",
   "type": "change_password",
   "new_password": "plain-text-password",
 }
@@ -571,6 +572,7 @@ Returns information about current and availabe account's balances.
 
 {{< highlight json "linenos=inline" >}}
 {
+  "account_id": "1",
   "type": "balance_info"
 }
 {{< / highlight >}}
@@ -645,6 +647,7 @@ Returns information about account's UTXO.
 
 {{< highlight json "linenos=inline" >}}
 {
+  "account_id": "1",
   "request": "unspent_info"
 }
 {{< / highlight >}}
@@ -681,6 +684,7 @@ Creates a new public address.
 
 {{< highlight json "linenos=inline" >}}
 {
+  "account_id": "1",
   "type": "create_public_address"
 }
 {{< / highlight >}}
@@ -706,6 +710,7 @@ Returns information about created public addresses.
 
 {{< highlight json "linenos=inline" >}}
 {
+  "account_id": "1",
   "type": "public_addresses_info"
 }
 {{< / highlight >}}
@@ -734,6 +739,7 @@ API for creating transactions to transfer money.
 
 {{< highlight json "linenos=inline" >}}
 {
+  "account_id": "1",
   "type": "payment",
   "recipient": "dev1jjufnwk6u5scyj05259tpy2a7096dap0umj5uhqlynfdfua255fs5fm7w4",
   "amount": 100,
@@ -879,6 +885,7 @@ Exchange all uncloaked tokens to cloaked tokens.
 
 {{< highlight json "linenos=inline" >}}
 {
+  "account_id": "1",
   "type": "cloak_all",
   "payment_fee": 1000
 }
@@ -898,6 +905,7 @@ Stake token into the escrow to become an validator.
 
 {{< highlight json "linenos=inline" >}}
 {
+  "account_id": "1",
   "type": "stake",
   "amount": 2000,
   "payment_fee": 1000
@@ -946,7 +954,8 @@ Forcefully re-stake (refresh) expering tokens in the escrow. Usually this operat
 
 {{< highlight json "linenos=inline" >}}
 {
-  "type": "restake_all",
+  "account_id": "1",
+  "type": "restake_all"
 }
 {{< / highlight >}}
 
@@ -999,6 +1008,7 @@ Validate a payment certificate for a payment. This API is doesn't require existi
 
 {{< highlight json "linenos=inline" >}}
 {
+  "account_id": "1",
   "type": "history_info",
   "starting_from": "2019-08-20T13:48:40.877231494Z",
   "limit": 50
