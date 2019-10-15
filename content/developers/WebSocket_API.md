@@ -108,7 +108,7 @@ Here is basic example how to encode/decode AES messages:
 
 {{% tabs %}}
 {{% tab "Python" %}}
-{{< highlight python "linenos=inline" >}}
+```python
 import base64
 import binascii
 import json
@@ -152,10 +152,11 @@ def decrypt(key, ciphertext):
     # Decrypt and return the plaintext.
     plaintext = aes.decrypt(ciphertext[16:])
     return plaintext
-{{< / highlight >}}
+```
+
 {{% /tab %}}
 {{% tab "Rust" %}}
-{{< highlight rust "linenos=inline" >}}
+```rust
 use crypto::aes::{self, KeySize};
 use crypto::symmetriccipher::SynchronousStreamCipher;
 use std::iter::repeat;
@@ -179,7 +180,8 @@ pub fn decrypt(key: [u8; 16], ciphertext: &[u8]) -> Vec<u8> {
     cipher.process(&ciphertext[16..], &mut output);
     output
 }
-{{< / highlight >}}
+```
+
 {{% /tab %}}
 {{% /tabs %}}
 
