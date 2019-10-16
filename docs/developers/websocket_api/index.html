@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-10-16T16:29:29 MPST">
+<meta name="revised" content="2019-10-16T11:06:13 CEST">
 <title>WebSocket API :: Welcome to stegos!</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -416,8 +416,74 @@
 <span style="color:#111">}</span>
 </code></pre></div>
 </div>
+
+<div class="tab-pane" title="Go">
+    <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#75af00">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#111">(</span>
+    <span style="color:#d88200">&#34;io&#34;</span>
+    <span style="color:#d88200">&#34;fmt&#34;</span>
+    <span style="color:#d88200">&#34;encoding/base64&#34;</span>
+    <span style="color:#d88200">&#34;crypto/aes&#34;</span>
+    <span style="color:#d88200">&#34;crypto/cipher&#34;</span> 
+    <span style="color:#d88200">&#34;crypto/rand&#34;</span>
+    <span style="color:#d88200">&#34;encoding/hex&#34;</span>
+<span style="color:#111">)</span>
+
+<span style="color:#00a8c8">func</span> <span style="color:#75af00">encrypt</span><span style="color:#111">(</span><span style="color:#75af00">api_token</span> <span style="color:#111">[]</span><span style="color:#00a8c8">byte</span><span style="color:#111">,</span> <span style="color:#75af00">payload</span> <span style="color:#00a8c8">string</span><span style="color:#111">)</span> <span style="color:#111">[]</span><span style="color:#00a8c8">byte</span> <span style="color:#111">{</span>  
+    <span style="color:#75af00">block</span><span style="color:#111">,</span> <span style="color:#75af00">err</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">aes</span><span style="color:#111">.</span><span style="color:#75af00">NewCipher</span><span style="color:#111">(</span><span style="color:#75af00">api_token</span><span style="color:#111">)</span>
+    <span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">nil</span> <span style="color:#111">{</span>
+        <span style="color:#111">panic</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">)</span>
+    <span style="color:#111">}</span>
+    <span style="color:#75715e">// The IV needs to be unique, but not secure. Therefore it&#39;s common to
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// include it at the beginning of the ciphertext.
+</span><span style="color:#75715e"></span>    <span style="color:#75af00">ciphertext</span> <span style="color:#f92672">:=</span> <span style="color:#111">make</span><span style="color:#111">([]</span><span style="color:#00a8c8">byte</span><span style="color:#111">,</span> <span style="color:#75af00">aes</span><span style="color:#111">.</span><span style="color:#75af00">BlockSize</span><span style="color:#f92672">+</span><span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#75af00">payload</span><span style="color:#111">))</span>
+    <span style="color:#75af00">iv</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">ciphertext</span><span style="color:#111">[:</span><span style="color:#75af00">aes</span><span style="color:#111">.</span><span style="color:#75af00">BlockSize</span><span style="color:#111">]</span>
+    <span style="color:#00a8c8">if</span> <span style="color:#75af00">_</span><span style="color:#111">,</span> <span style="color:#75af00">err</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">io</span><span style="color:#111">.</span><span style="color:#75af00">ReadFull</span><span style="color:#111">(</span><span style="color:#75af00">rand</span><span style="color:#111">.</span><span style="color:#75af00">Reader</span><span style="color:#111">,</span> <span style="color:#75af00">iv</span><span style="color:#111">);</span> <span style="color:#75af00">err</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">nil</span> <span style="color:#111">{</span>
+        <span style="color:#111">panic</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">.</span><span style="color:#75af00">Error</span><span style="color:#111">())</span>
+    <span style="color:#111">}</span>
+    <span style="color:#75af00">stream</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">cipher</span><span style="color:#111">.</span><span style="color:#75af00">NewCTR</span><span style="color:#111">(</span><span style="color:#75af00">block</span><span style="color:#111">,</span> <span style="color:#75af00">iv</span><span style="color:#111">)</span>
+    <span style="color:#75af00">stream</span><span style="color:#111">.</span><span style="color:#75af00">XORKeyStream</span><span style="color:#111">(</span><span style="color:#75af00">ciphertext</span><span style="color:#111">[</span><span style="color:#75af00">aes</span><span style="color:#111">.</span><span style="color:#75af00">BlockSize</span><span style="color:#111">:],</span> <span style="color:#111">[]</span><span style="color:#111">byte</span><span style="color:#111">(</span><span style="color:#75af00">payload</span><span style="color:#111">))</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#75af00">ciphertext</span>
+<span style="color:#111">}</span>
+
+<span style="color:#00a8c8">func</span> <span style="color:#75af00">decrypt</span><span style="color:#111">(</span><span style="color:#75af00">api_token</span> <span style="color:#111">[]</span><span style="color:#00a8c8">byte</span><span style="color:#111">,</span> <span style="color:#75af00">ciphertext</span> <span style="color:#111">[]</span> <span style="color:#00a8c8">byte</span><span style="color:#111">)</span> <span style="color:#00a8c8">string</span> <span style="color:#111">{</span>  
+    <span style="color:#00a8c8">if</span> <span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#75af00">ciphertext</span><span style="color:#111">)</span> <span style="color:#111">&lt;</span> <span style="color:#75af00">aes</span><span style="color:#111">.</span><span style="color:#75af00">BlockSize</span> <span style="color:#111">{</span>  
+        <span style="color:#111">panic</span><span style="color:#111">(</span><span style="color:#d88200">&#34;invalid ciphertext&#34;</span><span style="color:#111">)</span>  
+    <span style="color:#111">}</span>
+
+    <span style="color:#75af00">block</span><span style="color:#111">,</span> <span style="color:#75af00">err</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">aes</span><span style="color:#111">.</span><span style="color:#75af00">NewCipher</span><span style="color:#111">(</span><span style="color:#75af00">api_token</span><span style="color:#111">)</span>
+    <span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">nil</span> <span style="color:#111">{</span>
+        <span style="color:#111">panic</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">)</span>
+    <span style="color:#111">}</span>
+
+    <span style="color:#75af00">iv</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">ciphertext</span><span style="color:#111">[:</span><span style="color:#75af00">aes</span><span style="color:#111">.</span><span style="color:#75af00">BlockSize</span><span style="color:#111">]</span>
+    <span style="color:#75af00">plaintext</span> <span style="color:#f92672">:=</span> <span style="color:#111">make</span><span style="color:#111">([]</span><span style="color:#00a8c8">byte</span><span style="color:#111">,</span> <span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#75af00">ciphertext</span><span style="color:#111">)</span> <span style="color:#f92672">-</span> <span style="color:#75af00">aes</span><span style="color:#111">.</span><span style="color:#75af00">BlockSize</span><span style="color:#111">)</span>
+    <span style="color:#75af00">stream</span>  <span style="color:#f92672">:=</span> <span style="color:#75af00">cipher</span><span style="color:#111">.</span><span style="color:#75af00">NewCTR</span><span style="color:#111">(</span><span style="color:#75af00">block</span><span style="color:#111">,</span> <span style="color:#75af00">iv</span><span style="color:#111">)</span>
+    <span style="color:#75af00">stream</span><span style="color:#111">.</span><span style="color:#75af00">XORKeyStream</span><span style="color:#111">(</span><span style="color:#75af00">plaintext</span><span style="color:#111">,</span> <span style="color:#75af00">ciphertext</span><span style="color:#111">[</span><span style="color:#75af00">aes</span><span style="color:#111">.</span><span style="color:#75af00">BlockSize</span><span style="color:#111">:])</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#111">string</span><span style="color:#111">(</span><span style="color:#75af00">plaintext</span><span style="color:#111">[:])</span>  
+<span style="color:#111">}</span>
+
+<span style="color:#00a8c8">func</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+    <span style="color:#75715e">// API Token
+</span><span style="color:#75715e"></span>    <span style="color:#75af00">api_token_base64</span> <span style="color:#f92672">:=</span> <span style="color:#d88200">&#34;ZgV+1oFFh0D8zL78bDU8jA==&#34;</span>
+    <span style="color:#75af00">api_token</span><span style="color:#111">,</span> <span style="color:#75af00">err</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">base64</span><span style="color:#111">.</span><span style="color:#75af00">StdEncoding</span><span style="color:#111">.</span><span style="color:#75af00">DecodeString</span><span style="color:#111">(</span><span style="color:#75af00">api_token_base64</span><span style="color:#111">)</span>
+    <span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">nil</span> <span style="color:#111">{</span>
+        <span style="color:#75af00">fmt</span><span style="color:#111">.</span><span style="color:#75af00">Println</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Invalid API_TOKEN:&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">err</span><span style="color:#111">)</span>
+        <span style="color:#00a8c8">return</span>
+    <span style="color:#111">}</span>
+
+    <span style="color:#75af00">plaintext</span> <span style="color:#f92672">:=</span> <span style="color:#d88200">&#34;some text&#34;</span>
+    <span style="color:#75af00">fmt</span><span style="color:#111">.</span><span style="color:#75af00">Printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Text: %s\n&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">plaintext</span><span style="color:#111">)</span>
+    <span style="color:#75af00">ciphertext</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">encrypt</span><span style="color:#111">(</span><span style="color:#75af00">api_token</span><span style="color:#111">,</span> <span style="color:#75af00">plaintext</span><span style="color:#111">)</span>
+    <span style="color:#75af00">fmt</span><span style="color:#111">.</span><span style="color:#75af00">Printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Encoded Text: %s\n&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">hex</span><span style="color:#111">.</span><span style="color:#75af00">EncodeToString</span><span style="color:#111">(</span><span style="color:#75af00">ciphertext</span><span style="color:#111">))</span>
+    <span style="color:#75af00">plaintext2</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">decrypt</span><span style="color:#111">(</span><span style="color:#75af00">api_token</span><span style="color:#111">,</span> <span style="color:#75af00">ciphertext</span><span style="color:#111">)</span>
+    <span style="color:#75af00">fmt</span><span style="color:#111">.</span><span style="color:#75af00">Printf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Decoded Text: %s\n&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">plaintext2</span><span style="color:#111">)</span>
+<span style="color:#111">}</span></code></pre></div>
 </div>
-</div>
+
+<p></div>
+</div></p>
 
 <h4 id="payload">Payload</h4>
 
