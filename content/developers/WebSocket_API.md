@@ -195,10 +195,9 @@ import (
     "crypto/aes"
     "crypto/cipher" 
     "crypto/rand"
-    "encoding/hex"
 )
 
-func encrypt(api_token []byte, payload string) []byte {  
+func encrypt(api_token []byte, payload string) []byte {
     block, err := aes.NewCipher(api_token)
     if err != nil {
         panic(err)
@@ -229,7 +228,7 @@ func decrypt(api_token []byte, ciphertext [] byte) string {
     plaintext := make([]byte, len(ciphertext) - aes.BlockSize)
     stream  := cipher.NewCTR(block, iv)
     stream.XORKeyStream(plaintext, ciphertext[aes.BlockSize:])
-    return string(plaintext[:])  
+    return string(plaintext[:])
 }
 
 func main() {
@@ -241,11 +240,13 @@ func main() {
         return
     }
 
-    plaintext := "some text"
+    plaintext := `{"type": "unseal","account_id": "1","password": "000000"}`;
     fmt.Printf("Text: %s\n", plaintext)
     ciphertext := encrypt(api_token, plaintext)
-    fmt.Printf("Encoded Text: %s\n", hex.EncodeToString(ciphertext))
-    plaintext2 := decrypt(api_token, ciphertext)
+    base64text := base64.StdEncoding.EncodeToString(ciphertext);
+    fmt.Printf("Encoded Text: %s\n", base64text);
+    ciphertext2, _ := base64.StdEncoding.DecodeString(base64text);
+    plaintext2 := decrypt(api_token, ciphertext2);
     fmt.Printf("Decoded Text: %s\n", plaintext2)
 }
 ```
