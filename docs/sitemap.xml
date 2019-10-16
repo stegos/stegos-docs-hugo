@@ -31,6 +31,14 @@
   </url>
   
   <url>
+    <loc>/getting_started/last_steps/</loc>
+  </url>
+  
+  <url>
+    <loc>/getting_started/working_with_accounts/</loc>
+  </url>
+  
+  <url>
     <loc>/_footer/</loc>
     <priority>0</priority>
   </url>
@@ -61,10 +69,6 @@
   </url>
   
   <url>
-    <loc>/getting_started/last_steps/</loc>
-  </url>
-  
-  <url>
     <loc>/about/stegos_app/</loc>
   </url>
   
@@ -86,10 +90,6 @@
   
   <url>
     <loc>/developers/websocket_api/</loc>
-  </url>
-  
-  <url>
-    <loc>/getting_started/working_with_accounts/</loc>
   </url>
   
 </urlset>

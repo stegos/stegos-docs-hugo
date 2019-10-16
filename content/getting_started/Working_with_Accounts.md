@@ -2,7 +2,7 @@
 title = "Working with Accounts"
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
-
+weight=11
 +++
 
 ### Creating an Account

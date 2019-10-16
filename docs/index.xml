@@ -64,6 +64,26 @@ The command-line client will try to connect to a local node and print stegos pro
     </item>
     
     <item>
+      <title>Last Steps</title>
+      <link>/getting_started/last_steps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/getting_started/last_steps/</guid>
+      <description>Congratulations! If you have made it this far, you belong to a tiny group of people on this planet who knows how to run a blockchain node.
+Please join us on Telegram Chat to get test tokens and let us know your thoughts. Subscribe to official Telegram Channel for the latest news.</description>
+    </item>
+    
+    <item>
+      <title>Working with Accounts</title>
+      <link>/getting_started/working_with_accounts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/getting_started/working_with_accounts/</guid>
+      <description>Creating an Account Type create account to create a new account. You will be asked for a password. This password is used locally to encrypt your data on the disk. Please remember it.
+Type show recovery to get 24-word recovery phrase. This recovery phrase is an encoded representation of your secret key. Please write down it and keep it in a safe place. There are no other password recovery mechanisms.</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>/_footer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -107,16 +127,6 @@ The command-line client will try to connect to a local node and print stegos pro
       
       <guid>/about/funding_and_development/</guid>
       <description>How is Stegos being funded? Stegos will generate a pre-mine of 1 billion STG tokens. Up to 51.25% of the STG pre-mine may be privately sold to high net-worth individuals and companies to reach a maximum of $30 million. Stegos has already raised $15 million of this target in 2018. Once the mainnet is launched, STG tokens will be sold directly to the general public using the built-in DEX.</description>
-    </item>
-    
-    <item>
-      <title>Last Steps</title>
-      <link>/getting_started/last_steps/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/getting_started/last_steps/</guid>
-      <description>Congratulations! If you have made it this far, you belong to a tiny group of people on this planet who knows how to run a blockchain node.
-Please join us on Telegram Chat to get test tokens and let us know your thoughts. Subscribe to official Telegram Channel for the latest news.</description>
     </item>
     
     <item>
@@ -168,16 +178,6 @@ How will the pre-mine be distributed? The one billion pre-mined STG will be dist
       <guid>/developers/websocket_api/</guid>
       <description>Stegos Node offers experimental asynchronous WebSocket API. This API allow you to manage accounts, create and track transactions, receive notifications and so on.
  Prerequisites Protocol  Framing Payload Remote Procedure Calls Notifications  Wallet API  List Accounts Create Account Delete Account Getting Recovery Phrase Recover Account Unseal Account Seal Account Account Information Change Password Account Information Balance Information UTXO Information Create Public Address Public Addresses Information Payments Cloak Stake Unstake Restake Validate Certificate Payment History  Node API  Status Information Status Notifications Blockchain Information Blockchain Notifications Pop Micro Block Escrow Information Election Information Enable Restaking  Use Cases  Transaction Tracking   Prerequisites  Node is up and running Any WebSocket client library or a browser.</description>
-    </item>
-    
-    <item>
-      <title>Working with Accounts</title>
-      <link>/getting_started/working_with_accounts/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/getting_started/working_with_accounts/</guid>
-      <description>Creating an Account Type create account to create a new account. You will be asked for a password. This password is used locally to encrypt your data on the disk. Please remember it.
-Type show recovery to get 24-word recovery phrase. This recovery phrase is an encoded representation of your secret key. Please write down it and keep it in a safe place. There are no other password recovery mechanisms.</description>
     </item>
     
   </channel>
