@@ -2,7 +2,7 @@
 title = "Quick Start"
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
-
+weight=1
 +++
 
 Use *stegos/stegosDocker* image to **start Node:**

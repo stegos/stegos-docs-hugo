@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -7,11 +7,27 @@
   </url>
   
   <url>
+    <loc>/getting_started/quick_start/</loc>
+  </url>
+  
+  <url>
     <loc>/getting_started/</loc>
   </url>
   
   <url>
     <loc>/developers/</loc>
+  </url>
+  
+  <url>
+    <loc>/getting_started/installing_a_node/</loc>
+  </url>
+  
+  <url>
+    <loc>/getting_started/running_a_node/</loc>
+  </url>
+  
+  <url>
+    <loc>/getting_started/connection_to_a_node/</loc>
   </url>
   
   <url>
@@ -37,10 +53,6 @@
   </url>
   
   <url>
-    <loc>/getting_started/connection_to_a_node/</loc>
-  </url>
-  
-  <url>
     <loc>/developers/data_directory_layout/</loc>
   </url>
   
@@ -49,19 +61,7 @@
   </url>
   
   <url>
-    <loc>/getting_started/installing_a_node/</loc>
-  </url>
-  
-  <url>
     <loc>/getting_started/last_steps/</loc>
-  </url>
-  
-  <url>
-    <loc>/getting_started/quick_start/</loc>
-  </url>
-  
-  <url>
-    <loc>/getting_started/running_a_node/</loc>
   </url>
   
   <url>

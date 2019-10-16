@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-10-15T13:01:30 CEST">
+<meta name="revised" content="2019-10-16T13:53:34 MPST">
 <title>Installing a node :: Welcome to stegos!</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -104,10 +104,10 @@
             <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="/getting_started/connection_to_a_node/" class="dd-item">
+      <li data-nav-id="/getting_started/quick_start/" class="dd-item">
         <div>
-          <a href="/getting_started/connection_to_a_node/">
-            Connecting to a Node
+          <a href="/getting_started/quick_start/">
+            Quick Start
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
@@ -118,24 +118,24 @@
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
-      <li data-nav-id="/getting_started/last_steps/" class="dd-item">
-        <div>
-          <a href="/getting_started/last_steps/">
-            Last Steps
-          </a><i class="fa fa-circle-thin read-icon"></i>
-        </div>
-    </li>
-      <li data-nav-id="/getting_started/quick_start/" class="dd-item">
-        <div>
-          <a href="/getting_started/quick_start/">
-            Quick Start
-          </a><i class="fa fa-circle-thin read-icon"></i>
-        </div>
-    </li>
       <li data-nav-id="/getting_started/running_a_node/" class="dd-item">
         <div>
           <a href="/getting_started/running_a_node/">
             Running a Node
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+      <li data-nav-id="/getting_started/connection_to_a_node/" class="dd-item">
+        <div>
+          <a href="/getting_started/connection_to_a_node/">
+            Connecting to a Node
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+      <li data-nav-id="/getting_started/last_steps/" class="dd-item">
+        <div>
+          <a href="/getting_started/last_steps/">
+            Last Steps
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
@@ -202,11 +202,11 @@
   
     <option value="/getting_started/" >
    GETTING STARTED</option> 
-      <option value="/getting_started/connection_to_a_node/" >- Connecting to a Node</option>
-      <option value="/getting_started/installing_a_node/"  selected>- Installing a node</option>
-      <option value="/getting_started/last_steps/" >- Last Steps</option>
       <option value="/getting_started/quick_start/" >- Quick Start</option>
+      <option value="/getting_started/installing_a_node/"  selected>- Installing a node</option>
       <option value="/getting_started/running_a_node/" >- Running a Node</option>
+      <option value="/getting_started/connection_to_a_node/" >- Connecting to a Node</option>
+      <option value="/getting_started/last_steps/" >- Last Steps</option>
       <option value="/getting_started/working_with_accounts/" >- Working with Accounts</option>
   
     <option value="/developers/" >
@@ -240,22 +240,22 @@
 </ul>
 
 <div class="notices note" ><p>This instruction is about running Stegos Node server using command-line interface. If you need a desktop application, please see "Installing a Desktop App".</p></div>
-___
-### Installing on Linux
 
-For production purposes, we recommend official binaries from GitHub Release page. These binaries have been tested on 64-bit versions of Ubuntu 18.04 "Bionic", Debian 11 "Stretch" and Fedora 30. Other Linux distros should work as well.
+<h3 id="installing-on-linux">Installing on Linux</h3>
 
-#### Using Pre-built Binaries
+<p>For production purposes, we recommend official binaries from GitHub Release page. These binaries have been tested on 64-bit versions of Ubuntu 18.04 &ldquo;Bionic&rdquo;, Debian 11 &ldquo;Stretch&rdquo; and Fedora 30. Other Linux distros should work as well.</p>
 
-Download the latest version of <code style="background-color: #eee;">stegosd</code> and <code style="background-color: #eee;">stegos</code> binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases)
+<h4 id="using-pre-built-binaries">Using Pre-built Binaries</h4>
+
+<p>Download the latest version of <code style="background-color: #eee;">stegosd</code> and <code style="background-color: #eee;">stegos</code> binaries from <a href="https://github.com/stegos/stegos/releases"><strong>GitHub Releases</strong></a>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>curl -L https://github.com/stegos/stegos/releases/download/v0.14/stegosd-linux-x64 -o stegosd
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>curl -L https://github.com/stegos/stegos/releases/download/v0.14/stegos-linux-x64 -o stegos
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>chmod a+x stegosd ste
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>gos
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>./stegosd --version
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>./stegos --version</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>./stegos --version</code></pre></div></p>
 
-The script above will download <code style="background-color: #eee;">stegosd</code> (Node) and <code style="background-color: #eee;">stegos</code> (CLI) binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases), change file permissions to "Executable" and print Node's version:
+<p>The script above will download <code style="background-color: #eee;">stegosd</code> (Node) and <code style="background-color: #eee;">stegos</code> (CLI) binaries from <a href="https://github.com/stegos/stegos/releases"><strong>GitHub Releases</strong></a>, change file permissions to &ldquo;Executable&rdquo; and print Node&rsquo;s version:</p>
 
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>yourname@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.14/stegosd-linux-x64 -o stegosd
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -285,7 +285,7 @@ The script above will download <code style="background-color: #eee;">stegosd</co
 
 <h3 id="installing-on-mac">Installing on Mac</h3>
 
-<h5 id="using-pre-built-binaries">Using Pre-Built binaries</h5>
+<h5 id="using-pre-built-binaries-1">Using Pre-Built binaries</h5>
 
 <p>Download the latest version of <code style="background-color: #eee;">stegosd</code> and <code style="background-color: #eee;">stegos</code> binaries from <a href="https://github.com/stegos/stegos/releases"><strong>GitHub Releases</strong></a></p>
 
@@ -338,7 +338,7 @@ The script above will download <code style="background-color: #eee;">stegosd</co
 
 <p>Please folow Linux installation instructions <a href="/getting_started/installing_a_node/#installing-on-linux"><strong>above.</strong></a></p>
 
-<h4 id="using-pre-built-binaries-1">Using Pre-Built Binaries</h4>
+<h4 id="using-pre-built-binaries-2">Using Pre-Built Binaries</h4>
 
 <p>Native binaries for Windows can be downloaded from <a href="https://github.com/stegos/stegos/releases/download/v0.14/stegosd-macos-x64">https://github.com/stegos/stegos/releases/download/v0.14/stegosd-macos-x64</a>.</p>
 

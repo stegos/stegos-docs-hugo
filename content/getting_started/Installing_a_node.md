@@ -2,7 +2,7 @@
 title = "Installing a node"
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
-
+weight=3
 +++
 
 In this section we explain how to install Stegos Node (stegosd) and Stegos Command-Line Client (stegos) on your server.
@@ -14,7 +14,7 @@ In this section we explain how to install Stegos Node (stegosd) and Stegos Comma
 * Docker-enabled host.
 
 {{% notice note %}}This instruction is about running Stegos Node server using command-line interface. If you need a desktop application, please see "Installing a Desktop App".{{% /notice %}}
-___
+
 ### Installing on Linux
 
 For production purposes, we recommend official binaries from GitHub Release page. These binaries have been tested on 64-bit versions of Ubuntu 18.04 "Bionic", Debian 11 "Stretch" and Fedora 30. Other Linux distros should work as well.

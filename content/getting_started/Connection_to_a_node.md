@@ -2,7 +2,7 @@
 title = "Connecting to a Node"
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
-
+weight=7
 +++
 
 In this section we explain how to connect to a **Stegos Node**.

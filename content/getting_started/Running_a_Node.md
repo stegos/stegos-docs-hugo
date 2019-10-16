@@ -2,7 +2,7 @@
 title = "Running a Node"
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
-
+weight=5
 +++
 
 In this section we explain how to run **Stegos Node**.
