@@ -7,7 +7,7 @@ type="page"
 
 Data directory has the following layout: 
 
-{{< highlight base "linenos=inline" >}}
+```
     ├── accounts/  <!-- Accounts
     │   ├── 1
     │   │   ├── account.pkey <!-- Account #1 public key (address)
@@ -21,4 +21,4 @@ Data directory has the following layout:
     ├── chain/               <!-- Blockchain (RocksDB)
     ├── network.pkey         <!-- Ephemeral network (consensus) public key.
     ├── network.skey         <!-- Ephemeral network (consensus) secret key.
-{{< / highlight >}}
+```
