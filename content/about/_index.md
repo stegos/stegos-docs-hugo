@@ -1,6 +1,6 @@
 +++
-title = "ABOUT"
-head ="<label>ABOUT</label>"
-weight = 1
+title = "FAQs"
+head ="<label>FAQs</label>"
+weight = 4
 alwaysopen = true
 +++
