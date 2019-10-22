@@ -64,6 +64,30 @@ If your address is valid, Jerry will send you 100 testSTG and you'll get 100 poi
 
 **If you're participating in our $75,000 Vyper bounty as well, make sure you register the same Telegram ID on Vyper.**
 
+## UPDATED: Daily Free Tokens
+
+**Task:** Claim free testSTG once a day. Come back on consecutive days to get more tokens.
+
+**Reward:** Jerry will send you a random reward of 100, 250, 500, 1000 or even 5000 testSTG. Come back on consecutive days to get a bonus multiplier of 10% for each day you've claimed! Don't miss a day or your multiplier will reset. 
+
+**How to claim:** Send `/free` to the bounty bot once a day to claim your free tokens!
+
+Jerry will regularly send the current Top 10 to the Stegos Telegram groups, but you can also send `/leaderboard` to Jerry to see the current Top 10 scores at any time. Send Jerry `/me` to see your current score and rank. 
+
+## UPDATED: Invite New Users
+
+**Task:** Invite more users to expand the Stegos network. Once the users invite become validators, you'll receive a bonus!
+
+**Rewards:** 100 testSTG for each referred user who becomes a validator.
+
+Most importantly, you'll get massive ongoing rewards: you'll get 5 testSTG every time a user you invite earns a block reward, plus 10% of any validator service award they win.
+
+In addition, a user who registers using your invite link will receive a 10 testSTG bonus.
+
+**How to Claim:** Send `/invite` to Jerry the Bounty Bot to get an invite link. Send this to the person you want to invite. The Bounty Bot will automatically track their progress with the bounty tasks. The first time they join the list of active validators, you'll receive your bonus.
+
+**IMPORTANT:** The user you invite must be a registered member of a Stegos Telegram group for you to receive your bonus.
+
 ### BONUS TASK: Early Adopter Reward
 
 **Task:** If you've already downloaded a previous version of the app and tested it out by using the Stegos Leprechaun Bot, there's a special early adopter award as a thank you. We really appreciate your support!
@@ -126,20 +150,6 @@ The Stegos team will be running their own nodes to ensure network stability. Nat
 
 For stability purposes, the Stegos team will also be running nodes and validating the chain. Don't worry: we're not registered with the Bounty Bot, so we won't be on the leaderboard or affect the bounty payouts. All the tokens which our nodes win will be given out to bounty participants in future tasks, to be announced soon!
 
-## UPDATED: Invite New Users
-
-**Task:** Invite more users to expand the Stegos network. Once the users invite become validators, you'll receive a bonus!
-
-**Rewards:** 100 testSTG for each referred user who becomes a validator.
-
-Most importantly, you'll get massive ongoing rewards: you'll get 5 testSTG every time a user you invite earns a block reward, plus 10% of any validator service award they win.
-
-In addition, a user who registers using your invite link will receive a 10 testSTG bonus.
-
-**How to Claim:** Send `/invite` to Jerry the Bounty Bot to get an invite link. Send this to the person you want to invite. The Bounty Bot will automatically track their progress with the bounty tasks. The first time they join the list of active validators, you'll receive your bonus.
-
-**IMPORTANT:** The user you invite must be a registered member of a Stegos Telegram group for you to receive your bonus.
-
 ## Feedback and Testing Tasks
 
 We're looking for feedback on Stegos: our app, our blockchain, our documentation, everything! We also need your help in eliminating any bugs before we launch our mainnet.
@@ -169,16 +179,6 @@ Please include as much information as you can to help us try and reproduce the b
 The development team may be in touch to ask for more information or with requests to add files to your computer to monitor performance.
 
 Awards for finding bugs will be given at the discretion of our support and development teams, depending on the severity of the bug (the highest rewards will only be issued a few times during the bounty).
-
-## UPDATED: Daily Free Tokens
-
-**Task:** Claim free testSTG once a day. Come back on consecutive days to get more tokens.
-
-**Reward:** Jerry will send you a random reward of 100, 250, 500, 1000 or even 5000 testSTG. Come back on consecutive days to get a bonus multiplier of 10% for each day you've claimed! Don't miss a day or your multiplier will reset. 
-
-**How to claim:** Send `/free` to the bounty bot once a day to claim your free tokens!
-
-Jerry will regularly send the current Top 10 to the Stegos Telegram groups, but you can also send `/leaderboard` to Jerry to see the current Top 10 scores at any time. Send Jerry `/me` to see your current score and rank. 
 
 ## Bounty Bonuses
 
