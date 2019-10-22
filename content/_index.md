@@ -4,7 +4,7 @@ type="page"
 +++
 
 
-# Welcome to Stegos Documentation portal!
+# Welcome to the Stegos documentation portal!
 
 We live in an era of unprecedented state surveillance and crackdowns on freedom.
 
@@ -13,3 +13,5 @@ It’s nobody’s business what you do with your money, whether paper or digital
 Stegos helps you embrace your freedoms by providing the first cryptocurrency with fully private transactions and integrated private messaging. This is all thanks to Snowball, our unique privacy protocol. Pruning and sharding keeping the blockchain fast and small.
 
 Stegos uses gamified proof-of-stake (gPoS) to ensure that everyone who helps maintain the network has a fair chance of earning Stegos tokens, not just whales.
+
+Use the menu on the left to learn more about Stegos, our $150,000 bounty and hackathon (running until Nov 4th) and our desktop wallet.
