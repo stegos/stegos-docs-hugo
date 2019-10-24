@@ -37,6 +37,8 @@ The bounty bot is called [Jerry](https://t.me/StegosJerryBot) (Telegram username
 
 These initial tasks are compulsory tasks to get you set up for the Stegos Telegram Bounty. You'll download the app, setup a wallet and register your public key with our bounty bot. This is how we'll track your progress through the bounty and send you tokens, so make sure you follow the instructions correctly.
 
+**You can find tutorials for completing the basic hackathon tasks in the Bounty menu on the left hand side of your screen.**
+
 ### The Stegos App
 
 **Task:** Download and install the Stegos app.

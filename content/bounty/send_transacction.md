@@ -1,5 +1,5 @@
 +++
-title = "Send a Transaction"
+title = "Tutorial 3: Send a Transaction"
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
 weight=4

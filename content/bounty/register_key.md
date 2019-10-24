@@ -1,5 +1,5 @@
 +++
-title = "Register Your Public Key"
+title = "Tutorial 2: Register Your Key"
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
 weight=3

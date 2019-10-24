@@ -1,5 +1,5 @@
 +++
-title = "Installing the Stegos Desktop Wallet"
+title = "Tutorial 1: Installing a Wallet"
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
 weight=2

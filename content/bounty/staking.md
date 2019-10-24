@@ -1,5 +1,5 @@
 +++
-title = "Staking"
+title = "Tutorial 4: Staking"
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
 weight=5
