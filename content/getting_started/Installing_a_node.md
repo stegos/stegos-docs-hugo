@@ -22,38 +22,36 @@ For production purposes, we recommend official binaries from GitHub Release page
 #### Using Pre-built Binaries
 
 Download the latest version of {{< code >}}stegosd{{< /code >}} and {{< code >}}stegos{{< /code >}} binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases)
-{{< highlight bash "linenos=inline, title=install-linux.sh" >}}
-curl -L https://github.com/stegos/stegos/releases/download/v0.14/stegosd-linux-x64 -o stegosd
-curl -L https://github.com/stegos/stegos/releases/download/v0.14/stegos-linux-x64 -o stegos
-chmod a+x stegosd ste
-gos
+```bash
+curl -L https://github.com/stegos/stegos/releases/download/v0.17/stegosd-linux-x64 -o stegosd
+curl -L https://github.com/stegos/stegos/releases/download/v0.17/stegos-linux-x64 -o stegos
+chmod a+x stegosd stegos
 ./stegosd --version
 ./stegos --version
-{{< / highlight >}}
+```
 
-The script above will download {{< code >}}stegosd{{< /code >}} (Node) and {{< code >}}stegos{{< /code >}} (CLI) binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases), change file permissions to "Executable" and print Node's version:
+The script above will download `stegosd` (Node) and `stegos` (CLI) binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases), change file permissions to "Executable" and print Node's version:
 
-{{< highlight bash "linenos=inline" >}}
-yourname@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.14/stegosd-linux-x64 -o stegosd
+```bash
+yourname@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.17/stegosd-linux-x64 -o stegosd
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   608    0   608    0     0   1859      0 --:--:-- --:--:-- --:--:--  1859
 100 22.0M  100 22.0M    0     0  5996k      0  0:00:03  0:00:03 --:--:-- 7197k
-you@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.14/stegos-linux-x64 -o stegos
+you@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.17/stegos-linux-x64 -o stegos
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   607    0   607    0     0   1833      0 --:--:-- --:--:-- --:--:--  1833
 100 6022k  100 6022k    0     0  3033k      0  0:00:01  0:00:01 --:--:-- 5435k
 yourname@linux:~$ chmod a+x stegosd stegos
 yourname@linux:~$ ./stegosd --version
-Stegos Node 0.10.0 (5d9b289 2019-07-02)
+Stegos Node 0.17.0 (07ef602 2019-11-04)
 yourname@linux:~$ ./stegos --version
-Stegos CLI 0.10.0 (5d9b289 2019-07-02)
-{{< / highlight >}}
+Stegos CLI 0.17.0 (07ef602 2019-11-04)
+```
 
-{{% notice info %}}If you see "undefined symbol" message or other errors - please file [an issue on GitHub.](https://github.com/stegos/stegos/issues){{% /notice %}}
-
-{{% notice tip %}}Your Node has been downloaded and installed successfully.{{% /notice %}}
+Your Node has been downloaded and installed successfully.
+If you see "undefined symbol" message or other errors - please file [an issue on GitHub.](https://github.com/stegos/stegos/issues). 
 
 #### From Source
 
@@ -65,40 +63,39 @@ ___
 
 ##### Using Pre-Built binaries
 
-Download the latest version of {{< code >}}stegosd{{< /code >}} and {{< code >}}stegos{{< /code >}} binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases)
+Download the latest version of `stegosd` and `stegos` binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases)
 
-{{< highlight bash "linenos=inline, title=install-macos.sh" >}}
-curl -L https://github.com/stegos/stegos/releases/download/v0.14/stegosd-
+```bash
+curl -L https://github.com/stegos/stegos/releases/download/v0.17/stegosd-
 macos-x64 -o stegosd
-curl -L https://github.com/stegos/stegos/releases/download/v0.14/stegos-macos-x64 -o stegos
+curl -L https://github.com/stegos/stegos/releases/download/v0.17/stegos-macos-x64 -o stegos
 chmod a+x stegosd stegos
 ./stegosd --version
 ./stegos --version
-{{< / highlight >}}
+```
 
-The script above will download {{< code >}}stegosd{{< /code >}} binary from [**GitHub Releases**](https://github.com/stegos/stegos/releases), change file permissions to "Executable" and print Node's version:
+The script above will download `stegosd` binary from [**GitHub Releases**](https://github.com/stegos/stegos/releases), change file permissions to "Executable" and print Node's version:
 
-{{< highlight bash "linenos=inline" >}}
-yourname@mac:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.14/stegosd-macos-x64 -o stegosd
+```bash
+yourname@mac:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.17/stegosd-macos-x64 -o stegosd
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   608    0   608    0     0   1859      0 --:--:-- --:--:-- --:--:--  1859
 100 22.0M  100 22.0M    0     0  5996k      0  0:00:03  0:00:03 --:--:-- 7197k
-you@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.14/stegos-macos-x64 -o stegos
+you@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v0.17/stegos-macos-x64 -o stegos
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   607    0   607    0     0   1833      0 --:--:-- --:--:-- --:--:--  1833
 100 6022k  100 6022k    0     0  3033k      0  0:00:01  0:00:01 --:--:-- 5435k
 yourname@mac:~$ chmod a+x stegosd stegos
 yourname@mac:~$ ./stegosd --version
-Stegos Node 0.10.0 (5d9b289 2019-07-02)
+Stegos Node 0.17.0 (07ef602 2019-11-04)
 yourname@mac:~$ ./stegos --version
-Stegos CLI 0.10.0 (5d9b289 2019-07-02)
-{{< / highlight >}}
+Stegos CLI 0.17.0 (07ef602 2019-11-04)
+```
 
-{{% notice info %}}If you see "undefined symbol" message or other errors - please file an issue on GitHub.{{% /notice %}}
-
-{{% notice tip %}}Your Node has been downloaded and installed successfully.{{% /notice %}}
+Your Node has been downloaded and installed successfully.
+If you see "undefined symbol" message or other errors - please file an issue on GitHub.
 
 #### From Source
 
@@ -118,11 +115,16 @@ ___
 
 #### Using WSL
 
-Please folow Linux installation instructions [**above.**]({{< relref "/Installing_a_node.md#installing-on-linux">}})
+Please follow Linux installation instructions [**above.**]({{< relref "/Installing_a_node.md#installing-on-linux">}})
 
 #### Using Pre-Built Binaries
 
-Native binaries for Windows can be downloaded from https://github.com/stegos/stegos/releases/download/v0.14/stegosd-macos-x64.
+Download the latest version of `stegosd` and `stegos` binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases):
+
+- https://github.com/stegos/stegos/releases/download/v0.17/stegos-win-x64.zip
+- https://github.com/stegos/stegos/releases/download/v0.17/stegosd-win-x64.zip
+
+Unpack zip archives. Your Node has been downloaded and installed successfully.
 
 #### From Source
 
