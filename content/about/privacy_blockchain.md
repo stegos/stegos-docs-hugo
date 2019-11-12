@@ -4,18 +4,17 @@ title = "Stegos Privacy Blockchain"
 type="page"
 
 +++
-
+#### What is Stegos?
+The Stegos privacy platform provides users with fully private transactions, messaging and data transmission. Stegos acts as a gateway to an entire ecosystem of privacy services and apps. Stegos combines a unique blockchain and token design to implement the first cryptocurrency that’s absolutely private, secure, efficient and fully mobile compatible. The most up to date information can be found in the Project section of our website at http://stegos.com.
+___
 #### How can I be sure that STG transactions are unlinkable, untraceable, and completely confidential?
 Stegos uses multiple methods to ensure maximum privacy. User identities are obfuscated using cryptographic key pairs, and each transaction uses a new stealth address. Transactions are combined into supertransactions to hide sender and receiver information, while all transaction amounts are hidden using cryptographic commitments (Pedersen commitments) and zero-knowledge range proofs (Bulletproofs). Validator stakes and transaction fees are the only exception since these must be visible for blockchain validation to work. However, users can create as many wallets as they choose, so validation and staking can be performed separately and privately.
-___
-#### How does the Stegos blockchaWhat is Stegos?
-The Stegos privacy platform provides users with fully private transactions, messaging and data transmission. Stegos acts as a gateway to an entire ecosystem of privacy services and apps. Stegos combines a unique blockchain and token design to implement the first cryptocurrency that’s absolutely private, secure, efficient and fully mobile compatible. The most up to date information can be found in the Project section of our website at http://stegos.com.
 ___
 #### Who is building Stegos?
 The Stegos team doesn't just bring blockchain experience to the table (although we have plenty of that, too). With backgrounds in finance, aerospace, and cryptography, the team has a breadth of experience in applying technology to some of the most sensitive challenges facing society. Want to know more about the team? Check them out here: https://github.com/stegos/stegos/wiki/Whitepaper-EN#team
 ___
-#### How can Stegos send messages and data via the blockchain?
-Unlike other blockchains, Stegos is regularly pruned to keep it small. This means the Stegos blockchain has space for messages and data, in addition to standard transactions.
+#### How can Stegos send messages via the blockchain?
+Unlike other blockchains, Stegos is regularly pruned to keep it small. This means the Stegos blockchain has space for messages in addition to standard transactions.
 ___
 #### How can Stegos work on mobile?
 Stegos is optimized for use on mobile. The Stegos chain is compact, and we use a version of Proof-of-stake to secure it, which makes it viable to run full nodes on your phone and earn STG tokens from your pocket.

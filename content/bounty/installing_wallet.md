@@ -21,7 +21,7 @@ You will then see a list of files. Choose the right one for your operating syste
 
 **MacOS:** StegosWallet-0.16.0.dmg
 
-**Windows:** StegosWallet.Steup.0.16.0.exe
+**Windows:** StegosWallet.Setup.0.16.0.exe
 
 Install the file (you may get a security warning and need to give it permission to run — don't worry, it's perfectly safe) and you're ready to begin!
 
