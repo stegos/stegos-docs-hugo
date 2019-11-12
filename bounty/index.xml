@@ -6,7 +6,7 @@ Scroll to the bottom, and click the &amp;ldquo;Assets&amp;rdquo; button to expan
 You will then see a list of files. Choose the right one for your operating system:
 Linux: stegos-wallet-0.16.0-x86_64.AppImage
 MacOS: StegosWallet-0.16.0.dmg
-Windows: StegosWallet.Steup.0.16.0.exe
+Windows: StegosWallet.Setup.0.16.0.exe
 Install the file (you may get a security warning and need to give it permission to run — don&amp;rsquo;t worry, it&amp;rsquo;s perfectly safe) and you&amp;rsquo;re ready to begin!</description></item><item><title>Tutorial 2: Register Your Key</title><link>/bounty/register_key/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/bounty/register_key/</guid><description>You can find your public key in the Stegos wallet. Click the account you want the public key for, and then click &amp;ldquo;Receive Account Address&amp;rdquo;
 Now click &amp;ldquo;Next&amp;rdquo; and click &amp;ldquo;Copy to Clipboard&amp;rdquo;
 Register your public key with Jerry the bounty bot by sending him the following message (inserting your public key where it says ): /register &amp;lt;publickey&amp;gt;
