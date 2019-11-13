@@ -14,4 +14,4 @@ Stegos helps you embrace your freedoms by providing the first cryptocurrency wit
 
 Stegos uses gamified proof-of-stake (gPoS) to ensure that everyone who helps maintain the network has a fair chance of earning Stegos tokens, not just whales.
 
-Use the menu on the left to learn more about Stegos, our $150,000 bounty and hackathon (running until Nov 4th) and our desktop wallet.
+Use the menu on the left to learn more about Stegos, our $200,000 bounty and hackathon (running until Nov 17th) and our desktop wallet, which you can download [here](https://github.com/stegos/stegos-wallet/releases/tag/v0.17)
