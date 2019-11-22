@@ -1,6 +1,6 @@
 +++
 title = "GETTING STARTED"
-head ="<label>GETTING STARTED</label>"
-weight = 2
+head ="<label>CLI WALLET</label>"
+weight = 3
 alwaysopen = true
 +++

@@ -1,6 +1,6 @@
 +++
 title = "FAQs"
 head ="<label>FAQs</label>"
-weight = 4
+weight = 5
 alwaysopen = true
 +++
