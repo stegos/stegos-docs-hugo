@@ -1,6 +1,6 @@
 +++
-title = "GETTING STARTED"
-head ="<label>GETTING STARTED</label>"
-weight = 1
+title = "BOUNTY"
+head ="<label>BOUNTY</label>"
+weight = 5
 alwaysopen = true
 +++

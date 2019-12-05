@@ -32,3 +32,7 @@ Red packets incorporate a necessary delay to prevent abuse. During this delay, i
 ___
 #### Is the Stegos App finished?
 The mobile app is still under development, but you can try the latest version of the desktop app by heading to https://github.com/stegos/stegos-wallet/releases/tag/v0.17
+
+___
+#### I restored my wallet but my transaction history is gone! What should I do?
+This is normal. Stegos is private and confidential blockchain, therefore our blockchain doesn't store information about who has made any particular paymnent. Therefore, when you delete your wallet history, or migrate wallet to a new device, it is possible to restore only (1) your accounts balance; (2) history of incoming transfers. All outgoing payment history will be lost.
