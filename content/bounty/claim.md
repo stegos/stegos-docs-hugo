@@ -11,11 +11,13 @@ This page will explain how to claim your rewards from the hackathon portion of t
 
 $100,000 worth of STG will be distributed to winners of the hackathon, based on their final scores on the Telegram leaderboard. 
 
-The rewards for the Stegos hackathon can be claimed from 23rd December 2019. 
+The rewards for the Stegos hackathon will be sent out on 23rd December 2019. 
 
 In the meantime, we'll be sending out a confirmation transaction to every address registered in the hackathon. This will be a 1 STG transaction with a comment telling you your total award. (Since you're already reading this, hopefully you followed the link from that comment!)
 
-After 23rd December, you'll be able to claim your reward by sending a message to Jerry, our Telegram bot. Simply send him the command `/claim <your mainnet address>` and Jerry will automatically send you your reward. For privacy reasons, we recommend you then make a new Stegos account and send yourself the award, to break the link between your Telegram ID and your STG.
+Once you've received your transaction, please claim your reward by sending a message to Jerry, our Telegram bot. Simply send him the command `/claim <your mainnet address>` and Jerry will automatically register your claim. On 23rd December, we will automatically send rewards out to everyone who has claimed in this way.
+
+For privacy reasons, we recommend you then make a new Stegos account and send yourself the award, to break the link between your Telegram ID and your STG.
 
 Participants who were unable to backup and restore their wallet from the hackathon should contact us on Telegram as soon as possible.
 
