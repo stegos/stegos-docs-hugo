@@ -37,6 +37,10 @@ Secondly, the moderators did NOT moderate every piece of content submitted: the 
 
 Unfortunately, for a long time there was a bug that we weren't aware of: people who had cheated the referral system and been disqualified were still showing up on the public leaderboard. Vyper has fixed this bug, and now the scores are accurate.
 
+#### Why is my score so low?
+
+The short answer is that it's probably correct.
+
 The highest content awards, which were much higher than the low- and mid-range points, were reserved for EXTREMELY high quality content. The goal was always to only award a handful of these prizes, so that's why there aren't many people with tens of thousands of content points.
 
 #### How can you be sure the prizes are being assigned correctly?
