@@ -9,7 +9,7 @@ Huge thanks to everyone who entered the Stegos $100,000 Vyper bounty. We had ove
 
 But let's get to the exciting part: the prizes! 
 
-This page will explain the current status of the Vyper bounty and answer the most common questions about what happens next, when and how prizes will be distributed, and what to do if you think your points are incorrect. If you want information about the $100,000 hackathon which was running simultaneously, please head here: 
+This page will explain the current status of the Vyper bounty and answer the most common questions about what happens next, when and how prizes will be distributed, and what to do if you think your points are incorrect. If you want information about the $100,000 hackathon which was running simultaneously, please head [here]({{< relref "/bounty/claim.md">}}). 
 
 #### When will the winners be announced and prizes distributed?
 
