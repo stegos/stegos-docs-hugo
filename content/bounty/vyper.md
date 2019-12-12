@@ -13,7 +13,9 @@ This page will explain the current status of the Vyper bounty and answer the mos
 
 #### When will the winners be announced and prizes distributed?
 
-The provisional leaderboard will be uploaded here very shortly. We've already answered a lot of individual queries, but to make sure everything is completely fair we're going to take a week to address any final concerns about incorrect or missing points, and the leaderboard will be finalized on Wednesday December 18th. 
+The provisional leaderboard can be found here: https://docs.google.com/spreadsheets/d/1t_4JZJfz4dcLDlN4qAu2Za2xlbKYxnd9yoCWWYK6vac
+
+We've already answered a lot of individual queries, but to make sure everything is completely fair we're going to take a week to address any final concerns about incorrect or missing points, and the leaderboard will be finalized on Wednesday December 18th. 
 
 Prizes will be distributed on December 23rd, at the same time has the hackathon.
 
