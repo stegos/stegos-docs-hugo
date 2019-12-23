@@ -18,7 +18,9 @@ This page will explain the current status of the Vyper bounty and answer the mos
 Choose the account you want to send STG from, and then fill in the other fields.
 If you want to verify this transaction later, make sure you check the &amp;ldquo;Generate Payment Certificate&amp;rdquo; box. You'll need to do this to complete the bounty task.
 Click next.
-Double check that all the details are correct, then click send.</description></item><item><title>Running a Node</title><link>/cli_wallet/running_a_node/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cli_wallet/running_a_node/</guid><description>In this section we explain how to run Stegos Node.
+Double check that all the details are correct, then click send.</description></item><item><title>Wallet Restore Problems</title><link>/bounty/restore/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/bounty/restore/</guid><description>We're getting reports that some users have been unable to properly restore their testnet wallet and register their hackathon claim with Jerry the bounty bot.
+If you tried to use Option 3 to restore your testnet wallet and Jerry won't recognise your mainnet address, please try the following steps. Your mainnet address should be very similar to your testnet address, but with a different prefix and final 6 characters.
+Install the Stegos GUI wallet from https://github.</description></item><item><title>Running a Node</title><link>/cli_wallet/running_a_node/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cli_wallet/running_a_node/</guid><description>In this section we explain how to run Stegos Node.
 Prerequisites:
 Download and install Stegos Node. Run Stegos Node:
 Stegos Node will automatically create a data directory to store the blockchain and your accounts:
