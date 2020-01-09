@@ -8,6 +8,8 @@ type="page"
 
 **Stegos Node** offers experimental asynchronous **WebSocket API**. This API allow you to manage accounts, create and track transactions, receive notifications and so on.
 
+For exchange integration go to [exchange api]({{< relref "/developers/Exchange_integration.md">}}) section.
+
 * [Prerequisites]({{< relref "#prerequisites" >}})
 * [Protocol]({{< relref "#protocol" >}})
   + [Framing]({{< relref "#framing" >}})
@@ -27,8 +29,6 @@ type="page"
   + [Account Information]({{< relref "#account-information" >}})
   + [Balance Information]({{< relref "#balance-information" >}})
   + [UTXO Information]({{< relref "#utxo-information" >}})
-  + [Create Public Address]({{< relref "#create-public-address" >}})
-  + [Public Addresses Information]({{< relref "#public-addresses-information" >}})
   + [**Payments**]({{< relref "#payments" >}})
   + [Cloak]({{< relref "#cloak" >}})
   + [Stake]({{< relref "#stake" >}})
@@ -110,7 +110,7 @@ websocket_text_message = base64_encode(aes128_encode(payload, key))
 
 Here is basic example how to encode/decode AES messages:
 
-{{% tabs %}}
+{{<tabs>}}
 {{% tab "Python" %}}
 ```python
 import base64
@@ -256,7 +256,27 @@ func main() {
 ```
 {{% /tab %}}
 
-{{% /tabs %}}
+
+{{% tab "Shell" %}}
+
+You also could use Stegos CLI and in order to make requests.
+This is frequently used for debuging, and scripting. 
+{{% notice note %}}
+- Use flag `-R` to force Stegos CLI use JSON input, instead of CLI like.
+- Use argument `--formatter json` to return output in json format.
+  
+{{% / notice %}}
+
+
+**Example of usage:**
+
+```shell
+echo '{"type": "outputs_list", "utxos":["33a3362aa631a9e6bff4d7c492c97112e0699917f9c3a236711ed3cb3f7281f3"]}' | stegos -R --formatter json
+```
+{{% /tab %}}
+
+
+{{</tabs>}}
 
 #### Payload
 
@@ -366,30 +386,7 @@ keypair. Each **Account** is uniquely identified its **Public Key**.
 **Account's Public Key** can be used to receive both private and public payments.
 There is no special need in temporary addreses like in Bitcoin, because
 our private payments implements Confidental Transactios and all recepient'
-addressese are always clocked.
-
-However, for the sake of Bitcoin compatibility, we also support
-**Virtual Public Addresses**. **Virtual Public Address** is like a regular
-public keys, but it can only be used for receiving public (uncloaked) payments.
-All PublicUTXO sent to such addresses will be deposited to the primary
-keypair and can be spent as usual by using **cloak** API CALL. All other
-kinds of UTXO sent to such virtual address **will be permanently lost**.
-Each **Account** can have zero or more such **Virtual Public Addresses**.
-You can use public addresses to implement Bitcoin-like behaviour. For example,
-exchanges can use virtual public addresses to receive deposits from customers.
-But please never use virtual public addresses for private payments.
-It makes no sense since private payments are always cloaked.
-
-Under the hood virtual public addresses implemented as deterministic
-key pairs generated from the primary account key + sequential
-uint32 number, called `public_address_id`. The first key will have
-id=1, second- id=2 and so far. However, some numbers doesn't produce
-valid Curve25519 keys and should be ignored. Since all addresses
-are deterministically generated, there is no need in separate
-backup. Please remember the last used `public_address_id` and provide
-this value during recovery. Wallet will automatically re-create
-all public addreses up to `public_address_id`. This patch changes
-`show recovery` and `recover account` to support `public_address_id.
+addressese are always cloaked.
 
 All public keys and addresses in API calls are encoded using bech32:
 
@@ -508,11 +505,8 @@ Returns 24-word recovery phrase.
   "account_id": "1",
   "type": "recovery",
   "recovery": "swear praise ginger oxygen anchor ten small planet crime cave fold chuckle foot dragon decorate guess poverty grass crew depend define twice mother update"
-  "last_public_address_id": 4
 }
 ```
-
-* `last_public_address_id` - ID of the last created public address. Remember this number if you want to recover public addresses.
 
 #### Recover Account
 
@@ -523,12 +517,9 @@ Recovers an account from 24-word recovery phrase:
 ```js
 {
   "type": "recover_account"
-  "recovery": "swear praise ginger oxygen anchor ten small planet crime cave fold chuckle foot dragon decorate guess poverty grass crew depend define twice mother update",
-  "last_public_address_id": 4
+  "recovery": "swear praise ginger oxygen anchor ten small planet crime cave fold chuckle foot dragon decorate guess poverty grass crew depend define twice mother update"
 }
 ```
-
-* `last_public_address_id` (optional) - ID of the last created public address if any.
 
 **Response:**
 
@@ -740,67 +731,11 @@ Returns information about account's UTXO.
       "utxo": "13257da5cdef20d47dba473deb182f0d24c2a1ed717ba379c2b1830fdfadbd7e",
       "amount": 1000000000,
       "comment": "Gift from Stegos Leprechaun",
-      "locked_timestamp": null,
       "recipient": "dev1jjufnwk6u5scyj05259tpy2a7096dap0umj5uhqlynfdfua255fs5fm7w4",
       "is_change": false
     }
   ],
   "stakes": []
-}
-```
-
-#### Create Public Address
-
-Creates a new public address.
-
-**Unsealed:** yes
-
-**Request:**
-
-```js
-{
-  "account_id": "1",
-  "type": "create_public_address"
-}
-```
-
-**Response:**
-
-```js
-{
-  "account_id": "1",
-  "type": "public_address_created",
-  "public_address": "dev18c98gtemyps2x29n2sc73gp4qqnqdzqufq6cdjlku003u8w64cdqhe9pxe",
-  "public_address_id": 1
-}
-```
-
-#### Public Addresses Information
-
-Returns information about created public addresses.
-
-**Unsealed:** yes
-
-**Request:**
-
-```js
-{
-  "account_id": "1",
-  "type": "public_addresses_info"
-}
-```
-
-**Response:**
-
-```js
-{
-  "account_id": "1",
-  "type": "public_addresses_info",
-  "public_addresses": {
-    "1": {
-      "address": "dev18c98gtemyps2x29n2sc73gp4qqnqdzqufq6cdjlku003u8w64cdqhe9pxe"
-    }
-  }
 }
 ```
 
@@ -820,7 +755,6 @@ API for creating transactions to transfer money.
   "amount": 100,
   "payment_fee": 1000,
   "comment": "Test",
-  "locked_timestamp": "2019-08-22T12:35:06.343300856Z",
   "with_certificate": false
 }
 ```
@@ -833,7 +767,6 @@ API for creating transactions to transfer money.
 * `amount` - amount in μSTG.
 * `payment_fee` - desired fee per created UTXO.
 * `comment` - a commentary, up to 880 chars.
-* `locked_timestamp` - lock created UTXO until specified time.
 * `with_certificate` - generate a proof of payment.
 
 **Response:**
@@ -851,7 +784,6 @@ API for creating transactions to transfer money.
       "utxo": "32cbfd8cd697bef256b78a36847269a0d39c738da3cc474f3635c21b03de1310",
       "amount": 100,
       "comment": "Test",
-      "locked_timestamp": "2019-08-22T12:35:06.343300856Z",
       "recipient": "dev1jjufnwk6u5scyj05259tpy2a7096dap0umj5uhqlynfdfua255fs5fm7w4",
       "rvalue": "0dbb132afbfdcc7bfb25191f89007f27919fceaceea03b015d98458cba1a4200",
       "is_change": false
@@ -861,7 +793,6 @@ API for creating transactions to transfer money.
       "utxo": "fb7b7d39265ae69cc33fe5f327a78d0ea01a508ff99265f0a92ab5fc7df9e3c6",
       "amount": 999997900,
       "comment": "Change",
-      "locked_timestamp": null,
       "recipient": "dev1cn559rq08pvxkkkwdl5xcha33ql8g73npvgxkcjl57a34f8e856smqcgac",
       "is_change": true
     }
@@ -940,7 +871,6 @@ API for creating transactions to transfer money.
 * `amount` - amount in μSTG.
 * `comment` - a commentary.
 * `rvalue` - saved encryption key (only if with_certificate).
-* `locked_timestamp` - the UTXO is locked until this timestamp.
 * `is_change` - the UTXO is a change
 * `status` - transaction status:
   + `create`
@@ -1109,7 +1039,6 @@ Validate a payment certificate for a payment. This API is doesn't require existi
           "utxo": "17a23f878dfecd0bdbd9bfd3524b829a95eb2d6a121f4f9d08160aa3b7da789a",
           "amount": 1,
           "comment": "",
-          "locked_timestamp": null,
           "recipient": "dev1cn559rq08pvxkkkwdl5xcha33ql8g73npvgxkcjl57a34f8e856smqcgac",
           "is_change": false
         },
@@ -1118,7 +1047,6 @@ Validate a payment certificate for a payment. This API is doesn't require existi
           "utxo": "2ddb5b4b52ff2f54341c2f03e18e053843e964e86a4d48abb65f80c2ad09231d",
           "amount": 999986699,
           "comment": "Change",
-          "locked_timestamp": null,
           "recipient": "dev1cn559rq08pvxkkkwdl5xcha33ql8g73npvgxkcjl57a34f8e856smqcgac",
           "is_change": true
         }
@@ -1141,7 +1069,6 @@ Validate a payment certificate for a payment. This API is doesn't require existi
       "utxo": "17a23f878dfecd0bdbd9bfd3524b829a95eb2d6a121f4f9d08160aa3b7da789a",
       "amount": 1,
       "comment": "",
-      "locked_timestamp": null,
       "recipient": "dev1cn559rq08pvxkkkwdl5xcha33ql8g73npvgxkcjl57a34f8e856smqcgac",
       "is_change": false
     },
@@ -1152,7 +1079,6 @@ Validate a payment certificate for a payment. This API is doesn't require existi
       "utxo": "2ddb5b4b52ff2f54341c2f03e18e053843e964e86a4d48abb65f80c2ad09231d",
       "amount": 999986699,
       "comment": "Change",
-      "locked_timestamp": null,
       "recipient": "dev14ehru5zmyjuc64m25t8k9kqv4q95h0y20cwm5csgkpgups9e2ersmdp3e4",
       "is_change": true
     }
@@ -1746,7 +1672,6 @@ ___
   "amount": 1,
   "payment_fee": 1000,
   "comment": "",
-  "locked_timestamp": null,
   "with_certificate": false
 }
 ```
@@ -1767,7 +1692,6 @@ See Payment for details.
       "utxo": "17c6556fbe25ccc7e7e8adb3e2000366cdef08e19d36478b5716c24778ecb3b2",
       "amount": 1,
       "comment": "",
-      "locked_timestamp": null,
       "recipient": "dev1cn559rq08pvxkkkwdl5xcha33ql8g73npvgxkcjl57a34f8e856smqcgac",
       "is_change": false
     },
@@ -1776,7 +1700,6 @@ See Payment for details.
       "utxo": "eb05b05c5dd4c6f972b85f5848ccaa75fc7d49cb3b10009f6559e0274e92dd16",
       "amount": 999982699,
       "comment": "Change",
-      "locked_timestamp": null,
       "recipient": "dev14ehru5zmyjuc64m25t8k9kqv4q95h0y20cwm5csgkpgups9e2ersmdp3e4",
       "is_change": true
     }
