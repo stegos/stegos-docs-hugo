@@ -197,7 +197,7 @@ import (
     "fmt"
     "encoding/base64"
     "crypto/aes"
-    "crypto/cipher" 
+    "crypto/cipher"
     "crypto/rand"
 )
 
@@ -218,9 +218,9 @@ func encrypt(api_token []byte, payload string) []byte {
     return ciphertext
 }
 
-func decrypt(api_token []byte, ciphertext [] byte) string {  
-    if len(ciphertext) < aes.BlockSize {  
-        panic("invalid ciphertext")  
+func decrypt(api_token []byte, ciphertext [] byte) string {
+    if len(ciphertext) < aes.BlockSize {
+        panic("invalid ciphertext")
     }
 
     block, err := aes.NewCipher(api_token)
@@ -426,7 +426,7 @@ Returns a list of account.
 
 ```js
 {
-  "type": "accounts_info",
+  "type": "list_accounts",
 }
 ```
 
