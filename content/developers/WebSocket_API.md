@@ -259,8 +259,8 @@ func main() {
 
 {{% tab "Shell" %}}
 
-You also could use Stegos CLI and in order to make requests.
-This is frequently used for debuging, and scripting. 
+You can could use the Stegos CLI to make requests. This is frequently used for debugging, and scripting.
+ 
 {{% notice note %}}
 - Use flag `-R` to force Stegos CLI use JSON input, instead of CLI like.
 - Use argument `--formatter json` to return output in json format.
