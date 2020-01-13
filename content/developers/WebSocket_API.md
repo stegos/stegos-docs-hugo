@@ -386,7 +386,7 @@ keypair. Each **Account** is uniquely identified its **Public Key**.
 **Account's Public Key** can be used to receive both private and public payments.
 There is no special need in temporary addreses like in Bitcoin, because
 our private payments implements Confidental Transactios and all recepient'
-addressese are always cloaked.
+addresses are always cloaked.
 
 All public keys and addresses in API calls are encoded using bech32:
 
