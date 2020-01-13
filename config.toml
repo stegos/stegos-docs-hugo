@@ -12,6 +12,9 @@ defaultContentLanguage = "en"
 defaultContentLanguageInSubdir= false
 enableMissingTranslationPlaceholders = false
 
+# force using of raw html.
+[markup.goldmark.renderer]
+unsafe= true
 # publishDir = "docs"
 
 # [Languages]

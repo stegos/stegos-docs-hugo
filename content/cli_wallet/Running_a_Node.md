@@ -75,9 +75,8 @@ INFO [stegosd] Using genesis=14427eb426e3 for 'testnet' chain
 {{% notice note %}}
 You can override chain by setting {{< code >}}STEGOS_CHAIN{{< /code >}} environment variable or providing {{< code >}}--chain{{< /code >}} command line option. Supported networks:
 
-* {{< code >}}devnet{{< /code >}} - development (alpha) network
-* {{< code >}}testnet{{< /code >}} - test (beta) network
-* ~~{{< code >}}mainnet{{< /code >}} - production network (soon!)~~
+* {{< code >}}testnet{{< /code >}} - test  network
+* {{< code >}}mainnet{{< /code >}} - production network
 {{% / notice %}}
 
 On the second and subsequent runs, Node will check the consistency of the blockchain database on the disk. This operation can take up to 5-10 minutes. Please be patient.
