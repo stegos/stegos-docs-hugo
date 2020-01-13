@@ -5,7 +5,7 @@ type="page"
 
 +++
 
-In private coin like Stegos, where each utxo has cloaked public key, one usually needs a secret_key to find whether a particular utxo belongs to a particular user.
+In a private coin like Stegos, where each utxo has a cloaked public key, one usually needs a secret key to find whether a particular utxo belongs to a particular user.
 
 Exchange services usually handle a large number of users. For security reasons, they store secret keys in a secure place, often without access to the internet. Thus the standard Stegos approach is incompatible with standard exchange processes.
 
@@ -15,46 +15,47 @@ Public outputs are already used in the validator service award: they store recip
 
 ### Transaction signing
 
-In Stegos transaction signing is differ from regular `sign(bytes, secret_key)`, in order to sign transaction ones need to calculate data based on inputs and outputs.
-So transaction signing cannot be splitted from serialization. To simplify this process we introduceintroduce api method
-[`create_raw_transaction`]({{< relref "#creating-and-signing-transaction" >}}) for signing transaction from raw data.
+Stegos handles transaction signing differently from the standard `sign(bytes, secret_key)` approach: in order to sign a transaction, it is necessary to calculate data based on inputs and outputs.
+
+So transaction signing cannot be split from serialization. To simplify this process, we introduce the api method
+[`create_raw_transaction`]({{< relref "#creating-and-signing-transaction" >}}) for signing transactions from raw data.
 
 
 ### Integration design
 
-To allow exchanges store secret key in seperate place without access to the internet, we propose the folowing architecture:
+To allow exchanges to store secret keys in a seperate location without access to the internet, we propose the folowing architecture:
 
 <img src="/images/Exchange_integration.png" style="object-fit:cover;"/>
 
-In this architecture for each of exchange users keypair would be created (it could be done on demand, or once user created).
+In this architecture, a keypair would be created for each exchange user. This can be done on demand, or at the time the user joins the exchange.
 
-Secret part of keys, would be stored in some secret place, we call it `Cold wallet`.
-This `Cold wallet` has node started in 
-offline mode. In order to start node in offline mode, flag `-X` should be passed
+The secret part of the keypair, would be stored in some secret place, which we'll call the `Cold wallet`.
+
+This `Cold wallet` has a node which starts in offline mode. In order to start a node in offline mode, the flag `-X` should be passed:
+
 ```shell
 ./stegosd -X -n mainnet
 ```
-`Cold wallet` can be limited in only one api call of [`create_raw_transaction`]({{< relref "#creating-and-signing-transaction" >}}) .
+`Cold wallet` can be limited to a single api call by [`create_raw_transaction`]({{< relref "#creating-and-signing-transaction" >}}).
 
-Also in this architecture, exchange integrators need to develop Output explorer, that would observe blockchain history, and search for users UTXOs by `recepient` address.
-This can be easily done by subscribing for chain updates. See [Blockchain notifications]({{< relref "/developers/WebSocket_API.md#blockchain-notifications">}}).
+In this architecture, exchange integrators will also need to develop an output explorer which observes blockchain history and searches for users' UTXOs by `recepient` address.
 
-In order to fully isolate `Cold wallet` from network ones also needs to deliver full inputs to `Cold wallet`.
+This can be easily done by subscribing to chain updates. See [Blockchain notifications]({{< relref "/developers/WebSocket_API.md#blockchain-notifications">}}).
 
-See: [`outputs_list`]({{< relref "#outputs-list" >}}) for info about outputs retrival.
+In order to fully isolate `Cold wallet` from the network it is also necessary to deliver full inputs to `Cold wallet`.
 
-And as last part, ones need to send transaction to the network, for it use
-[`broadcast_transaction`]({{< relref "#broadcasting-transaction" >}}) method.
+See: [`outputs_list`]({{< relref "#outputs-list" >}}) for more information about output retrival.
 
+Finally, it is necessary to send transactions to the network. To do this, use the [`broadcast_transaction`]({{< relref "#broadcasting-transaction" >}}) method.
 
 
 ### Exchange API (offline signing) 
 
-In order to allow exchanges split their keys, we designed api for offline signing.
+To allow exchanges to split their keys, we designed an api for offline signing.
 
 #### Websocket protocol
 
-For all integration we use the same protocol described in [protocol section]({{< relref "/developers/WebSocket_API.md#protocol">}}) of websocket API page.
+For all integration we use the same protocol described in the [protocol section]({{< relref "/developers/WebSocket_API.md#protocol">}}) of the websocket API page.
 
 #### Outputs list
 
@@ -133,7 +134,7 @@ Creates transaction based on array of UTXO IDs, and pre-filled data for newly cr
 }
 ```
 {{% notice note %}}
-If input is missing in **unspent_list**, then inputs would be searched in local copy of blockchain.
+If input is missing in **unspent_list**, then inputs will be searched in the local copy of the blockchain.
 {{% / notice %}}
 
 
