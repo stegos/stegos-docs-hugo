@@ -5,13 +5,13 @@ type="page"
 
 +++
 
-In private coin like Stegos, where each utxo has cloaked public key, ones usually need a secret_key to find if some utxo was belong to user.
+In private coin like Stegos, where each utxo has cloaked public key, one usually needs a secret_key to find whether a particular utxo belongs to a particular user.
 
-Exchange services usually works with big amount of users. And they need to store sercret keys in some secure place, frequently without access to the internet.
-So regular aproach would not work on exchanges.
+Exchange services usually handle a large number of users. For security reasons, they store secret keys in a secure place, often without access to the internet. Thus the standard Stegos approach is incompatible with standard exchange processes.
 
-To get around this, for exchanges we use `Public` outputs.
-Public outputs already used in service award, it stores recipient and amount in open form, so everybody can see it, for example in blockexplorer.
+To get around this problem, for exchanges we make use of `Public` outputs.
+
+Public outputs are already used in the validator service award: they store recipient and amount data in open form. This means anybody can see this data, for example via a block explorer.
 
 ### Transaction signing
 
