@@ -8,7 +8,7 @@ type="page"
 
 **Stegos Node** offers experimental asynchronous **WebSocket API**. This API allow you to manage accounts, create and track transactions, receive notifications and so on.
 
-For exchange integration go to [exchange api]({{< relref "/developers/Exchange_integration.md">}}) section.
+For exchange integration, see the [exchange api]({{< relref "/developers/Exchange_integration.md">}}) section.
 
 * [Prerequisites]({{< relref "#prerequisites" >}})
 * [Protocol]({{< relref "#protocol" >}})
