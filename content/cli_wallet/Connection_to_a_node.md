@@ -36,7 +36,7 @@ docker exec -t -i <CONTAINER_NAME> stegos
 The command-line client will try to connect to a local node and print {{< code >}}stegos{{< /code >}} prompt on success:
 
 {{< highlight bash "linenos=inline" >}}
-Stegos CLI 0.11.13 (e63fb9e 2019-08-09)
+Stegos CLI 1.0.0 (e63fb9e 2019-08-09)
 Type 'help' to get help
 
 account#1>
