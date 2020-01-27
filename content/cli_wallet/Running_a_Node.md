@@ -66,7 +66,7 @@ C:\Users\$USER\AppData\Roaming
 
 {{% notice note %}}See [**Data Directory Layout**]({{< relref "/developers/Data_Directory_Layout.md">}}) page for additional information about structure of this directory.{{% / notice %}}
 
-On the first run, the blockchain database is initialized using  the genesis block for {{< code >}}testnet{{< /code >}} network:
+On the first run, the blockchain database is initialized using the genesis block for {{< code >}}testnet{{< /code >}} network:
 
 {{< highlight bash >}}
 INFO [stegosd] Using genesis=14427eb426e3 for 'testnet' chain

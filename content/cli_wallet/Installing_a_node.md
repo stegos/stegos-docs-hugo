@@ -23,8 +23,8 @@ For production purposes, we recommend official binaries from GitHub Release page
 
 Download the latest version of {{< code >}}stegosd{{< /code >}} and {{< code >}}stegos{{< /code >}} binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases)
 ```bash
-curl -L https://github.com/stegos/stegos/releases/download/v1.0/stegosd-linux-x64 -o stegosd
-curl -L https://github.com/stegos/stegos/releases/download/v1.0/stegos-linux-x64 -o stegos
+curl -L https://github.com/stegos/stegos/releases/download/v1.1/stegosd-linux-x64 -o stegosd
+curl -L https://github.com/stegos/stegos/releases/download/v1.1/stegos-linux-x64 -o stegos
 chmod a+x stegosd stegos
 ./stegosd --version
 ./stegos --version
@@ -33,21 +33,21 @@ chmod a+x stegosd stegos
 The script above will download `stegosd` (Node) and `stegos` (CLI) binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases), change file permissions to "Executable" and print Node's version:
 
 ```bash
-yourname@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v1.0/stegosd-linux-x64 -o stegosd
+yourname@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v1.1/stegosd-linux-x64 -o stegosd
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   608    0   608    0     0   1859      0 --:--:-- --:--:-- --:--:--  1859
 100 22.0M  100 22.0M    0     0  5996k      0  0:00:03  0:00:03 --:--:-- 7197k
-you@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v1.0/stegos-linux-x64 -o stegos
+you@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v1.1/stegos-linux-x64 -o stegos
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   607    0   607    0     0   1833      0 --:--:-- --:--:-- --:--:--  1833
 100 6022k  100 6022k    0     0  3033k      0  0:00:01  0:00:01 --:--:-- 5435k
 yourname@linux:~$ chmod a+x stegosd stegos
 yourname@linux:~$ ./stegosd --version
-Stegos Node 1.0.0 (07ef602 2019-11-04)
+Stegos Node 1.1.0 (07ef602 2019-11-04)
 yourname@linux:~$ ./stegos --version
-Stegos CLI 1.0.0 (07ef602 2019-11-04)
+Stegos CLI 1.1.0 (07ef602 2019-11-04)
 ```
 
 Your Node has been downloaded and installed successfully.
@@ -66,9 +66,9 @@ ___
 Download the latest version of `stegosd` and `stegos` binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases)
 
 ```bash
-curl -L https://github.com/stegos/stegos/releases/download/v1.0/stegosd-
+curl -L https://github.com/stegos/stegos/releases/download/v1.1/stegosd-
 macos-x64 -o stegosd
-curl -L https://github.com/stegos/stegos/releases/download/v1.0/stegos-macos-x64 -o stegos
+curl -L https://github.com/stegos/stegos/releases/download/v1.1/stegos-macos-x64 -o stegos
 chmod a+x stegosd stegos
 ./stegosd --version
 ./stegos --version
@@ -77,21 +77,21 @@ chmod a+x stegosd stegos
 The script above will download `stegosd` binary from [**GitHub Releases**](https://github.com/stegos/stegos/releases), change file permissions to "Executable" and print Node's version:
 
 ```bash
-yourname@mac:~$ curl -L https://github.com/stegos/stegos/releases/download/v1.0/stegosd-macos-x64 -o stegosd
+yourname@mac:~$ curl -L https://github.com/stegos/stegos/releases/download/v1.1/stegosd-macos-x64 -o stegosd
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   608    0   608    0     0   1859      0 --:--:-- --:--:-- --:--:--  1859
 100 22.0M  100 22.0M    0     0  5996k      0  0:00:03  0:00:03 --:--:-- 7197k
-you@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v1.0/stegos-macos-x64 -o stegos
+you@linux:~$ curl -L https://github.com/stegos/stegos/releases/download/v1.1/stegos-macos-x64 -o stegos
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   607    0   607    0     0   1833      0 --:--:-- --:--:-- --:--:--  1833
 100 6022k  100 6022k    0     0  3033k      0  0:00:01  0:00:01 --:--:-- 5435k
 yourname@mac:~$ chmod a+x stegosd stegos
 yourname@mac:~$ ./stegosd --version
-Stegos Node 1.0.0 (07ef602 2019-11-04)
+Stegos Node 1.1.0 (07ef602 2019-11-04)
 yourname@mac:~$ ./stegos --version
-Stegos CLI 1.0.0 (07ef602 2019-11-04)
+Stegos CLI 1.1.0 (07ef602 2019-11-04)
 ```
 
 Your Node has been downloaded and installed successfully.
@@ -121,8 +121,8 @@ Please follow Linux installation instructions [**above.**]({{< relref "/Installi
 
 Download the latest version of `stegosd` and `stegos` binaries from [**GitHub Releases**](https://github.com/stegos/stegos/releases):
 
-- https://github.com/stegos/stegos/releases/download/v1.0/stegos-win-x64.zip
-- https://github.com/stegos/stegos/releases/download/v1.0/stegosd-win-x64.zip
+- https://github.com/stegos/stegos/releases/download/v1.1/stegos-win-x64.zip
+- https://github.com/stegos/stegos/releases/download/v1.1/stegosd-win-x64.zip
 
 Unpack zip archives. Your Node has been downloaded and installed successfully.
 
