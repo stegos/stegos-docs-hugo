@@ -410,10 +410,10 @@ Each **Account** has associated password. This password is used as a seed for a 
 
 Each **Account** can be recovered using 24-word **Recovery Phrase**. This recovery phrase is a mnemonic representation of raw account's secret key. Since this 24-word recovery phrase is just another representation of raw Curve25519 secret key, no password is needed to recover from it.
 
-**Accounts** have concept of **Sealing**/**Unsealing**:
+**Accounts** have concept of **Locking**/**Unlocking**:
 
-* **Sealed** account doesn't store sensitive information in the memory, such as secret key, balance, history and other.**Sealed** account can't create transaction and spent your money. Since secret key is not loaded, **Sealed** account also doesn't receive notifications about incoming payments.
-* **Unsealed** account has secret key loaded into the memory.**Unsealed** account can create transactions, receive notification about incoming payments and perform other actions. In order to unseal account, a password is needed. Currently account is not **Sealed** automatically by a timeout, but this feature may be added in the future.
+* **Locked** accounts doesn't store sensitive information in RAM, such as the secret key, balance, history, etc. **Locked** accounts can't create transactions and spend tokens. Since the secret key is not loaded, a **locked** account cannot receive notifications about incoming payments.
+* **Unlocked** accounts have the secret key loaded into memory. **Unlocked** accounts can create transactions, receive notification about incoming payments and perform other actions. A password is needed to to unlock an account. Accounts are not **locked** automatically after a timeout but we may add this feature in the future.
 
 #### List Accounts
 
@@ -423,7 +423,7 @@ Returns a list of account.
 
 ```js
 {
-  "type": "list_accounts",
+  "type": "accounts_info",
 }
 ```
 
@@ -436,7 +436,8 @@ Returns a list of account.
     "1": {
       "account_pkey": "dev1jjufnwk6u5scyj05259tpy2a7096dap0umj5uhqlynfdfua255fs5fm7w4",
       "network_pkey": "984f5b13828d4747f7442861c138eaa575d4875df29e37bfcd985c7ca27147475cabf32416cd7935f9c897a720ba6f039693765e72e0f6aadd92a9642fb61639a0370eef5e8ee3a0570e34a629515c98f56b0095b16825b50e602f70f34ca398"
-    }
+    },
+    ...
   }
 }
 ```
@@ -487,7 +488,7 @@ Creates a new account.
 
 Returns 24-word recovery phrase.
 
-**Unsealed:** yes
+**Unlocked:** yes
 
 **Request:**
 
@@ -504,9 +505,12 @@ Returns 24-word recovery phrase.
 {
   "account_id": "1",
   "type": "recovery",
-  "recovery": "swear praise ginger oxygen anchor ten small planet crime cave fold chuckle foot dragon decorate guess poverty grass crew depend define twice mother update"
+  "recovery": "swear praise ginger oxygen anchor ten small planet crime cave fold chuckle foot dragon decorate guess poverty grass crew depend define twice mother update",
+  "last_public_address_id": 4
 }
 ```
+
+* `last_public_address_id` - ID of the last created public address. Remember this number if you want to recover public addresses.
 
 #### Recover Account
 
@@ -517,22 +521,26 @@ Recovers an account from 24-word recovery phrase:
 ```js
 {
   "type": "recover_account"
-  "recovery": "swear praise ginger oxygen anchor ten small planet crime cave fold chuckle foot dragon decorate guess poverty grass crew depend define twice mother update"
+  "recovery": "swear praise ginger oxygen anchor ten small planet crime cave fold chuckle foot dragon decorate guess poverty grass crew depend define twice mother update",
+  "last_public_address_id": 4
 }
 ```
+
+* `last_public_address_id` (optional) - ID of the last created public address if any.
 
 **Response:**
 
 ```js
 {
   "type": "account_created",
-  "account_id": "2"
+  "account_id": "2",
+  "last_public_address_id": 4
 }
 ```
 
-#### Unseal Account
+#### Unlock Account
 
-Unseals an account, i.e.loads a secret key to the memory.
+Unlocks an account, i.e.loads the private key into the RAM.
 
 **Request:**
 
@@ -553,11 +561,11 @@ Unseals an account, i.e.loads a secret key to the memory.
 }
 ```
 
-#### Seal Account
+#### Lock Account
 
-Seals an account, i.e., removes an account's secret key from memory.
+Locks an account, i.e. removes its private key from memory.
 
-**Unsealed:** yes
+**Unlocked:** yes
 
 **Request:**
 
@@ -579,9 +587,9 @@ Seals an account, i.e., removes an account's secret key from memory.
 
 #### Change Password
 
-Re-encrypts an account's sensitive data using a new password.
+Re-encrypt sensitive account data using a new password.
 
-**Must be unsealed:** yes
+**Unlocked:** yes
 
 **Request:**
 
@@ -604,9 +612,9 @@ Re-encrypts an account's sensitive data using a new password.
 
 #### Account Information
 
-Returns information about account's public key (address).
+Returns information about the account's public key (wallet address).
 
-**Unsealed:** yes
+**Unlocked:** yes
 
 **Request:**
 
@@ -630,9 +638,9 @@ Returns information about account's public key (address).
 
 #### Balance Information
 
-Returns information about current and availabe account's balances.
+Returns information about current and availabe balances for a given account.
 
-**Unsealed:** yes
+**Unlocked:** yes
 
 **Request:**
 
@@ -677,7 +685,7 @@ Returns information about current and availabe account's balances.
 
 #### Balance Notifications
 
-Sent when an account's balance has been changed.
+Sent on changs to account balance.
 
 **Notifications**:
 
@@ -707,7 +715,7 @@ Sent when an account's balance has been changed.
 
 Returns information about account's UTXO.
 
-**Unsealed:** yes
+**Unlocked:** yes
 
 **Request:**
 
@@ -728,7 +736,7 @@ Returns information about account's UTXO.
   "payments": [
 
     {
-      "utxo": "13257da5cdef20d47dba473deb182f0d24c2a1ed717ba379c2b1830fdfadbd7e",
+      "output_hash": "13257da5cdef20d47dba473deb182f0d24c2a1ed717ba379c2b1830fdfadbd7e",
       "amount": 1000000000,
       "comment": "Gift from Stegos Leprechaun",
       "recipient": "dev1jjufnwk6u5scyj05259tpy2a7096dap0umj5uhqlynfdfua255fs5fm7w4",
@@ -739,11 +747,66 @@ Returns information about account's UTXO.
 }
 ```
 
+#### Create Public Address
+
+Creates a new public address.
+
+**Unlocked:** yes
+
+**Request:**
+
+```js
+{
+  "account_id": "1",
+  "type": "create_public_address"
+}
+```
+
+**Response:**
+
+```js
+{
+  "account_id": "1",
+  "type": "public_address_created",
+  "public_address": "dev18c98gtemyps2x29n2sc73gp4qqnqdzqufq6cdjlku003u8w64cdqhe9pxe",
+  "public_address_id": 1
+}
+```
+
+#### Public Addresses Information
+
+Returns information about existing public addresses.
+
+**Unlocked:** yes
+
+**Request:**
+
+```js
+{
+  "account_id": "1",
+  "type": "public_addresses_info"
+}
+```
+
+**Response:**
+
+```js
+{
+  "account_id": "1",
+  "type": "public_addresses_info",
+  "public_addresses": {
+    "1": {
+      "address": "dev18c98gtemyps2x29n2sc73gp4qqnqdzqufq6cdjlku003u8w64cdqhe9pxe"
+    }
+  }
+}
+```
+
 #### Payments
 
 API for creating transactions to transfer money.
 
-**Unsealed:** yes
+**Unlocked:** yes
 
 **Request:**
 
@@ -882,9 +945,9 @@ API for creating transactions to transfer money.
 
 #### Cloak
 
-Exchange all uncloaked tokens to cloaked tokens.
+Exchange all uncloaked tokens into cloaked tokens.
 
-**Unsealed:** yes
+**Unlocked:** yes
 
 **Request:**
 
@@ -904,7 +967,7 @@ See Payment.
 
 Stake token into the escrow to become an validator.
 
-**Unsealed:** yes
+**Unlocked:** yes
 
 **Request:**
 
@@ -912,6 +975,15 @@ Stake token into the escrow to become an validator.
 {
   "account_id": "1",
   "type": "stake",
+  "amount": 2000,
+  "payment_fee": 1000
+}
+```
+
+```js
+{
+  "account_id": "1",
+  "type": "stake_remote",
   "amount": 2000,
   "payment_fee": 1000
 }
@@ -925,7 +997,7 @@ See Payment.
 
 Unstake tokens from the escrow.
 
-**Unsealed:** yes
+**Unlocked:** yes
 
 **Request:**
 
@@ -953,7 +1025,7 @@ See Payment.
 
 Forcefully re-stake (refresh) expering tokens in the escrow. Usually this operation is performed automatically by **Node8*.
 
-**Unsealed:** no, secret key is not needed for this operation.
+**Unlocked:** no, secret key is not needed for this operation.
 
 **Request:**
 
