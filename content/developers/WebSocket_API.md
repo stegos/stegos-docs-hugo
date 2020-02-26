@@ -747,61 +747,6 @@ Returns information about account's UTXO.
 }
 ```
 
-#### Create Public Address
-
-Creates a new public address.
-
-**Unlocked:** yes
-
-**Request:**
-
-```js
-{
-  "account_id": "1",
-  "type": "create_public_address"
-}
-```
-
-**Response:**
-
-```js
-{
-  "account_id": "1",
-  "type": "public_address_created",
-  "public_address": "dev18c98gtemyps2x29n2sc73gp4qqnqdzqufq6cdjlku003u8w64cdqhe9pxe",
-  "public_address_id": 1
-}
-```
-
-#### Public Addresses Information
-
-Returns information about existing public addresses.
-
-**Unlocked:** yes
-
-**Request:**
-
-```js
-{
-  "account_id": "1",
-  "type": "public_addresses_info"
-}
-```
-
-**Response:**
-
-```js
-{
-  "account_id": "1",
-  "type": "public_addresses_info",
-  "public_addresses": {
-    "1": {
-      "address": "dev18c98gtemyps2x29n2sc73gp4qqnqdzqufq6cdjlku003u8w64cdqhe9pxe"
-    }
-  }
-}
-```
-
 #### Payments
 
 API for creating transactions to transfer money.
