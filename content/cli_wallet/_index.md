@@ -1,6 +1,6 @@
 +++
 title = "CLI WALLET"
 head ="<label>CLI WALLET</label>"
-weight = 3
+weight = 4
 alwaysopen = true
 +++

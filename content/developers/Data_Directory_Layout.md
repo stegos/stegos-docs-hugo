@@ -2,7 +2,7 @@
 title = "Data Directory Layout"
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
-
+weight = 1
 +++
 
 Data directory has the following layout: 

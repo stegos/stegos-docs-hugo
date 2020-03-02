@@ -2,7 +2,7 @@
 title = "Building from Source"
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
-
+weight = 2
 +++
 
 ## Quick Start

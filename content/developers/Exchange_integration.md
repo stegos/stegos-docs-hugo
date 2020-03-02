@@ -1,5 +1,5 @@
 +++
-title = "Exchange integration"
+title = "Exchange Integration"
 # Type of content, set "slide" to display it fullscreen with reveal.js
 type="page"
 
